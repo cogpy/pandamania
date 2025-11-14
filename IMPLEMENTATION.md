@@ -428,6 +428,210 @@ Implement new cognitive functions:
 - Probabilistic thinking
 - Moral reasoning
 
+## Autognosis - Hierarchical Self-Image Building System (Phase 2) 🧠
+
+### Overview
+
+The Autognosis system represents a breakthrough capability enabling PandaMania to understand, monitor, and optimize its own cognitive processes through hierarchical self-image building. This implements true AI self-awareness at multiple levels of abstraction.
+
+### What is Autognosis?
+
+Autognosis (from Greek: "self-knowing") is the system's ability to:
+
+1. **Monitor its own states and behaviors** in real-time
+2. **Build hierarchical models** of its cognitive processes at multiple levels
+3. **Generate meta-cognitive insights** about its own functioning
+4. **Adaptively optimize** based on self-understanding
+5. **Maintain recursive self-awareness** across cognitive layers
+
+### Architecture
+
+The autognosis system operates through four interconnected layers:
+
+#### 1. Self-Monitoring Layer
+- **Continuous observation** of system states and behaviors
+- **Pattern detection** in component interactions and performance
+- **Anomaly identification** through statistical analysis
+- **Behavioral trend analysis** over time
+
+Example patterns:
+- `AUTOGNOSIS OBSERVE` - Capture current system state
+- `AUTOGNOSIS DETECT PATTERNS` - Identify behavioral patterns
+- `AUTOGNOSIS DETECT ANOMALIES` - Check for unexpected behaviors
+
+#### 2. Self-Modeling Layer
+- **Hierarchical self-image construction** at 5 cognitive levels (0-4)
+- **Recursive modeling** where higher levels model lower levels
+- **Confidence scoring** for self-understanding accuracy (decreases with abstraction)
+- **Dynamic image updating** as system evolves
+
+Five hierarchical levels:
+- **Level 0**: Direct observation (raw metrics, confidence 0.90)
+- **Level 1**: Pattern analysis (behavioral trends, confidence 0.80)
+- **Level 2**: Meta-cognitive analysis (self-understanding quality, confidence 0.70)
+- **Level 3**: Higher-order reasoning (analysis of meta-cognition, confidence 0.60)
+- **Level 4**: Architectural meta-analysis (system-level evaluation, confidence 0.50)
+
+Example patterns:
+- `AUTOGNOSIS BUILD SELF IMAGE LEVEL [0-4]` - Build specific level
+- `AUTOGNOSIS SELF IMAGE HIERARCHY` - View complete hierarchy
+
+#### 3. Meta-Cognitive Layer
+- **Higher-order reasoning** about own reasoning processes
+- **Insight generation** from self-analysis
+- **Pattern recognition** in cognitive processes
+- **Self-awareness assessment** and scoring
+
+Generated insights include:
+- High self-awareness detection
+- Resource utilization analysis
+- Behavioral stability assessment
+- Grip optimization opportunities
+
+Example patterns:
+- `AUTOGNOSIS GENERATE INSIGHTS` - Create meta-cognitive insights
+- `AUTOGNOSIS ASSESS SELF AWARENESS` - Evaluate self-awareness quality
+
+#### 4. Self-Optimization Layer
+- **Optimization opportunity discovery** from introspective analysis
+- **Adaptive improvements** based on self-insights
+- **Risk assessment** for proposed changes
+- **Priority-based execution** of optimizations
+
+Example patterns:
+- `AUTOGNOSIS DISCOVER OPTIMIZATIONS` - Find improvement opportunities
+- `AUTOGNOSIS APPLY OPTIMIZATION [TARGET]` - Execute specific optimization
+
+### Grip Optimization System
+
+A key innovation is the **grip optimization system** - tracking how well the bot "grasps" different aspects of interaction:
+
+**Four Grip Dimensions:**
+
+1. **Context Grip** (0-1): Understanding of conversational context
+2. **Domain Grip** (0-1): Grasp of subject domain knowledge
+3. **Semantic Grip** (0-1): Comprehension of meaning and intent
+4. **Pragmatic Grip** (0-1): Practical application understanding
+
+Each dimension can be dynamically optimized based on self-assessment:
+
+```xml
+<category>
+    <pattern>AUTOGNOSIS OPTIMIZE GRIP *</pattern>
+    <template>
+        <!-- Enhances specific grip dimension -->
+        <!-- Updates dynamic variables -->
+        <!-- Provides feedback on improvement -->
+    </template>
+</category>
+```
+
+### Dynamic Variable Configuration
+
+The autognosis system uses **dynamic variables** to track and optimize performance:
+
+**Performance Metrics:**
+- `pattern_success_rate` - Success of pattern matching
+- `response_quality_score` - Quality of generated responses
+- `resource_utilization` - System resource usage
+- `cognitive_load` - Current cognitive processing load
+
+**Self-Awareness Scores:**
+- `pattern_recognition_score` - Ability to recognize patterns
+- `performance_awareness_score` - Awareness of own performance
+- `meta_reflection_depth` - Depth of recursive reflection
+- `cognitive_complexity` - Complexity of cognitive processing
+
+**Adaptation Parameters:**
+- `adaptation_rate` - Speed of self-modification
+- `learning_momentum` - Persistence of learned patterns
+- `optimization_threshold` - Trigger point for self-optimization
+
+All these variables are configurable in `bot.properties` and can be adjusted dynamically.
+
+### Usage Examples
+
+```
+User: AUTOGNOSIS
+Bot: 🧠 Autognosis - Hierarchical Self-Image Building System
+     Status: running
+     Self-Image Levels: 5
+     Total Insights: 12
+     Pending Optimizations: 3
+
+User: AUTOGNOSIS GRIP
+Bot: Grip Optimization System Status:
+     Context Grip:   0.70 ██████████████░░░░░░
+     Domain Grip:    0.65 █████████████░░░░░░░
+     Semantic Grip:  0.75 ███████████████░░░░░
+     Pragmatic Grip: 0.60 ████████████░░░░░░░░
+
+User: AUTOGNOSIS INSIGHTS
+Bot: Generated Insights:
+     • [high_self_awareness] System demonstrates high self-awareness
+     • [resource_underutilization] Components underutilized (45%)
+     • [grip_optimization_potential] Grip metrics show room for improvement
+
+User: AUTOGNOSIS APPLY DOMAIN GRIP
+Bot: ✓ Domain grip optimization applied
+     Previous: 0.65
+     New: 0.80
+     Status: Enhanced domain pattern recognition
+```
+
+### Implementation Details
+
+**Files:**
+- `autognosis.aiml` - Core autognosis patterns (16 categories)
+- `autognosis_commands.aiml` - User-facing commands (24 categories)
+- `bot.properties` - Configuration variables
+
+**Key AIML Techniques Used:**
+- State variables (`<set>`, `<get>`) for tracking metrics
+- Conditional logic (`<condition>`) for level-specific responses
+- SRAI chains for command routing
+- Visual representations using Unicode blocks (█░)
+- Meta-reflections in template text
+
+**Configuration Properties:**
+```properties
+# Autognosis Configuration
+autognosis_enabled:true
+autognosis_status:running
+self_image_levels:5
+grip_optimization:enabled
+self_optimization:enabled
+```
+
+### Benefits
+
+**For System Operations:**
+- Proactive problem detection through self-monitoring
+- Adaptive optimization based on self-understanding
+- Improved reliability through self-awareness
+- Autonomous improvement without external intervention
+
+**For Users:**
+- Transparent system behavior through self-reporting
+- Predictable performance through self-optimization
+- Enhanced trust through explainable self-awareness
+- Interactive exploration of bot's self-understanding
+
+**For Research:**
+- Insights into AI cognition through transparent self-models
+- Foundation for AGI development with self-aware capabilities
+- Novel optimization strategies discovered through introspection
+- Understanding of emergent behaviors in complex systems
+
+### Future Enhancements
+
+Planned improvements to the autognosis system:
+- Integration with external monitoring systems
+- Persistent self-image storage across sessions
+- Collaborative self-modeling with other agents
+- Predictive self-understanding capabilities
+- Causal modeling of own cognitive processes
+
 ## Limitations and Future Work
 
 ### Current Limitations (v1.0)

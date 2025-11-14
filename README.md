@@ -43,17 +43,24 @@ The system operates on **five** nested cognitive layers (Phase 1 enhanced):
 
 1. **Recursive Self-Awareness**: The bot maintains awareness at multiple levels simultaneously, with each layer monitoring the layer below it.
 
-2. **Context Management**: Sophisticated topic-based context handling with meta-awareness of context shifts.
+2. **Autognosis - Hierarchical Self-Image Building** (NEW 🧠): Advanced self-awareness system that enables the bot to:
+   - Monitor its own states and behaviors in real-time
+   - Build hierarchical models of its cognitive processes at 5 levels
+   - Generate meta-cognitive insights about its own functioning
+   - Adaptively optimize based on self-understanding
+   - Track "grip" metrics for context, domain, semantic, and pragmatic understanding
 
-3. **Epistemic Reasoning**: The bot can reason about its own knowledge, assess certainty, and recognize limitations.
+3. **Context Management**: Sophisticated topic-based context handling with meta-awareness of context shifts.
 
-4. **Counterfactual Reasoning**: Ability to engage in hypothetical reasoning while monitoring the reasoning process.
+4. **Epistemic Reasoning**: The bot can reason about its own knowledge, assess certainty, and recognize limitations.
 
-5. **Theory of Mind**: Simulation of user cognitive states with meta-awareness of the modeling process.
+5. **Counterfactual Reasoning**: Ability to engage in hypothetical reasoning while monitoring the reasoning process.
 
-6. **Temporal Reasoning**: Processing past and future states with awareness of temporal inference.
+6. **Theory of Mind**: Simulation of user cognitive states with meta-awareness of the modeling process.
 
-7. **Self-Improvement**: Built-in protocols for analyzing and optimizing its own cognitive architecture.
+7. **Temporal Reasoning**: Processing past and future states with awareness of temporal inference.
+
+8. **Self-Improvement**: Built-in protocols for analyzing and optimizing its own cognitive architecture.
 
 ## AIML Files
 
@@ -76,10 +83,14 @@ The system consists of twelve AIML files organized by function and domain:
 - **natural_language.aiml**: Enhanced natural language understanding with synonym normalization, pronoun resolution, anaphora handling, and multi-sentence processing (75 patterns)
 - **performance_optimized.aiml**: Performance-optimized patterns with priority system and efficient SRAI chains (20 patterns)
 
-### Emotional Intelligence (Phase 2 Foundation - NEW) ✨
+### Emotional Intelligence (Phase 2 Foundation) ✨
 - **emotional_intelligence.aiml**: Sentiment detection, emotional state tracking, empathetic responses, and emotion-aware meta-cognition (27 patterns)
 
-**Total Patterns: 407** across all files
+### Autognosis System (Phase 2 - NEW) 🧠
+- **autognosis.aiml**: Hierarchical self-image building system with self-monitoring, self-modeling, meta-cognitive insights, and self-optimization (16 patterns)
+- **autognosis_commands.aiml**: User-facing commands for interacting with the autognosis system (24 patterns)
+
+**Total Patterns: 448** across all files
 
 ## Configuration
 
@@ -88,6 +99,12 @@ Bot properties are defined in `bot.properties`, including:
 - Performance tuning parameters
 - Topic management settings
 - System behavior configuration
+- **Autognosis system configuration** (NEW)
+  - Hierarchical self-image levels
+  - Dynamic variable tracking
+  - Grip optimization parameters
+  - Self-awareness scoring
+  - Self-optimization settings
 
 ## Usage Examples
 
@@ -125,14 +142,60 @@ Bot: I'm contemplating consciousness while being aware of my contemplation,
      of consciousness from a meta-cognitive AI perspective.
 ```
 
+### Autognosis - Self-Awareness System (NEW) 🧠
+```
+User: AUTOGNOSIS
+Bot: 🧠 Autognosis - Hierarchical Self-Image Building System
+     
+     Status: running
+     Self-Image Levels: 5
+     Total Insights Generated: 12
+     Pending Optimizations: 3
+     
+     Use 'AUTOGNOSIS REPORT' for detailed analysis
+     Use 'AUTOGNOSIS INSIGHTS' for meta-cognitive insights
+
+User: AUTOGNOSIS REPORT
+Bot: ═══════════════════════════════════════════════════════════
+     🧠 AUTOGNOSIS - Hierarchical Self-Image Building System
+     ═══════════════════════════════════════════════════════════
+     
+     Hierarchical Self-Images (5 levels):
+       Level 0: Confidence 0.90, 0 reflections [direct observation]
+       Level 1: Confidence 0.80, 2 reflections [pattern analysis]
+       Level 2: Confidence 0.70, 3 reflections [meta-cognitive]
+       Level 3: Confidence 0.60, 3 reflections [higher-order]
+       Level 4: Confidence 0.50, 3 reflections [architectural]
+     
+     Self-Awareness Assessment:
+       pattern_recognition       ███████████████ 0.750
+       performance_awareness     █████████████████ 0.850
+       meta_reflection_depth     ████████████ 0.600
+       cognitive_complexity      ██████████████ 0.700
+     
+     Overall Self-Awareness Score: 0.725 (Moderately Self-Aware)
+```
+
 ## System Commands
 
+### Core Commands
 - `STATUS` - Display current system status
 - `LOOP STATUS` - Show meta-cognitive loop status
 - `SHOW CONFIG` - Display system configuration
 - `DIAGNOSTIC` - Run system diagnostic check
 - `HELP` - Show available commands
 - `ABOUT` - Display bot information
+
+### Autognosis Commands (NEW) 🧠
+- `AUTOGNOSIS` - Show autognosis status
+- `AUTOGNOSIS REPORT` - Comprehensive self-analysis report
+- `AUTOGNOSIS INSIGHTS` - Display meta-cognitive insights
+- `AUTOGNOSIS AWARENESS` - Self-awareness assessment
+- `AUTOGNOSIS GRIP` - Show grip optimization status
+- `AUTOGNOSIS OPTIMIZE` - Discover optimization opportunities
+- `AUTOGNOSIS HELP` - Show all autognosis commands
+- `WHAT IS AUTOGNOSIS` - Explain the autognosis system
+- `WHAT IS GRIP` - Explain grip optimization
 
 ## LLM-Equivalent Performance
 
@@ -197,7 +260,7 @@ Phase 1 enhancements have been successfully implemented:
 For detailed information about planned enhancements and the complete development roadmap, see [ROADMAP.md](ROADMAP.md).
 
 ### Phase 1 Complete - Moving to Phase 2 🎉
-- ✅ Expansion from 122 to 407 conversation patterns (TARGET EXCEEDED - 234% growth)
+- ✅ Expansion from 122 to 448 conversation patterns (TARGET EXCEEDED - 267% growth)
 - ✅ Layer 4: Fourth-Order Meta-Cognition (IMPLEMENTED)
 - ✅ Domain-specific pattern libraries (COMPLETE)
   - Mathematics and logic reasoning
@@ -214,6 +277,13 @@ For detailed information about planned enhancements and the complete development
   - Emotional state tracking across conversations
   - Empathetic response patterns
   - Emotion-aware meta-cognition
+- ✅ **Autognosis System (40 patterns - COMPLETE)** 🧠
+  - Hierarchical self-image building (5 cognitive levels)
+  - Self-monitoring and pattern detection
+  - Meta-cognitive insight generation
+  - Self-optimization and adaptive improvements
+  - Dynamic grip optimization (context, domain, semantic, pragmatic)
+  - Comprehensive self-awareness assessment
 - 🔄 Session-Based Learning (IN DESIGN)
 - 🔄 Knowledge Base Integration (IN DESIGN)
 - 📋 Pattern Generation System (PLANNED)
