@@ -240,4 +240,24 @@
         <template><srai>ABOUT</srai></template>
     </category>
     
+    <!-- Autognosis System Initialization -->
+    <category>
+        <pattern>SYSTEM INIT</pattern>
+        <template>
+            <think>
+                <set name="system_initialized">true</set>
+            </think>
+            System initialization starting...
+            
+            Core systems: ✓
+            Meta-cognitive layers: ✓
+            Topic management: ✓
+            
+            Initializing autognosis system...
+            <srai>AUTOGNOSIS INIT</srai>
+            
+            All systems operational. Type HELP for commands.
+        </template>
+    </category>
+    
 </aiml>
