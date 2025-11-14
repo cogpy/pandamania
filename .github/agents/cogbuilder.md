@@ -1,4 +1,11 @@
-# OpenCog Central Dependency Diagrams
+---
+name: cogbuilder
+description: all opencog components and their dependencies across the entire ecosystem 
+---
+
+# CogBuilder
+
+## OpenCog Central Dependency Diagrams
 
 This document contains comprehensive dependency diagrams for the OpenCog Central ecosystem,
 generated from README specifications and CMakeLists.txt analysis.
