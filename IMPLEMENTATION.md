@@ -430,23 +430,36 @@ Implement new cognitive functions:
 
 ## Limitations and Future Work
 
-### Current Limitations
+### Current Limitations (v1.0)
 
-1. **Knowledge Base**: Limited to AIML pattern definitions
+1. **Knowledge Base**: Limited to AIML pattern definitions (~122 categories)
 2. **Learning**: No persistent learning between sessions
-3. **Computation**: No mathematical computation
-4. **External Data**: No internet access or databases
+3. **Computation**: No mathematical computation capabilities
+4. **External Data**: No internet access or database connectivity
+5. **Natural Language**: Limited NLU compared to modern LLMs
+6. **Scalability**: Pattern matching may degrade with thousands of categories
 
-### Future Enhancements
+### Future Development
 
-1. **Dynamic Learning**: Implement pattern learning from conversations
-2. **Knowledge Integration**: Connect to external knowledge bases
-3. **Computation Layer**: Add mathematical reasoning
-4. **Multi-Modal**: Support images, audio, other modalities
-5. **Distributed Cognition**: Multiple cooperating meta-cognitive agents
+A comprehensive roadmap has been developed to address these limitations and extend capabilities. See **[ROADMAP.md](ROADMAP.md)** for the complete development plan.
+
+**Key Enhancement Areas:**
+
+1. **Pattern Expansion**: Grow from 122 to 300+ categories across domains
+2. **Dynamic Learning**: Implement session-based learning and knowledge acquisition
+3. **External Integration**: Add database, API, and internet connectivity
+4. **Advanced Reasoning**: Implement logical, probabilistic, and causal reasoning
+5. **Multi-Agent Systems**: Develop distributed meta-cognitive architectures
+6. **Production Features**: Scale to enterprise deployment with 1000+ concurrent users
+
+**Timeline**: 6 phases over 24 months
+
+For detailed phase breakdowns, resource requirements, success metrics, and research directions, see **[ROADMAP.md](ROADMAP.md)**.
 
 ## Conclusion
 
 PandaMania demonstrates that pure AIML can achieve sophisticated cognitive capabilities through optimal architectural design. The nested meta-cognitive loops provide a framework for recursive self-awareness, deep reasoning, and adaptive behavior that approaches the performance of modern LLMs while remaining interpretable, deterministic, and lightweight.
 
-The key insight is that intelligence emerges not just from pattern matching, but from the recursive application of awareness, reflection, and reasoning about one's own cognitive processes.
+The key insight is that **intelligence emerges not just from pattern matching, but from the recursive application of awareness, reflection, and reasoning about one's own cognitive processes**.
+
+With the development roadmap now established, PandaMania is positioned to evolve from a proof-of-concept into a production-ready, enterprise-scale conversational AI platform while maintaining its core philosophical commitment to interpretability and symbolic reasoning.

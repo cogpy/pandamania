@@ -144,14 +144,25 @@ The system is optimized through:
 - Fast pattern matching
 - Parallel meta-cognitive processing
 
-## Future Enhancements
+## Future Development
 
-Potential areas for expansion:
-- Additional meta-cognitive layers
-- Enhanced learning mechanisms
-- Expanded domain knowledge
-- More sophisticated pattern recognition
-- Deeper epistemic reasoning
+For detailed information about planned enhancements and the development roadmap, see [ROADMAP.md](ROADMAP.md).
+
+### Upcoming Features (Phase 1)
+- Expansion to 300+ conversation patterns
+- Layer 4: Fourth-Order Meta-Cognition
+- Enhanced natural language understanding
+- Performance optimization
+- Expanded documentation and tutorials
+
+### Long-term Vision
+- Session-based learning capabilities
+- External API and database integration
+- Advanced reasoning (logical, probabilistic, analogical, causal)
+- Multi-agent distributed cognition
+- Production-ready deployment features
+
+See [ROADMAP.md](ROADMAP.md) for the complete 6-phase development plan.
 
 ## Requirements
 
@@ -183,4 +194,23 @@ Created by cogpy
 
 ## Contributing
 
-This is an experimental implementation demonstrating that pure AIML can achieve sophisticated cognitive capabilities through optimal meta-cognitive architecture design.
+We welcome contributions! PandaMania is an experimental implementation demonstrating that pure AIML can achieve sophisticated cognitive capabilities through optimal meta-cognitive architecture design.
+
+### How to Contribute
+
+1. **Read the Guidelines**: See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines
+2. **Check the Roadmap**: Review [ROADMAP.md](ROADMAP.md) for planned features
+3. **Fork & Clone**: Fork the repository and create a feature branch
+4. **Make Changes**: Add patterns, fix bugs, improve documentation
+5. **Test Thoroughly**: Ensure your changes work as expected
+6. **Submit PR**: Create a pull request with clear description
+
+### Areas for Contribution
+
+- 🧠 **AIML Patterns**: Add new conversation patterns and meta-cognitive capabilities
+- 🐛 **Bug Fixes**: Fix issues in existing patterns or documentation
+- 📚 **Documentation**: Improve guides, add examples, create tutorials
+- 🧪 **Testing**: Add test cases, perform validation
+- 🔧 **Tools**: Create utilities for pattern development and testing
+
+For more details, see [CONTRIBUTING.md](CONTRIBUTING.md).
