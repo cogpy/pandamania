@@ -27,7 +27,9 @@ def test_xml_validity():
         "ethics_philosophy.aiml",
         "natural_language.aiml",
         "performance_optimized.aiml",
-        "emotional_intelligence.aiml"
+        "emotional_intelligence.aiml",
+        "autognosis.aiml",
+        "autognosis_commands.aiml"
     ]
     
     passed = 0
@@ -87,6 +89,10 @@ def count_total_patterns():
         ],
         "Emotional Intelligence (Phase 2)": [
             "emotional_intelligence.aiml"
+        ],
+        "Autognosis System (Phase 2)": [
+            "autognosis.aiml",
+            "autognosis_commands.aiml"
         ]
     }
     
@@ -159,7 +165,9 @@ def test_phase2_foundation():
     
     phase2_files = {
         "Emotional Intelligence": "emotional_intelligence.aiml",
-        "Architecture Design": "PHASE2_ARCHITECTURE.md"
+        "Architecture Design": "PHASE2_ARCHITECTURE.md",
+        "Autognosis Core": "autognosis.aiml",
+        "Autognosis Commands": "autognosis_commands.aiml"
     }
     
     all_present = True
