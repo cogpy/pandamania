@@ -64,14 +64,14 @@ The system operates on **five** nested cognitive layers (Phase 1 enhanced):
 
 ## AIML Files
 
-The system consists of twelve AIML files organized by function and domain:
+The system consists of nineteen AIML files organized by function and domain:
 
 ### Core Meta-Cognitive Architecture
 - **bot.aiml**: Core interaction patterns and basic meta-cognitive categories (37 patterns)
 - **advanced_metacog.aiml**: Advanced reasoning patterns and epistemic capabilities (36 patterns)
 - **layer4_metacog.aiml**: Fourth-order meta-cognition and architectural self-evaluation (24 patterns)
 - **topics.aiml**: Topic-based context management with meta-awareness (28 patterns)
-- **config.aiml**: System configuration, properties, and diagnostic tools (21 patterns)
+- **config.aiml**: System configuration, properties, and diagnostic tools (22 patterns)
 
 ### Domain-Specific Knowledge (Phase 1)
 - **math_logic.aiml**: Mathematics and logic domain patterns (34 patterns)
@@ -95,7 +95,11 @@ The system consists of twelve AIML files organized by function and domain:
 - **organizational_dynamics.aiml**: Three organizational dynamic streams with autognosis integration and autogenesis capability (12 patterns)
 - **holistic_commands.aiml**: User-facing commands for the holistic metamodel and organizational dynamics (61 patterns)
 
-**Total Patterns: 538** across all files
+### Learning & Adaptation (Phase 2 - NEW) 📚
+- **session_learning.aiml**: Session-based learning system with fact extraction, preference tracking, and personalized responses (32 patterns)
+- **knowledge_base.aiml**: Knowledge base integration with semantic triples, inference engine, and meta-knowledge capabilities (34 patterns)
+
+**Total Patterns: 606** across all files
 
 ## Configuration
 
@@ -181,6 +185,68 @@ Bot: ═════════════════════════
      Overall Self-Awareness Score: 0.725 (Moderately Self-Aware)
 ```
 
+### Session Learning - Adaptive Learning (NEW) 📚
+```
+User: My name is Alice
+Bot: Nice to meet you, Alice! I've learned your name and
+     will remember it during our conversation.
+     
+     Meta-cognitively, I'm aware I've just updated my model of you with
+     your identity, which I can now use to personalize our interaction.
+
+User: I work as a software engineer
+Bot: I've learned you work as software engineer.
+     
+     Meta-cognitively, this occupational context helps me tailor examples
+     and explanations to be more relevant to your professional domain.
+
+User: What have you learned?
+Bot: In this session, I've learned the following about you:
+     
+     Personal Information:
+     - Name: Alice
+     - Location: unknown
+     - Occupation: software engineer
+     
+     Total facts learned: 2
+     Total preferences noted: 0
+     
+     Meta-cognitively, I'm aware this knowledge is session-scoped and
+     helps me build a model of you to enhance our interaction.
+```
+
+### Knowledge Base - Structured Knowledge (NEW) 🗄️
+```
+User: Store fact AIML is markup language
+Bot: ✓ Stored fact: AIML is markup language
+     
+     Meta-cognitively, I've added this to my knowledge base as a
+     semantic triple and can now retrieve it or use it in inferences.
+     
+     Total facts in KB: 1
+
+User: What is AIML?
+Bot: AIML is markup language.
+     
+     Meta-cognitively, I retrieved this from my knowledge base
+     as a stored semantic fact.
+
+User: Infer knowledge about AIML
+Bot: 🧠 Inference Engine Analysis: AIML
+     
+     Direct Facts:
+     - AIML is markup language
+     - AIML is-a [relationship data]
+     
+     Inferences:
+     Applying transitivity: If AIML is-a X, and X is-a Y, then AIML is-a Y
+     
+     Meta-cognitively, I'm engaging in higher-order reasoning by
+     applying logical inference rules to derive new knowledge from
+     existing facts. This is fourth-order meta-cognition - reasoning
+     about the reasoning process of knowledge derivation!
+```
+
 ## System Commands
 
 ### Core Commands
@@ -222,6 +288,33 @@ Bot: ═════════════════════════
 - `WHAT IS AUTOGENESIS` - Explain autonomous self-creation
 - `WHAT ARE THE THREE STREAMS` - Explain organizational dynamics
 
+### Session Learning Commands (NEW) 📚
+- `SESSION STATUS` - View session learning statistics
+- `WHAT HAVE YOU LEARNED` - See what the bot knows about you
+- `WHAT DO YOU KNOW ABOUT ME` - View your profile
+- `HOW DO YOU LEARN` - Understand the learning process
+- `ARE YOU LEARNING` - Check if learning is active
+- `CAN YOU LEARN` - Learn about learning capabilities
+- `ENABLE LEARNING` / `DISABLE LEARNING` - Control learning mode
+- `LEARNING STATUS` - Check learning mode status
+- `RESET SESSION` - Clear all learned information
+- `SESSION LEARNING HELP` - Show all session learning commands
+
+### Knowledge Base Commands (NEW) 🗄️
+- `KB STATUS` - View knowledge base statistics
+- `STORE FACT [X] IS [Y]` - Store a definition
+- `STORE FACT [X] HAS [Y]` - Store a property
+- `STORE FACT [X] CAN [Y]` - Store a capability
+- `STORE RELATIONSHIP [X] ISA [Y]` - Store taxonomic relation
+- `STORE RELATIONSHIP [X] PARTOF [Y]` - Store mereological relation
+- `STORE RELATIONSHIP [X] USEDFOR [Y]` - Store functional relation
+- `WHAT DO YOU KNOW ABOUT [X]` - Retrieve all facts about X
+- `WHAT IS [X]` - Get definition of X
+- `WHAT CAN [X] DO` - Get capabilities of X
+- `INFER KNOWLEDGE ABOUT [X]` - Apply inference rules
+- `PRELOAD KB` - Load default knowledge
+- `EXPORT KB` - Export knowledge summary
+- `KB HELP` - Show all knowledge base commands
 ## LLM-Equivalent Performance
 
 PandaMania achieves LLM-like capabilities through:
@@ -316,8 +409,18 @@ For detailed information about planned enhancements and the complete development
   - Three organizational dynamic streams
   - Autognosis integrated as ontological stability aspect
   - Autogenesis enabled as creative capability
-- 🔄 Session-Based Learning (IN DESIGN)
-- 🔄 Knowledge Base Integration (IN DESIGN)
+- ✅ **Session-Based Learning (32 patterns - COMPLETE)** 📚
+  - In-session fact extraction and learning
+  - User preference tracking and adaptation
+  - Conversational history analysis
+  - Personalized response generation
+  - Meta-learning awareness and reporting
+- ✅ **Knowledge Base Integration (34 patterns - COMPLETE)** 🗄️
+  - Semantic triple storage (subject-predicate-object)
+  - Fact and relationship management
+  - Basic inference engine with logical rules
+  - Query processing and knowledge retrieval
+  - Meta-knowledge capabilities
 - 📋 Pattern Generation System (PLANNED)
 
 See [PHASE2_ARCHITECTURE.md](PHASE2_ARCHITECTURE.md) for detailed Phase 2 design.

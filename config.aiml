@@ -253,8 +253,10 @@
             Meta-cognitive layers: ✓
             Topic management: ✓
             
-            Initializing autognosis system...
+            Initializing integrated systems...
             <srai>AUTOGNOSIS INIT</srai>
+            <srai>SESSION INIT</srai>
+            <srai>KNOWLEDGE BASE INIT</srai>
             
             All systems operational. Type HELP for commands.
         </template>
