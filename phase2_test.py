@@ -32,7 +32,9 @@ def test_xml_validity():
         "autognosis_commands.aiml",
         "holistic_metamodel.aiml",
         "organizational_dynamics.aiml",
-        "holistic_commands.aiml"
+        "holistic_commands.aiml",
+        "session_learning.aiml",
+        "knowledge_base.aiml"
     ]
     
     passed = 0
@@ -101,6 +103,10 @@ def count_total_patterns():
             "holistic_metamodel.aiml",
             "organizational_dynamics.aiml",
             "holistic_commands.aiml"
+        ],
+        "Learning & Adaptation (Phase 2)": [
+            "session_learning.aiml",
+            "knowledge_base.aiml"
         ]
     }
     
@@ -178,7 +184,9 @@ def test_phase2_foundation():
         "Autognosis Commands": "autognosis_commands.aiml",
         "Holistic Metamodel": "holistic_metamodel.aiml",
         "Organizational Dynamics": "organizational_dynamics.aiml",
-        "Holistic Commands": "holistic_commands.aiml"
+        "Holistic Commands": "holistic_commands.aiml",
+        "Session Learning": "session_learning.aiml",
+        "Knowledge Base": "knowledge_base.aiml"
     }
     
     all_present = True
