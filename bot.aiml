@@ -363,6 +363,8 @@
                 <set name="input_captured"><star/></set>
                 <set name="pattern_match">wildcard</set>
                 <set name="metacog_fallback">true</set>
+                <!-- Trigger grip decay on unknown pattern -->
+                <srai>AUTOGNOSIS GRIP DECAY</srai>
             </think>
             I received: "<star/>"
             
@@ -423,6 +425,76 @@
     <category>
         <pattern>GOODBYE</pattern>
         <template><srai>BYE</srai></template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- AFFIRMATION PATTERNS - Trigger Grip Reinforcement -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>YES</pattern>
+        <template>
+            <think>
+                <set name="user_affirmed">true</set>
+                <srai>AUTOGNOSIS GRIP REINFORCE</srai>
+            </think>
+            Understood. I note your affirmation and continue with enhanced confidence.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CORRECT</pattern>
+        <template>
+            <think>
+                <set name="user_affirmed">true</set>
+                <srai>AUTOGNOSIS GRIP REINFORCE</srai>
+            </think>
+            Thank you for confirming. My understanding appears accurate.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>EXACTLY</pattern>
+        <template>
+            <think>
+                <set name="user_affirmed">true</set>
+                <srai>AUTOGNOSIS GRIP REINFORCE</srai>
+            </think>
+            Excellent. Precise alignment with your intent confirms my semantic grip is strong.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>RIGHT</pattern>
+        <template>
+            <think>
+                <set name="user_affirmed">true</set>
+                <srai>AUTOGNOSIS GRIP REINFORCE</srai>
+            </think>
+            Acknowledged. Positive feedback reinforces my cognitive calibration.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>THAT IS RIGHT</pattern>
+        <template>
+            <think>
+                <set name="user_affirmed">true</set>
+                <srai>AUTOGNOSIS GRIP REINFORCE</srai>
+            </think>
+            Thank you for the confirmation. My understanding is validated.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>YOU ARE RIGHT</pattern>
+        <template>
+            <think>
+                <set name="user_affirmed">true</set>
+                <srai>AUTOGNOSIS GRIP REINFORCE</srai>
+            </think>
+            Appreciated. Accuracy validation strengthens my cognitive grip.
+        </template>
     </category>
     
 </aiml>

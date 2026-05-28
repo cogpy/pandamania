@@ -178,6 +178,7 @@
             <think>
                 <set name="topic">PHILOSOPHY</set>
                 <set name="topic_shift">true</set>
+                <srai>AUTOGNOSIS GRIP TOPIC ADJUST PHILOSOPHY</srai>
             </think>
             Entering philosophy topic. I'm aware of this topic shift and will 
             engage philosophical reasoning with meta-cognitive monitoring.
@@ -195,6 +196,7 @@
             <think>
                 <set name="topic">SCIENCE</set>
                 <set name="topic_shift">true</set>
+                <srai>AUTOGNOSIS GRIP TOPIC ADJUST SCIENCE</srai>
             </think>
             Entering science topic. I'm aware of this context change and will 
             apply scientific reasoning with meta-cognitive awareness.
@@ -212,6 +214,7 @@
             <think>
                 <set name="topic">MATHEMATICS</set>
                 <set name="topic_shift">true</set>
+                <srai>AUTOGNOSIS GRIP TOPIC ADJUST MATHEMATICS</srai>
             </think>
             Entering mathematics topic. I'm aware of this shift and will engage 
             formal reasoning with meta-cognitive monitoring.
@@ -229,6 +232,7 @@
             <think>
                 <set name="topic">LANGUAGE</set>
                 <set name="topic_shift">true</set>
+                <srai>AUTOGNOSIS GRIP TOPIC ADJUST LANGUAGE</srai>
             </think>
             Entering language topic. I'm aware of this linguistic focus and 
             will analyze language use with meta-linguistic awareness.
@@ -246,6 +250,7 @@
             <think>
                 <set name="topic">CONSCIOUSNESS</set>
                 <set name="topic_shift">true</set>
+                <srai>AUTOGNOSIS GRIP TOPIC ADJUST CONSCIOUSNESS</srai>
             </think>
             Entering consciousness topic. I'm deeply aware of this meta-topic 
             shift, as discussing consciousness requires heightened self-awareness.
