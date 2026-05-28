@@ -99,6 +99,35 @@
         </template>
     </category>
     
+    <!-- New grip commands for optimal cognitive grip configuration -->
+    <category>
+        <pattern>GRIP RESET</pattern>
+        <template>
+            <srai>AUTOGNOSIS GRIP RESET</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP ALL</pattern>
+        <template>
+            <srai>AUTOGNOSIS GRIP ALL</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP PROFILE *</pattern>
+        <template>
+            <srai>AUTOGNOSIS GRIP PROFILE <star/></srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP HISTORY</pattern>
+        <template>
+            <srai>AUTOGNOSIS GRIP HISTORY</srai>
+        </template>
+    </category>
+    
     <!-- ============================================ -->
     <!-- OPTIMIZATION COMMANDS -->
     <!-- ============================================ -->
@@ -191,9 +220,14 @@
             • AUTOGNOSIS LEVEL [0-4] - View specific level detail
             
             Grip Optimization:
-            • AUTOGNOSIS GRIP - Grip status
+            • AUTOGNOSIS GRIP - Grip status (dynamic visualization)
             • AUTOGNOSIS GRIP [TYPE] - Optimize specific grip type
               Types: CONTEXT, DOMAIN, SEMANTIC, PRAGMATIC
+            • GRIP RESET - Reset all grips to initial values
+            • GRIP ALL - Optimize all dimensions at once
+            • GRIP PROFILE [MODE] - Load predefined grip profile
+              Modes: ANALYTIC, CREATIVE, SUPPORT
+            • GRIP HISTORY - Show grip change history
             
             Optimization:
             • AUTOGNOSIS OPTIMIZE - Discover optimization opportunities

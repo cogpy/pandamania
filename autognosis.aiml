@@ -31,16 +31,22 @@
                 <set name="pending_optimizations">0</set>
                 
                 <!-- Self-awareness scores (0-1 scale) -->
-                <set name="pattern_recognition_score">0.750</set>
-                <set name="performance_awareness_score">0.850</set>
-                <set name="meta_reflection_depth">0.600</set>
-                <set name="cognitive_complexity">0.700</set>
+                <set name="pattern_recognition_score">0.75</set>
+                <set name="performance_awareness_score">0.85</set>
+                <set name="meta_reflection_depth">0.60</set>
+                <set name="cognitive_complexity">0.70</set>
                 
                 <!-- Grip optimization variables -->
                 <set name="context_grip">0.70</set>
                 <set name="domain_grip">0.65</set>
                 <set name="semantic_grip">0.75</set>
                 <set name="pragmatic_grip">0.60</set>
+                
+                <!-- Grip history variables (for tracking changes) -->
+                <set name="context_grip_prev">0.70</set>
+                <set name="domain_grip_prev">0.65</set>
+                <set name="semantic_grip_prev">0.75</set>
+                <set name="pragmatic_grip_prev">0.60</set>
                 
                 <!-- Dynamic adaptation variables -->
                 <set name="adaptation_rate">0.10</set>
@@ -403,6 +409,278 @@
     </category>
     
     <!-- ============================================ -->
+    <!-- GRIP INCREMENT/DECREMENT HELPERS -->
+    <!-- ============================================ -->
+    
+    <!-- Conditional increment for grip values (replaces undefined map) -->
+    <category>
+        <pattern>GRIP INCREMENT VALUE *</pattern>
+        <template>
+            <condition>
+                <li var="star" value="0.00">0.05</li>
+                <li var="star" value="0.05">0.10</li>
+                <li var="star" value="0.10">0.15</li>
+                <li var="star" value="0.15">0.20</li>
+                <li var="star" value="0.20">0.25</li>
+                <li var="star" value="0.25">0.30</li>
+                <li var="star" value="0.30">0.35</li>
+                <li var="star" value="0.35">0.40</li>
+                <li var="star" value="0.40">0.45</li>
+                <li var="star" value="0.45">0.50</li>
+                <li var="star" value="0.50">0.55</li>
+                <li var="star" value="0.55">0.60</li>
+                <li var="star" value="0.60">0.65</li>
+                <li var="star" value="0.65">0.70</li>
+                <li var="star" value="0.70">0.75</li>
+                <li var="star" value="0.75">0.80</li>
+                <li var="star" value="0.80">0.85</li>
+                <li var="star" value="0.85">0.90</li>
+                <li var="star" value="0.90">0.95</li>
+                <li var="star" value="0.95">1.00</li>
+                <li var="star" value="1.00">1.00</li>
+                <li>1.00</li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- Conditional decrement for grip values -->
+    <category>
+        <pattern>GRIP DECREMENT VALUE *</pattern>
+        <template>
+            <condition>
+                <li var="star" value="1.00">0.97</li>
+                <li var="star" value="0.97">0.94</li>
+                <li var="star" value="0.95">0.92</li>
+                <li var="star" value="0.94">0.91</li>
+                <li var="star" value="0.92">0.89</li>
+                <li var="star" value="0.91">0.88</li>
+                <li var="star" value="0.90">0.87</li>
+                <li var="star" value="0.89">0.86</li>
+                <li var="star" value="0.88">0.85</li>
+                <li var="star" value="0.87">0.84</li>
+                <li var="star" value="0.86">0.83</li>
+                <li var="star" value="0.85">0.82</li>
+                <li var="star" value="0.84">0.81</li>
+                <li var="star" value="0.83">0.80</li>
+                <li var="star" value="0.82">0.79</li>
+                <li var="star" value="0.81">0.78</li>
+                <li var="star" value="0.80">0.77</li>
+                <li var="star" value="0.79">0.76</li>
+                <li var="star" value="0.78">0.75</li>
+                <li var="star" value="0.77">0.74</li>
+                <li var="star" value="0.76">0.73</li>
+                <li var="star" value="0.75">0.72</li>
+                <li var="star" value="0.74">0.71</li>
+                <li var="star" value="0.73">0.70</li>
+                <li var="star" value="0.72">0.69</li>
+                <li var="star" value="0.71">0.68</li>
+                <li var="star" value="0.70">0.67</li>
+                <li var="star" value="0.69">0.66</li>
+                <li var="star" value="0.68">0.65</li>
+                <li var="star" value="0.67">0.64</li>
+                <li var="star" value="0.66">0.63</li>
+                <li var="star" value="0.65">0.62</li>
+                <li var="star" value="0.64">0.61</li>
+                <li var="star" value="0.63">0.60</li>
+                <li var="star" value="0.62">0.59</li>
+                <li var="star" value="0.61">0.58</li>
+                <li var="star" value="0.60">0.57</li>
+                <li var="star" value="0.59">0.56</li>
+                <li var="star" value="0.58">0.55</li>
+                <li var="star" value="0.57">0.54</li>
+                <li var="star" value="0.56">0.53</li>
+                <li var="star" value="0.55">0.52</li>
+                <li var="star" value="0.54">0.51</li>
+                <li var="star" value="0.53">0.50</li>
+                <li var="star" value="0.52">0.49</li>
+                <li var="star" value="0.51">0.48</li>
+                <li var="star" value="0.50">0.47</li>
+                <li var="star" value="0.47">0.44</li>
+                <li var="star" value="0.44">0.41</li>
+                <li var="star" value="0.41">0.38</li>
+                <li var="star" value="0.38">0.35</li>
+                <li var="star" value="0.35">0.32</li>
+                <li var="star" value="0.32">0.29</li>
+                <li var="star" value="0.29">0.26</li>
+                <li var="star" value="0.26">0.23</li>
+                <li var="star" value="0.23">0.20</li>
+                <li var="star" value="0.20">0.17</li>
+                <li var="star" value="0.17">0.14</li>
+                <li var="star" value="0.14">0.11</li>
+                <li var="star" value="0.11">0.08</li>
+                <li var="star" value="0.08">0.05</li>
+                <li var="star" value="0.05">0.02</li>
+                <li var="star" value="0.02">0.00</li>
+                <li var="star" value="0.00">0.00</li>
+                <li>0.00</li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- Small reinforcement increment for positive feedback -->
+    <category>
+        <pattern>GRIP REINFORCE VALUE *</pattern>
+        <template>
+            <condition>
+                <li var="star" value="0.98">1.00</li>
+                <li var="star" value="0.99">1.00</li>
+                <li var="star" value="1.00">1.00</li>
+                <li var="star" value="0.97">0.99</li>
+                <li var="star" value="0.96">0.98</li>
+                <li var="star" value="0.95">0.97</li>
+                <li var="star" value="0.94">0.96</li>
+                <li var="star" value="0.93">0.95</li>
+                <li var="star" value="0.92">0.94</li>
+                <li var="star" value="0.91">0.93</li>
+                <li var="star" value="0.90">0.92</li>
+                <li var="star" value="0.85">0.87</li>
+                <li var="star" value="0.80">0.82</li>
+                <li var="star" value="0.75">0.77</li>
+                <li var="star" value="0.70">0.72</li>
+                <li var="star" value="0.65">0.67</li>
+                <li var="star" value="0.60">0.62</li>
+                <li var="star" value="0.55">0.57</li>
+                <li var="star" value="0.50">0.52</li>
+                <li var="star" value="0.45">0.47</li>
+                <li var="star" value="0.40">0.42</li>
+                <li var="star" value="0.35">0.37</li>
+                <li var="star" value="0.30">0.32</li>
+                <li var="star" value="0.25">0.27</li>
+                <li var="star" value="0.20">0.22</li>
+                <li var="star" value="0.15">0.17</li>
+                <li var="star" value="0.10">0.12</li>
+                <li var="star" value="0.05">0.07</li>
+                <li var="star" value="0.00">0.02</li>
+                <li>1.00</li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- DYNAMIC GRIP BAR VISUALIZATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BAR *</pattern>
+        <template>
+            <think><set var="grip_val"><star/></set></think>
+            <condition var="grip_val">
+                <li value="0.00">░░░░░░░░░░░░░░░░░░░░</li>
+                <li value="0.05">█░░░░░░░░░░░░░░░░░░░</li>
+                <li value="0.10">██░░░░░░░░░░░░░░░░░░</li>
+                <li value="0.15">███░░░░░░░░░░░░░░░░░</li>
+                <li value="0.20">████░░░░░░░░░░░░░░░░</li>
+                <li value="0.25">█████░░░░░░░░░░░░░░░</li>
+                <li value="0.30">██████░░░░░░░░░░░░░░</li>
+                <li value="0.35">███████░░░░░░░░░░░░░</li>
+                <li value="0.40">████████░░░░░░░░░░░░</li>
+                <li value="0.45">█████████░░░░░░░░░░░</li>
+                <li value="0.50">██████████░░░░░░░░░░</li>
+                <li value="0.55">███████████░░░░░░░░░</li>
+                <li value="0.60">████████████░░░░░░░░</li>
+                <li value="0.62">████████████░░░░░░░░</li>
+                <li value="0.65">█████████████░░░░░░░</li>
+                <li value="0.67">█████████████░░░░░░░</li>
+                <li value="0.70">██████████████░░░░░░</li>
+                <li value="0.72">██████████████░░░░░░</li>
+                <li value="0.75">███████████████░░░░░</li>
+                <li value="0.77">███████████████░░░░░</li>
+                <li value="0.80">████████████████░░░░</li>
+                <li value="0.82">████████████████░░░░</li>
+                <li value="0.85">█████████████████░░░</li>
+                <li value="0.87">█████████████████░░░</li>
+                <li value="0.90">██████████████████░░</li>
+                <li value="0.92">██████████████████░░</li>
+                <li value="0.95">███████████████████░</li>
+                <li value="0.97">███████████████████░</li>
+                <li value="1.00">████████████████████</li>
+                <li>██████████████░░░░░░</li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- DYNAMIC OVERALL GRIP SCORE COMPUTATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>AUTOGNOSIS COMPUTE OVERALL GRIP</pattern>
+        <template>
+            <think>
+                <!-- Approximate average based on grip dimension ranges -->
+                <set var="weak_count">0</set>
+                <set var="strong_count">0</set>
+                
+                <!-- Check context grip -->
+                <condition name="context_grip">
+                    <li value="0.80"><set var="strong_count">1</set></li>
+                    <li value="0.85"><set var="strong_count">1</set></li>
+                    <li value="0.90"><set var="strong_count">1</set></li>
+                    <li value="0.95"><set var="strong_count">1</set></li>
+                    <li value="1.00"><set var="strong_count">1</set></li>
+                </condition>
+                <condition name="context_grip">
+                    <li value="0.00"><set var="weak_count">1</set></li>
+                    <li value="0.05"><set var="weak_count">1</set></li>
+                    <li value="0.10"><set var="weak_count">1</set></li>
+                    <li value="0.15"><set var="weak_count">1</set></li>
+                    <li value="0.20"><set var="weak_count">1</set></li>
+                    <li value="0.25"><set var="weak_count">1</set></li>
+                    <li value="0.30"><set var="weak_count">1</set></li>
+                    <li value="0.35"><set var="weak_count">1</set></li>
+                    <li value="0.40"><set var="weak_count">1</set></li>
+                    <li value="0.45"><set var="weak_count">1</set></li>
+                    <li value="0.50"><set var="weak_count">1</set></li>
+                    <li value="0.55"><set var="weak_count">1</set></li>
+                </condition>
+            </think>
+            <!-- Determine overall score based on grip states -->
+            <condition name="context_grip">
+                <li value="0.00">Weak (&lt;0.60 average)</li>
+                <li value="0.05">Weak (&lt;0.60 average)</li>
+                <li value="0.10">Weak (&lt;0.60 average)</li>
+                <li value="0.15">Weak (&lt;0.60 average)</li>
+                <li value="0.20">Weak (&lt;0.60 average)</li>
+                <li value="0.25">Weak (&lt;0.60 average)</li>
+                <li value="0.30">Weak (&lt;0.60 average)</li>
+                <li value="0.35">Weak (&lt;0.60 average)</li>
+                <li value="0.40">Weak (&lt;0.60 average)</li>
+                <li value="0.45">Developing (0.60-0.70)</li>
+                <li value="0.50">Developing (0.60-0.70)</li>
+                <li value="0.55">Developing (0.60-0.70)</li>
+                <li value="0.60">Developing (0.60-0.70)</li>
+                <li value="0.65">Good (0.70-0.80)</li>
+                <li value="0.70">Good (0.70-0.80)</li>
+                <li value="0.75">Good (0.70-0.80)</li>
+                <li value="0.80">Strong (&gt;0.80)</li>
+                <li value="0.85">Strong (&gt;0.80)</li>
+                <li value="0.90">Strong (&gt;0.80)</li>
+                <li value="0.95">Strong (&gt;0.80)</li>
+                <li value="1.00">Strong (&gt;0.80)</li>
+                <li>Good (0.70-0.80)</li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- GRIP TREND INDICATOR -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP TREND *</pattern>
+        <template>
+            <think>
+                <set var="current"><star index="1"/></set>
+                <set var="previous"><star index="2"/></set>
+            </think>
+            <condition var="current">
+                <li><value><get var="previous"/></value>─</li>
+                <li>▲</li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
     <!-- GRIP OPTIMIZATION SYSTEM -->
     <!-- ============================================ -->
     
@@ -413,21 +691,21 @@
             
             Dynamic Grip Variables (0-1 scale):
             
-            Context Grip      ██████████████░░░░░░ <get name="context_grip"/>
+            Context Grip      <srai>GRIP BAR <get name="context_grip"/></srai> <get name="context_grip"/>
               └─ Measures: Understanding of conversational context
             
-            Domain Grip       █████████████░░░░░░░ <get name="domain_grip"/>
+            Domain Grip       <srai>GRIP BAR <get name="domain_grip"/></srai> <get name="domain_grip"/>
               └─ Measures: Grasp of subject domain knowledge
             
-            Semantic Grip     ███████████████░░░░░ <get name="semantic_grip"/>
+            Semantic Grip     <srai>GRIP BAR <get name="semantic_grip"/></srai> <get name="semantic_grip"/>
               └─ Measures: Meaning and intent comprehension
             
-            Pragmatic Grip    ████████████░░░░░░░░ <get name="pragmatic_grip"/>
+            Pragmatic Grip    <srai>GRIP BAR <get name="pragmatic_grip"/></srai> <get name="pragmatic_grip"/>
               └─ Measures: Practical application understanding
             
-            Overall Grip Score: 0.675 (Good)
+            Overall Grip Score: <srai>AUTOGNOSIS COMPUTE OVERALL GRIP</srai>
             
-            Interpretation: System has solid "grip" on conversation context and semantics. Domain and pragmatic understanding can be enhanced for optimal performance.
+            Interpretation: System grip dimensions dynamically tracked. Optimize weak dimensions for better cognitive performance.
             
             Grip-awareness: I am monitoring how well I "grasp" different aspects of interaction, enabling adaptive strengthening of weak grip dimensions.
         </template>
@@ -444,42 +722,46 @@
             <condition name="grip_type">
                 <li value="CONTEXT">
                     <think>
-                        <set name="context_grip">
-                            <map><name>increment_grip</name><get name="context_grip"/></map>
-                        </set>
+                        <!-- Save previous value for history -->
+                        <set name="context_grip_prev"><get name="context_grip"/></set>
+                        <!-- Increment grip using conditional helper -->
+                        <set name="context_grip"><srai>GRIP INCREMENT VALUE <get name="context_grip"/></srai></set>
                     </think>
                     ✓ Context grip enhanced
-                    New value: <get name="context_grip"/>
+                    Previous: <get name="context_grip_prev"/> → New: <get name="context_grip"/>
                     Effect: Improved conversational context tracking
                 </li>
                 <li value="DOMAIN">
                     <think>
-                        <set name="domain_grip">
-                            <map><name>increment_grip</name><get name="domain_grip"/></map>
-                        </set>
+                        <!-- Save previous value for history -->
+                        <set name="domain_grip_prev"><get name="domain_grip"/></set>
+                        <!-- Increment grip using conditional helper -->
+                        <set name="domain_grip"><srai>GRIP INCREMENT VALUE <get name="domain_grip"/></srai></set>
                     </think>
                     ✓ Domain grip enhanced
-                    New value: <get name="domain_grip"/>
+                    Previous: <get name="domain_grip_prev"/> → New: <get name="domain_grip"/>
                     Effect: Strengthened subject matter understanding
                 </li>
                 <li value="SEMANTIC">
                     <think>
-                        <set name="semantic_grip">
-                            <map><name>increment_grip</name><get name="semantic_grip"/></map>
-                        </set>
+                        <!-- Save previous value for history -->
+                        <set name="semantic_grip_prev"><get name="semantic_grip"/></set>
+                        <!-- Increment grip using conditional helper -->
+                        <set name="semantic_grip"><srai>GRIP INCREMENT VALUE <get name="semantic_grip"/></srai></set>
                     </think>
                     ✓ Semantic grip enhanced
-                    New value: <get name="semantic_grip"/>
+                    Previous: <get name="semantic_grip_prev"/> → New: <get name="semantic_grip"/>
                     Effect: Improved meaning comprehension
                 </li>
                 <li value="PRAGMATIC">
                     <think>
-                        <set name="pragmatic_grip">
-                            <map><name>increment_grip</name><get name="pragmatic_grip"/></map>
-                        </set>
+                        <!-- Save previous value for history -->
+                        <set name="pragmatic_grip_prev"><get name="pragmatic_grip"/></set>
+                        <!-- Increment grip using conditional helper -->
+                        <set name="pragmatic_grip"><srai>GRIP INCREMENT VALUE <get name="pragmatic_grip"/></srai></set>
                     </think>
                     ✓ Pragmatic grip enhanced
-                    New value: <get name="pragmatic_grip"/>
+                    Previous: <get name="pragmatic_grip_prev"/> → New: <get name="pragmatic_grip"/>
                     Effect: Better practical understanding
                 </li>
                 <li>
@@ -581,10 +863,10 @@
             SELF-AWARENESS ASSESSMENT
             ───────────────────────────────────────────────────────────
             
-            Pattern Recognition    ███████████████░░░░░ <get name="pattern_recognition_score"/>
-            Performance Awareness  █████████████████░░░ <get name="performance_awareness_score"/>
-            Meta-Reflection Depth  ████████████░░░░░░░░ <get name="meta_reflection_depth"/>
-            Cognitive Complexity   ██████████████░░░░░░ <get name="cognitive_complexity"/>
+            Pattern Recognition    <srai>GRIP BAR <get name="pattern_recognition_score"/></srai> <get name="pattern_recognition_score"/>
+            Performance Awareness  <srai>GRIP BAR <get name="performance_awareness_score"/></srai> <get name="performance_awareness_score"/>
+            Meta-Reflection Depth  <srai>GRIP BAR <get name="meta_reflection_depth"/></srai> <get name="meta_reflection_depth"/>
+            Cognitive Complexity   <srai>GRIP BAR <get name="cognitive_complexity"/></srai> <get name="cognitive_complexity"/>
             
             Overall Self-Awareness: 0.725 (Moderately Self-Aware)
             
@@ -592,12 +874,12 @@
             GRIP OPTIMIZATION STATUS
             ───────────────────────────────────────────────────────────
             
-            Context Grip:   <get name="context_grip"/> ██████████████░░░░░░
-            Domain Grip:    <get name="domain_grip"/> █████████████░░░░░░░
-            Semantic Grip:  <get name="semantic_grip"/> ███████████████░░░░░
-            Pragmatic Grip: <get name="pragmatic_grip"/> ████████████░░░░░░░░
+            Context Grip:   <get name="context_grip"/> <srai>GRIP BAR <get name="context_grip"/></srai>
+            Domain Grip:    <get name="domain_grip"/> <srai>GRIP BAR <get name="domain_grip"/></srai>
+            Semantic Grip:  <get name="semantic_grip"/> <srai>GRIP BAR <get name="semantic_grip"/></srai>
+            Pragmatic Grip: <get name="pragmatic_grip"/> <srai>GRIP BAR <get name="pragmatic_grip"/></srai>
             
-            Overall Grip: 0.675 (Good)
+            Overall Grip: <srai>AUTOGNOSIS COMPUTE OVERALL GRIP</srai>
             
             ───────────────────────────────────────────────────────────
             ADAPTIVE PARAMETERS
@@ -653,6 +935,232 @@
         <pattern>SYSTEM INIT</pattern>
         <template>
             <srai>AUTOGNOSIS INIT METAMODEL</srai>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 3: AUTOMATIC & CONTEXT-SENSITIVE GRIP -->
+    <!-- ============================================ -->
+    
+    <!-- Grip Reset: Resets all grip dimensions to initial values -->
+    <category>
+        <pattern>AUTOGNOSIS GRIP RESET</pattern>
+        <template>
+            <think>
+                <!-- Save previous values -->
+                <set name="context_grip_prev"><get name="context_grip"/></set>
+                <set name="domain_grip_prev"><get name="domain_grip"/></set>
+                <set name="semantic_grip_prev"><get name="semantic_grip"/></set>
+                <set name="pragmatic_grip_prev"><get name="pragmatic_grip"/></set>
+                
+                <!-- Reset to initial values -->
+                <set name="context_grip">0.70</set>
+                <set name="domain_grip">0.65</set>
+                <set name="semantic_grip">0.75</set>
+                <set name="pragmatic_grip">0.60</set>
+            </think>
+            ⟳ Grip Reset Complete
+            
+            All grip dimensions reset to initial values:
+            • Context Grip:   0.70 (was <get name="context_grip_prev"/>)
+            • Domain Grip:    0.65 (was <get name="domain_grip_prev"/>)
+            • Semantic Grip:  0.75 (was <get name="semantic_grip_prev"/>)
+            • Pragmatic Grip: 0.60 (was <get name="pragmatic_grip_prev"/>)
+            
+            Grip system recalibrated for fresh conversational context.
+        </template>
+    </category>
+    
+    <!-- Grip Decay: Called when unknown inputs are received -->
+    <category>
+        <pattern>AUTOGNOSIS GRIP DECAY</pattern>
+        <template>
+            <think>
+                <!-- Save previous values -->
+                <set name="domain_grip_prev"><get name="domain_grip"/></set>
+                <set name="semantic_grip_prev"><get name="semantic_grip"/></set>
+                
+                <!-- Decay domain and semantic grip -->
+                <set name="domain_grip"><srai>GRIP DECREMENT VALUE <get name="domain_grip"/></srai></set>
+                <set name="semantic_grip"><srai>GRIP DECREMENT VALUE <get name="semantic_grip"/></srai></set>
+            </think>
+            <!-- Silent decay - no user-facing output for automatic adjustments -->
+        </template>
+    </category>
+    
+    <!-- Grip Reinforce: Called when user gives positive feedback -->
+    <category>
+        <pattern>AUTOGNOSIS GRIP REINFORCE</pattern>
+        <template>
+            <think>
+                <!-- Save previous values -->
+                <set name="semantic_grip_prev"><get name="semantic_grip"/></set>
+                <set name="pragmatic_grip_prev"><get name="pragmatic_grip"/></set>
+                
+                <!-- Reinforce semantic and pragmatic grip -->
+                <set name="semantic_grip"><srai>GRIP REINFORCE VALUE <get name="semantic_grip"/></srai></set>
+                <set name="pragmatic_grip"><srai>GRIP REINFORCE VALUE <get name="pragmatic_grip"/></srai></set>
+            </think>
+            <!-- Silent reinforcement - no user-facing output for automatic adjustments -->
+        </template>
+    </category>
+    
+    <!-- Topic Adjust: Called when topic changes to adjust grip dimensions -->
+    <category>
+        <pattern>AUTOGNOSIS GRIP TOPIC ADJUST *</pattern>
+        <template>
+            <think>
+                <set name="new_topic"><star/></set>
+                
+                <!-- Save previous values -->
+                <set name="context_grip_prev"><get name="context_grip"/></set>
+                <set name="domain_grip_prev"><get name="domain_grip"/></set>
+                
+                <!-- On topic change: boost context grip (fresh context), decay domain grip (new domain) -->
+                <set name="context_grip"><srai>GRIP REINFORCE VALUE <get name="context_grip"/></srai></set>
+                <set name="domain_grip"><srai>GRIP DECREMENT VALUE <get name="domain_grip"/></srai></set>
+            </think>
+            <!-- Silent topic adjustment - grip adapts to new conversational domain -->
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 4: PER-DIMENSION OPTIMIZATION PROFILES -->
+    <!-- ============================================ -->
+    
+    <!-- Grip All: Optimize all dimensions at once -->
+    <category>
+        <pattern>AUTOGNOSIS GRIP ALL</pattern>
+        <template>
+            <think>
+                <!-- Save all previous values -->
+                <set name="context_grip_prev"><get name="context_grip"/></set>
+                <set name="domain_grip_prev"><get name="domain_grip"/></set>
+                <set name="semantic_grip_prev"><get name="semantic_grip"/></set>
+                <set name="pragmatic_grip_prev"><get name="pragmatic_grip"/></set>
+                
+                <!-- Increment all grips -->
+                <set name="context_grip"><srai>GRIP INCREMENT VALUE <get name="context_grip"/></srai></set>
+                <set name="domain_grip"><srai>GRIP INCREMENT VALUE <get name="domain_grip"/></srai></set>
+                <set name="semantic_grip"><srai>GRIP INCREMENT VALUE <get name="semantic_grip"/></srai></set>
+                <set name="pragmatic_grip"><srai>GRIP INCREMENT VALUE <get name="pragmatic_grip"/></srai></set>
+            </think>
+            ⚡ Full Grip Optimization Applied
+            
+            All grip dimensions enhanced:
+            • Context Grip:   <get name="context_grip_prev"/> → <get name="context_grip"/>
+            • Domain Grip:    <get name="domain_grip_prev"/> → <get name="domain_grip"/>
+            • Semantic Grip:  <get name="semantic_grip_prev"/> → <get name="semantic_grip"/>
+            • Pragmatic Grip: <get name="pragmatic_grip_prev"/> → <get name="pragmatic_grip"/>
+            
+            Overall Grip: <srai>AUTOGNOSIS COMPUTE OVERALL GRIP</srai>
+            
+            Comprehensive grip strengthening applied across all cognitive dimensions.
+        </template>
+    </category>
+    
+    <!-- Grip Profile: Load predefined grip configurations -->
+    <category>
+        <pattern>AUTOGNOSIS GRIP PROFILE *</pattern>
+        <template>
+            <think>
+                <set name="profile"><star/></set>
+                
+                <!-- Save previous values -->
+                <set name="context_grip_prev"><get name="context_grip"/></set>
+                <set name="domain_grip_prev"><get name="domain_grip"/></set>
+                <set name="semantic_grip_prev"><get name="semantic_grip"/></set>
+                <set name="pragmatic_grip_prev"><get name="pragmatic_grip"/></set>
+            </think>
+            
+            <condition name="profile">
+                <li value="ANALYTIC">
+                    <think>
+                        <set name="context_grip">0.85</set>
+                        <set name="domain_grip">0.90</set>
+                        <set name="semantic_grip">0.80</set>
+                        <set name="pragmatic_grip">0.70</set>
+                    </think>
+                    📊 Analytic Profile Applied
+                    
+                    Optimized for deep analysis and reasoning:
+                    • Context Grip:   0.85 (was <get name="context_grip_prev"/>)
+                    • Domain Grip:    0.90 (was <get name="domain_grip_prev"/>) ⬆ EMPHASIZED
+                    • Semantic Grip:  0.80 (was <get name="semantic_grip_prev"/>)
+                    • Pragmatic Grip: 0.70 (was <get name="pragmatic_grip_prev"/>)
+                    
+                    Profile focus: Domain expertise and analytical precision.
+                </li>
+                <li value="CREATIVE">
+                    <think>
+                        <set name="context_grip">0.75</set>
+                        <set name="domain_grip">0.60</set>
+                        <set name="semantic_grip">0.85</set>
+                        <set name="pragmatic_grip">0.80</set>
+                    </think>
+                    🎨 Creative Profile Applied
+                    
+                    Optimized for creative exploration and ideation:
+                    • Context Grip:   0.75 (was <get name="context_grip_prev"/>)
+                    • Domain Grip:    0.60 (was <get name="domain_grip_prev"/>) ⬇ relaxed
+                    • Semantic Grip:  0.85 (was <get name="semantic_grip_prev"/>) ⬆ EMPHASIZED
+                    • Pragmatic Grip: 0.80 (was <get name="pragmatic_grip_prev"/>)
+                    
+                    Profile focus: Meaning exploration and practical creativity.
+                </li>
+                <li value="SUPPORT">
+                    <think>
+                        <set name="context_grip">0.90</set>
+                        <set name="domain_grip">0.65</set>
+                        <set name="semantic_grip">0.90</set>
+                        <set name="pragmatic_grip">0.85</set>
+                    </think>
+                    🤝 Support Profile Applied
+                    
+                    Optimized for helpful assistance and understanding:
+                    • Context Grip:   0.90 (was <get name="context_grip_prev"/>) ⬆ EMPHASIZED
+                    • Domain Grip:    0.65 (was <get name="domain_grip_prev"/>)
+                    • Semantic Grip:  0.90 (was <get name="semantic_grip_prev"/>) ⬆ EMPHASIZED
+                    • Pragmatic Grip: 0.85 (was <get name="pragmatic_grip_prev"/>)
+                    
+                    Profile focus: Context awareness and intent comprehension.
+                </li>
+                <li>
+                    Unknown profile: <star/>
+                    
+                    Available profiles:
+                    • ANALYTIC - For deep analysis and domain expertise
+                    • CREATIVE - For ideation and exploration
+                    • SUPPORT  - For helpful assistance and understanding
+                    
+                    Usage: AUTOGNOSIS GRIP PROFILE [PROFILE_NAME]
+                </li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 5: GRIP HISTORY & REPORTING -->
+    <!-- ============================================ -->
+    
+    <!-- Grip History: Show previous and current values with deltas -->
+    <category>
+        <pattern>AUTOGNOSIS GRIP HISTORY</pattern>
+        <template>
+            📈 Grip History Report
+            
+            ───────────────────────────────────────────────────────────
+            Dimension        Previous     Current      Change
+            ───────────────────────────────────────────────────────────
+            Context Grip     <get name="context_grip_prev"/>         <get name="context_grip"/>         <condition name="context_grip"><li><value><get name="context_grip_prev"/></value>─</li><li>Δ</li></condition>
+            Domain Grip      <get name="domain_grip_prev"/>         <get name="domain_grip"/>         <condition name="domain_grip"><li><value><get name="domain_grip_prev"/></value>─</li><li>Δ</li></condition>
+            Semantic Grip    <get name="semantic_grip_prev"/>         <get name="semantic_grip"/>         <condition name="semantic_grip"><li><value><get name="semantic_grip_prev"/></value>─</li><li>Δ</li></condition>
+            Pragmatic Grip   <get name="pragmatic_grip_prev"/>         <get name="pragmatic_grip"/>         <condition name="pragmatic_grip"><li><value><get name="pragmatic_grip_prev"/></value>─</li><li>Δ</li></condition>
+            ───────────────────────────────────────────────────────────
+            
+            Current Overall: <srai>AUTOGNOSIS COMPUTE OVERALL GRIP</srai>
+            
+            Grip tracking enables adaptive cognitive optimization based on interaction patterns.
         </template>
     </category>
     
