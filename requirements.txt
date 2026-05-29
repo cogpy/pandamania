@@ -1,0 +1,25 @@
+# PandaMania Test Dependencies
+# Python requirements for testing and development
+
+# Testing Framework
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-benchmark>=4.0.0
+pytest-xdist>=3.3.0
+pytest-timeout>=2.2.0
+
+# AIML Interpreter (for E2E tests)
+python-aiml>=0.9.3
+
+# Linting
+flake8>=6.1.0
+ruff>=0.1.0
+
+# XML Processing
+lxml>=4.9.0
+
+# Code Coverage
+coverage>=7.3.0
+
+# Development utilities
+typing-extensions>=4.8.0

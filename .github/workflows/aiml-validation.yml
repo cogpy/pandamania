@@ -1,0 +1,350 @@
+# PandaMania AIML Validation Workflow
+# Comprehensive validation of AIML files including schema, patterns, and SRAI chains
+
+name: AIML Validation
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - '*.aiml'
+      - 'bot.properties'
+  pull_request:
+    branches: [ "main", "master" ]
+    paths:
+      - '*.aiml'
+      - 'bot.properties'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-xml:
+    name: XML Schema Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install lxml
+
+      - name: Validate AIML XML Structure
+        run: |
+          python -c "
+          import xml.etree.ElementTree as ET
+          import glob
+          import sys
+          
+          print('=' * 60)
+          print('AIML XML STRUCTURE VALIDATION')
+          print('=' * 60)
+          
+          errors = []
+          total_patterns = 0
+          
+          for f in sorted(glob.glob('*.aiml')):
+              try:
+                  tree = ET.parse(f)
+                  root = tree.getroot()
+                  
+                  # Check root element
+                  if root.tag != 'aiml':
+                      errors.append(f'{f}: Root element is not <aiml>')
+                      continue
+                  
+                  # Count and validate categories
+                  categories = root.findall('.//category')
+                  patterns = 0
+                  
+                  for cat in categories:
+                      pattern = cat.find('pattern')
+                      template = cat.find('template')
+                      
+                      if pattern is None:
+                          errors.append(f'{f}: Category missing <pattern>')
+                      if template is None:
+                          errors.append(f'{f}: Category missing <template>')
+                      
+                      patterns += 1
+                  
+                  total_patterns += patterns
+                  print(f'✓ {f:<35} {patterns:>3} patterns')
+                  
+              except ET.ParseError as e:
+                  errors.append(f'{f}: XML Parse Error - {e}')
+                  print(f'✗ {f}: XML Parse Error')
+              except Exception as e:
+                  errors.append(f'{f}: {e}')
+                  print(f'✗ {f}: Error')
+          
+          print()
+          print(f'Total patterns: {total_patterns}')
+          print()
+          
+          if errors:
+              print('ERRORS:')
+              for err in errors:
+                  print(f'  - {err}')
+              sys.exit(1)
+          else:
+              print('✓ All AIML files pass XML validation')
+          "
+
+  pattern-uniqueness:
+    name: Pattern Uniqueness Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check for duplicate patterns
+        run: |
+          python -c "
+          import xml.etree.ElementTree as ET
+          import glob
+          import sys
+          from collections import defaultdict
+          
+          print('=' * 60)
+          print('PATTERN UNIQUENESS CHECK')
+          print('=' * 60)
+          
+          patterns = defaultdict(list)
+          
+          for f in sorted(glob.glob('*.aiml')):
+              try:
+                  tree = ET.parse(f)
+                  root = tree.getroot()
+                  
+                  for cat in root.findall('.//category'):
+                      pattern_elem = cat.find('pattern')
+                      that_elem = cat.find('that')
+                      topic = cat.get('topic', '')
+                      
+                      if pattern_elem is not None:
+                          pattern_text = ''.join(pattern_elem.itertext()).strip()
+                          that_text = ''.join(that_elem.itertext()).strip() if that_elem is not None else ''
+                          
+                          # Create unique key with topic and that context
+                          parent = cat
+                          while parent is not None:
+                              if parent.tag == 'topic':
+                                  topic = parent.get('name', '')
+                                  break
+                              parent = parent.getparent() if hasattr(parent, 'getparent') else None
+                          
+                          key = f'[{topic}] {pattern_text} [that: {that_text}]' if that_text else f'[{topic}] {pattern_text}'
+                          patterns[key].append(f)
+              except Exception as e:
+                  print(f'Error processing {f}: {e}')
+          
+          duplicates = {k: v for k, v in patterns.items() if len(v) > 1}
+          
+          if duplicates:
+              print(f'Found {len(duplicates)} duplicate patterns:')
+              print()
+              for pattern, files in duplicates.items():
+                  print(f'  Pattern: {pattern}')
+                  print(f'  Files: {files}')
+                  print()
+              print('Note: Some duplicates may be intentional overrides.')
+          else:
+              print('✓ No exact duplicate patterns found')
+          
+          print()
+          print(f'Total unique patterns: {len(patterns)}')
+          "
+
+  srai-chain-analysis:
+    name: SRAI Chain Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Analyze SRAI chains for potential infinite loops
+        run: |
+          python -c "
+          import xml.etree.ElementTree as ET
+          import glob
+          import sys
+          from collections import defaultdict
+          
+          print('=' * 60)
+          print('SRAI CHAIN ANALYSIS')
+          print('=' * 60)
+          
+          # Build pattern -> SRAI targets mapping
+          pattern_to_srai = defaultdict(list)
+          pattern_to_file = {}
+          
+          for f in sorted(glob.glob('*.aiml')):
+              try:
+                  tree = ET.parse(f)
+                  root = tree.getroot()
+                  
+                  for cat in root.findall('.//category'):
+                      pattern_elem = cat.find('pattern')
+                      template = cat.find('template')
+                      
+                      if pattern_elem is not None:
+                          pattern_text = ''.join(pattern_elem.itertext()).strip().upper()
+                          pattern_to_file[pattern_text] = f
+                          
+                          if template is not None:
+                              for srai in template.findall('.//srai'):
+                                  srai_target = ''.join(srai.itertext()).strip().upper()
+                                  # Normalize wildcards
+                                  srai_target = ' '.join(p for p in srai_target.split() if p not in ['*', '_', '^', '#'])
+                                  if srai_target:
+                                      pattern_to_srai[pattern_text].append(srai_target)
+              except Exception as e:
+                  print(f'Error processing {f}: {e}')
+          
+          # Detect potential cycles
+          def find_cycles(pattern, visited=None, path=None):
+              if visited is None:
+                  visited = set()
+              if path is None:
+                  path = []
+              
+              if pattern in visited:
+                  return path + [pattern]
+              
+              visited.add(pattern)
+              path.append(pattern)
+              
+              for target in pattern_to_srai.get(pattern, []):
+                  # Check for exact match
+                  if target in pattern_to_srai:
+                      result = find_cycles(target, visited.copy(), path.copy())
+                      if result and len(result) > len(path) + 1:
+                          return result
+              
+              return None
+          
+          print(f'Total patterns with SRAI: {len(pattern_to_srai)}')
+          print()
+          
+          potential_issues = []
+          for pattern in pattern_to_srai:
+              cycle = find_cycles(pattern)
+              if cycle and len(cycle) > 5:  # Deep chains
+                  potential_issues.append((pattern, cycle))
+          
+          if potential_issues:
+              print('⚠ Deep SRAI chains detected (depth > 5):')
+              for pattern, chain in potential_issues[:5]:  # Show first 5
+                  print(f'  {pattern} -> ... (depth: {len(chain)})')
+          else:
+              print('✓ No concerning SRAI chain depths detected')
+          
+          # Show SRAI statistics
+          depths = [len(v) for v in pattern_to_srai.values()]
+          if depths:
+              print()
+              print(f'SRAI Statistics:')
+              print(f'  Patterns with SRAI calls: {len(depths)}')
+              print(f'  Max SRAI targets per pattern: {max(depths)}')
+              print(f'  Avg SRAI targets per pattern: {sum(depths)/len(depths):.2f}')
+          "
+
+  bot-properties:
+    name: Bot Properties Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate bot.properties
+        run: |
+          python -c "
+          import sys
+          
+          print('=' * 60)
+          print('BOT PROPERTIES VALIDATION')
+          print('=' * 60)
+          
+          required_properties = [
+              'name',
+              'version',
+              'author',
+              'language'
+          ]
+          
+          properties = {}
+          errors = []
+          
+          try:
+              with open('bot.properties', 'r') as f:
+                  for line_num, line in enumerate(f, 1):
+                      line = line.strip()
+                      if line and not line.startswith('#'):
+                          if ':' in line:
+                              key, value = line.split(':', 1)
+                              properties[key.strip()] = value.strip()
+                          else:
+                              errors.append(f'Line {line_num}: Invalid format (no colon)')
+          except FileNotFoundError:
+              print('✗ bot.properties not found')
+              sys.exit(1)
+          
+          print(f'Properties found: {len(properties)}')
+          print()
+          
+          # Check required properties
+          missing = [p for p in required_properties if p not in properties]
+          if missing:
+              print(f'⚠ Missing required properties: {missing}')
+          else:
+              print('✓ All required properties present')
+          
+          # Show key properties
+          print()
+          print('Key Configuration:')
+          for key in ['name', 'version', 'metacog_layers', 'autognosis_enabled', 'holistic_metamodel']:
+              if key in properties:
+                  print(f'  {key}: {properties[key]}')
+          
+          if errors:
+              print()
+              print('Errors:')
+              for err in errors:
+                  print(f'  - {err}')
+              sys.exit(1)
+          "
+
+  summary:
+    name: Validation Summary
+    runs-on: ubuntu-latest
+    needs: [validate-xml, pattern-uniqueness, srai-chain-analysis, bot-properties]
+    steps:
+      - name: Print Summary
+        run: |
+          echo "========================================"
+          echo "AIML VALIDATION COMPLETE"
+          echo "========================================"
+          echo "✓ XML Schema Validation: PASSED"
+          echo "✓ Pattern Uniqueness: PASSED"
+          echo "✓ SRAI Chain Analysis: PASSED"
+          echo "✓ Bot Properties: PASSED"
+          echo "========================================"

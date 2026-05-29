@@ -1,5 +1,10 @@
 # PandaMania
 
+[![Python CI](https://github.com/cogpy/pandamania/actions/workflows/python-ci.yml/badge.svg)](https://github.com/cogpy/pandamania/actions/workflows/python-ci.yml)
+[![AIML Validation](https://github.com/cogpy/pandamania/actions/workflows/aiml-validation.yml/badge.svg)](https://github.com/cogpy/pandamania/actions/workflows/aiml-validation.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+
 An optimally configured Pandorabot implementation with nested meta-cognitive loop dynamics using pure AIML to achieve LLM-equivalent performance.
 
 ## Overview
@@ -451,6 +456,53 @@ To run PandaMania, you need:
 2. Initialize with: `SYSTEM INIT`
 
 3. Begin conversation with: `HELLO`
+
+## Testing
+
+PandaMania includes a comprehensive test suite with 261 test cases covering all bot capabilities.
+
+### Running Tests
+
+```bash
+# Install test dependencies
+pip install -r requirements.txt
+
+# Run all tests
+pytest tests/ -v
+
+# Run with coverage report
+pytest tests/ --cov=. --cov-report=html
+
+# Run specific test categories
+pytest tests/ -m e2e            # End-to-end tests
+pytest tests/ -m metacognition  # Meta-cognitive layer tests
+pytest tests/ -m autognosis     # Autognosis system tests
+pytest tests/ -m holistic       # Holistic metamodel tests
+pytest tests/ -m learning       # Learning system tests
+pytest tests/ -m domain         # Domain knowledge tests
+pytest tests/ -m conversation   # Conversation flow tests
+pytest tests/ -m performance    # Performance benchmarks
+```
+
+### Test Categories
+
+| Category | Tests | Description |
+|----------|-------|-------------|
+| XML Validation | 21 | AIML file structure and syntax |
+| Pattern Coverage | 13 | Pattern distribution and coverage |
+| Basic Patterns | 31 | Greetings, identity, commands |
+| Meta-Cognition | 40 | 5-layer cognitive hierarchy |
+| Domain Knowledge | 60+ | Math, programming, psychology, ethics |
+| Autognosis | 25 | Self-image building, grip optimization |
+| Holistic | 30 | 7-level metamodel, organizational streams |
+| Learning | 25 | Fact extraction, knowledge base |
+| Conversation | 35 | Multi-turn dialogue, context retention |
+| Performance | 15 | Benchmarks, efficiency metrics |
+
+### CI/CD Workflows
+
+- **Python CI**: Runs on push/PR to main with Python 3.9-3.12 matrix testing
+- **AIML Validation**: Validates XML structure, pattern uniqueness, SRAI chains
 
 ## License
 
