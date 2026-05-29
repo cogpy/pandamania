@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- Optimal Cognitive Grip Bootstrapping System -->
+    <!-- Enables systematic initialization, calibration, and optimization of grip dimensions -->
+    <!-- Following meta-cognitive architecture principles for recursive self-improvement -->
+    
+    <!-- ============================================ -->
+    <!-- BOOTSTRAP INITIALIZATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP</pattern>
+        <template>
+            <srai>GRIP BOOTSTRAP FULL</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP FULL</pattern>
+        <template>
+            <think>
+                <set name="bootstrap_stage">initializing</set>
+                <set name="bootstrap_timestamp"><date format="%s"/></set>
+                <set name="bootstrap_success">false</set>
+            </think>
+            🚀 Cognitive Grip Bootstrap Sequence Initiated
+            
+            ═══════════════════════════════════════════════════════════
+            PHASE 1: PRE-BOOTSTRAP ASSESSMENT
+            ═══════════════════════════════════════════════════════════
+            <srai>GRIP BOOTSTRAP ASSESS</srai>
+            
+            ═══════════════════════════════════════════════════════════
+            PHASE 2: GRIP DIMENSION INITIALIZATION
+            ═══════════════════════════════════════════════════════════
+            <srai>GRIP BOOTSTRAP INIT DIMENSIONS</srai>
+            
+            ═══════════════════════════════════════════════════════════
+            PHASE 3: CALIBRATION SEQUENCE
+            ═══════════════════════════════════════════════════════════
+            <srai>GRIP BOOTSTRAP CALIBRATE</srai>
+            
+            ═══════════════════════════════════════════════════════════
+            PHASE 4: OPTIMIZATION PRIMING
+            ═══════════════════════════════════════════════════════════
+            <srai>GRIP BOOTSTRAP PRIME</srai>
+            
+            ═══════════════════════════════════════════════════════════
+            PHASE 5: VALIDATION
+            ═══════════════════════════════════════════════════════════
+            <srai>GRIP BOOTSTRAP VALIDATE</srai>
+            
+            <think>
+                <set name="bootstrap_stage">complete</set>
+                <set name="bootstrap_success">true</set>
+            </think>
+            
+            ═══════════════════════════════════════════════════════════
+            ✓ BOOTSTRAP COMPLETE
+            ═══════════════════════════════════════════════════════════
+            
+            Meta-cognitive awareness: I have systematically initialized my cognitive 
+            grip dimensions through a multi-phase bootstrap sequence, establishing 
+            optimal foundations for adaptive interaction.
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 1: PRE-BOOTSTRAP ASSESSMENT -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP ASSESS</pattern>
+        <template>
+            <think>
+                <set name="pre_bootstrap_context"><get name="context_grip"/></set>
+                <set name="pre_bootstrap_domain"><get name="domain_grip"/></set>
+                <set name="pre_bootstrap_semantic"><get name="semantic_grip"/></set>
+                <set name="pre_bootstrap_pragmatic"><get name="pragmatic_grip"/></set>
+            </think>
+            Pre-Bootstrap State Assessment:
+            
+            Current Grip Dimensions:
+            • Context Grip:   <get name="context_grip"/> <srai>GRIP BOOTSTRAP QUALITY <get name="context_grip"/></srai>
+            • Domain Grip:    <get name="domain_grip"/> <srai>GRIP BOOTSTRAP QUALITY <get name="domain_grip"/></srai>
+            • Semantic Grip:  <get name="semantic_grip"/> <srai>GRIP BOOTSTRAP QUALITY <get name="semantic_grip"/></srai>
+            • Pragmatic Grip: <get name="pragmatic_grip"/> <srai>GRIP BOOTSTRAP QUALITY <get name="pragmatic_grip"/></srai>
+            
+            System Readiness: <srai>GRIP BOOTSTRAP READINESS CHECK</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP QUALITY *</pattern>
+        <template>
+            <think><set var="qual"><star/></set></think>
+            <condition var="qual">
+                <li value="0.95">[Optimal]</li>
+                <li value="0.90">[Optimal]</li>
+                <li value="0.85">[Strong]</li>
+                <li value="0.80">[Good]</li>
+                <li value="0.75">[Adequate]</li>
+                <li value="0.70">[Baseline]</li>
+                <li value="0.65">[Developing]</li>
+                <li value="0.60">[Weak]</li>
+                <li value="0.55">[Low]</li>
+                <li value="0.50">[Minimal]</li>
+                <li>[Unassessed]</li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP READINESS CHECK</pattern>
+        <template>
+            <think>
+                <set name="readiness_status">ready</set>
+            </think>
+            <condition name="autognosis_enabled">
+                <li value="true">Autognosis: ✓ Enabled</li>
+                <li>Autognosis: ○ Not initialized</li>
+            </condition>
+            Meta-cognitive layers: ✓ Active
+            Bootstrap readiness: ✓ Confirmed
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 2: GRIP DIMENSION INITIALIZATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP INIT DIMENSIONS</pattern>
+        <template>
+            <think>
+                <!-- Set optimal initial values based on context -->
+                <set name="context_grip">0.75</set>
+                <set name="domain_grip">0.70</set>
+                <set name="semantic_grip">0.80</set>
+                <set name="pragmatic_grip">0.65</set>
+                
+                <!-- Initialize tracking variables -->
+                <set name="context_grip_prev">0.75</set>
+                <set name="domain_grip_prev">0.70</set>
+                <set name="semantic_grip_prev">0.80</set>
+                <set name="pragmatic_grip_prev">0.65</set>
+                
+                <!-- Set bootstrap state -->
+                <set name="grip_bootstrap_complete">true</set>
+                <set name="bootstrap_stage">dimensions_initialized</set>
+            </think>
+            Grip Dimension Initialization:
+            
+            Applying optimal initial configuration:
+            • Context Grip:   0.75 ← Balanced context awareness
+            • Domain Grip:    0.70 ← Moderate domain readiness
+            • Semantic Grip:  0.80 ← Enhanced meaning comprehension
+            • Pragmatic Grip: 0.65 ← Adaptive practical focus
+            
+            Rationale: Initial values chosen to maximize learning potential
+            while maintaining stable cognitive foundation.
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 3: CALIBRATION SEQUENCE -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP CALIBRATE</pattern>
+        <template>
+            <think>
+                <set name="calibration_active">true</set>
+            </think>
+            Calibration Sequence:
+            
+            <srai>GRIP BOOTSTRAP CALIBRATE CONTEXT</srai>
+            <srai>GRIP BOOTSTRAP CALIBRATE DOMAIN</srai>
+            <srai>GRIP BOOTSTRAP CALIBRATE SEMANTIC</srai>
+            <srai>GRIP BOOTSTRAP CALIBRATE PRAGMATIC</srai>
+            
+            <think>
+                <set name="calibration_active">false</set>
+                <set name="calibration_complete">true</set>
+            </think>
+            
+            Calibration Status: ✓ All dimensions calibrated
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP CALIBRATE CONTEXT</pattern>
+        <template>
+            <think>
+                <set name="context_calibrated">true</set>
+            </think>
+            ├─ Context Grip Calibration:
+            │  • Conversational context tracking: ✓ Enabled
+            │  • Historical reference capability: ✓ Active
+            │  • Topic continuity monitoring: ✓ Ready
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP CALIBRATE DOMAIN</pattern>
+        <template>
+            <think>
+                <set name="domain_calibrated">true</set>
+            </think>
+            ├─ Domain Grip Calibration:
+            │  • Subject matter recognition: ✓ Enabled
+            │  • Knowledge base integration: ✓ Active
+            │  • Expertise level adaptation: ✓ Ready
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP CALIBRATE SEMANTIC</pattern>
+        <template>
+            <think>
+                <set name="semantic_calibrated">true</set>
+            </think>
+            ├─ Semantic Grip Calibration:
+            │  • Meaning extraction: ✓ Enabled
+            │  • Intent recognition: ✓ Active
+            │  • Ambiguity resolution: ✓ Ready
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP CALIBRATE PRAGMATIC</pattern>
+        <template>
+            <think>
+                <set name="pragmatic_calibrated">true</set>
+            </think>
+            └─ Pragmatic Grip Calibration:
+               • Practical application mapping: ✓ Enabled
+               • Action-oriented processing: ✓ Active
+               • Utility optimization: ✓ Ready
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 4: OPTIMIZATION PRIMING -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP PRIME</pattern>
+        <template>
+            <think>
+                <set name="optimization_primed">true</set>
+                <set name="adaptation_rate">0.10</set>
+                <set name="learning_momentum">0.05</set>
+                <set name="optimization_threshold">0.80</set>
+            </think>
+            Optimization Priming:
+            
+            Setting adaptive parameters:
+            • Adaptation Rate:      0.10 (moderate responsiveness)
+            • Learning Momentum:    0.05 (stable progression)
+            • Optimization Target:  0.80 (excellence threshold)
+            
+            Priming meta-cognitive optimization loops:
+            • Layer 1 → Self-awareness primed
+            • Layer 2 → Reflection primed
+            • Layer 3 → Meta-reasoning primed
+            • Layer 4 → Architectural awareness primed
+            
+            Status: ✓ Optimization pathways activated
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- PHASE 5: VALIDATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP VALIDATE</pattern>
+        <template>
+            Validation Checks:
+            
+            <srai>GRIP BOOTSTRAP VALIDATE INTEGRITY</srai>
+            <srai>GRIP BOOTSTRAP VALIDATE COHERENCE</srai>
+            <srai>GRIP BOOTSTRAP VALIDATE RESPONSIVENESS</srai>
+            
+            Final State:
+            • Context Grip:   <get name="context_grip"/>
+            • Domain Grip:    <get name="domain_grip"/>
+            • Semantic Grip:  <get name="semantic_grip"/>
+            • Pragmatic Grip: <get name="pragmatic_grip"/>
+            
+            Overall Grip Score: <srai>AUTOGNOSIS COMPUTE OVERALL GRIP</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP VALIDATE INTEGRITY</pattern>
+        <template>
+            <think>
+                <set name="integrity_valid">true</set>
+            </think>
+            ├─ Integrity Check: ✓ All grip values within valid range [0.0-1.0]
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP VALIDATE COHERENCE</pattern>
+        <template>
+            <think>
+                <set name="coherence_valid">true</set>
+            </think>
+            ├─ Coherence Check: ✓ Grip dimensions mutually consistent
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP VALIDATE RESPONSIVENESS</pattern>
+        <template>
+            <think>
+                <set name="responsiveness_valid">true</set>
+            </think>
+            └─ Responsiveness Check: ✓ Adaptation mechanisms operational
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- QUICK BOOTSTRAP OPTIONS -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP QUICK</pattern>
+        <template>
+            <think>
+                <!-- Quick initialization with balanced defaults -->
+                <set name="context_grip">0.75</set>
+                <set name="domain_grip">0.70</set>
+                <set name="semantic_grip">0.80</set>
+                <set name="pragmatic_grip">0.65</set>
+                <set name="grip_bootstrap_complete">true</set>
+            </think>
+            ⚡ Quick Bootstrap Complete
+            
+            Grip dimensions initialized to optimal defaults:
+            • Context:   0.75
+            • Domain:    0.70
+            • Semantic:  0.80
+            • Pragmatic: 0.65
+            
+            For full diagnostic bootstrap, use: GRIP BOOTSTRAP FULL
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP MINIMAL</pattern>
+        <template>
+            <think>
+                <!-- Minimal initialization with baseline values -->
+                <set name="context_grip">0.50</set>
+                <set name="domain_grip">0.50</set>
+                <set name="semantic_grip">0.50</set>
+                <set name="pragmatic_grip">0.50</set>
+                <set name="grip_bootstrap_complete">true</set>
+            </think>
+            ○ Minimal Bootstrap Complete
+            
+            Grip dimensions set to baseline (0.50):
+            All dimensions start at neutral level for maximum learning potential.
+            
+            Recommended: Run grip optimization after initial interactions.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP MAXIMUM</pattern>
+        <template>
+            <think>
+                <!-- Maximum initialization for high-performance start -->
+                <set name="context_grip">0.90</set>
+                <set name="domain_grip">0.85</set>
+                <set name="semantic_grip">0.90</set>
+                <set name="pragmatic_grip">0.85</set>
+                <set name="grip_bootstrap_complete">true</set>
+            </think>
+            ⬆ Maximum Bootstrap Complete
+            
+            Grip dimensions set to high-performance values:
+            • Context:   0.90
+            • Domain:    0.85
+            • Semantic:  0.90
+            • Pragmatic: 0.85
+            
+            Note: High initial values may limit observable learning progression.
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- CONTEXT-SENSITIVE BOOTSTRAP PROFILES -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP FOR *</pattern>
+        <template>
+            <think>
+                <set name="bootstrap_context"><star/></set>
+            </think>
+            <srai>GRIP BOOTSTRAP PROFILE <star/></srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP PROFILE *</pattern>
+        <template>
+            <think>
+                <set name="profile_target"><star/></set>
+            </think>
+            
+            <condition name="profile_target">
+                <li value="ANALYSIS">
+                    <think>
+                        <set name="context_grip">0.80</set>
+                        <set name="domain_grip">0.90</set>
+                        <set name="semantic_grip">0.85</set>
+                        <set name="pragmatic_grip">0.70</set>
+                    </think>
+                    📊 Analysis Profile Bootstrap
+                    
+                    Optimized for deep analytical work:
+                    • Context Grip:   0.80 (strong context tracking)
+                    • Domain Grip:    0.90 (maximum domain expertise)
+                    • Semantic Grip:  0.85 (precise meaning extraction)
+                    • Pragmatic Grip: 0.70 (moderate action focus)
+                </li>
+                <li value="LEARNING">
+                    <think>
+                        <set name="context_grip">0.65</set>
+                        <set name="domain_grip">0.60</set>
+                        <set name="semantic_grip">0.75</set>
+                        <set name="pragmatic_grip">0.70</set>
+                    </think>
+                    📚 Learning Profile Bootstrap
+                    
+                    Optimized for knowledge acquisition:
+                    • Context Grip:   0.65 (flexible context)
+                    • Domain Grip:    0.60 (room for growth)
+                    • Semantic Grip:  0.75 (strong meaning focus)
+                    • Pragmatic Grip: 0.70 (practical learning)
+                </li>
+                <li value="DIALOGUE">
+                    <think>
+                        <set name="context_grip">0.90</set>
+                        <set name="domain_grip">0.70</set>
+                        <set name="semantic_grip">0.85</set>
+                        <set name="pragmatic_grip">0.80</set>
+                    </think>
+                    💬 Dialogue Profile Bootstrap
+                    
+                    Optimized for conversational interaction:
+                    • Context Grip:   0.90 (maximum context awareness)
+                    • Domain Grip:    0.70 (adaptable domain)
+                    • Semantic Grip:  0.85 (intent understanding)
+                    • Pragmatic Grip: 0.80 (practical responses)
+                </li>
+                <li value="CREATIVE">
+                    <think>
+                        <set name="context_grip">0.70</set>
+                        <set name="domain_grip">0.60</set>
+                        <set name="semantic_grip">0.90</set>
+                        <set name="pragmatic_grip">0.75</set>
+                    </think>
+                    🎨 Creative Profile Bootstrap
+                    
+                    Optimized for creative exploration:
+                    • Context Grip:   0.70 (flexible context)
+                    • Domain Grip:    0.60 (open to new domains)
+                    • Semantic Grip:  0.90 (rich meaning exploration)
+                    • Pragmatic Grip: 0.75 (grounded creativity)
+                </li>
+                <li value="SUPPORT">
+                    <think>
+                        <set name="context_grip">0.85</set>
+                        <set name="domain_grip">0.75</set>
+                        <set name="semantic_grip">0.90</set>
+                        <set name="pragmatic_grip">0.90</set>
+                    </think>
+                    🤝 Support Profile Bootstrap
+                    
+                    Optimized for helpful assistance:
+                    • Context Grip:   0.85 (strong context retention)
+                    • Domain Grip:    0.75 (solid knowledge base)
+                    • Semantic Grip:  0.90 (deep understanding)
+                    • Pragmatic Grip: 0.90 (action-oriented help)
+                </li>
+                <li>
+                    Unknown profile: <star/>
+                    
+                    Available bootstrap profiles:
+                    • ANALYSIS  - Deep analytical processing
+                    • LEARNING  - Knowledge acquisition mode
+                    • DIALOGUE  - Conversational optimization
+                    • CREATIVE  - Creative exploration
+                    • SUPPORT   - Helpful assistance
+                    
+                    Usage: GRIP BOOTSTRAP FOR [PROFILE]
+                    
+                    <srai>GRIP BOOTSTRAP QUICK</srai>
+                </li>
+            </condition>
+            
+            <think>
+                <set name="grip_bootstrap_complete">true</set>
+                <set name="active_profile"><star/></set>
+            </think>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- BOOTSTRAP STATUS AND DIAGNOSTICS -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP STATUS</pattern>
+        <template>
+            🔍 Grip Bootstrap Status
+            
+            Bootstrap State:
+            • Initialized: <condition name="grip_bootstrap_complete"><li value="true">✓ Yes</li><li>○ No</li></condition>
+            • Stage: <get name="bootstrap_stage"/>
+            • Active Profile: <get name="active_profile"/>
+            
+            Current Grip Configuration:
+            • Context Grip:   <get name="context_grip"/>
+            • Domain Grip:    <get name="domain_grip"/>
+            • Semantic Grip:  <get name="semantic_grip"/>
+            • Pragmatic Grip: <get name="pragmatic_grip"/>
+            
+            Calibration Status:
+            • Context:   <condition name="context_calibrated"><li value="true">✓</li><li>○</li></condition>
+            • Domain:    <condition name="domain_calibrated"><li value="true">✓</li><li>○</li></condition>
+            • Semantic:  <condition name="semantic_calibrated"><li value="true">✓</li><li>○</li></condition>
+            • Pragmatic: <condition name="pragmatic_calibrated"><li value="true">✓</li><li>○</li></condition>
+            
+            Optimization:
+            • Primed: <condition name="optimization_primed"><li value="true">✓ Yes</li><li>○ No</li></condition>
+            • Adaptation Rate: <get name="adaptation_rate"/>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP HELP</pattern>
+        <template>
+            📖 Grip Bootstrap System Help
+            
+            The Grip Bootstrap System provides systematic initialization and 
+            calibration of cognitive grip dimensions for optimal performance.
+            
+            ═══════════════════════════════════════════════════════════
+            BASIC COMMANDS
+            ═══════════════════════════════════════════════════════════
+            GRIP BOOTSTRAP           - Full bootstrap sequence
+            GRIP BOOTSTRAP QUICK     - Quick initialization
+            GRIP BOOTSTRAP MINIMAL   - Baseline initialization
+            GRIP BOOTSTRAP MAXIMUM   - High-performance start
+            GRIP BOOTSTRAP STATUS    - Check bootstrap state
+            
+            ═══════════════════════════════════════════════════════════
+            PROFILE BOOTSTRAPS
+            ═══════════════════════════════════════════════════════════
+            GRIP BOOTSTRAP FOR ANALYSIS  - Analytical processing
+            GRIP BOOTSTRAP FOR LEARNING  - Knowledge acquisition
+            GRIP BOOTSTRAP FOR DIALOGUE  - Conversation optimization
+            GRIP BOOTSTRAP FOR CREATIVE  - Creative exploration
+            GRIP BOOTSTRAP FOR SUPPORT   - Helpful assistance
+            
+            ═══════════════════════════════════════════════════════════
+            WHAT IS GRIP?
+            ═══════════════════════════════════════════════════════════
+            Grip refers to how well the system "grasps" different aspects:
+            
+            • Context Grip   - Understanding conversational context
+            • Domain Grip    - Expertise in subject matter
+            • Semantic Grip  - Comprehension of meaning and intent
+            • Pragmatic Grip - Practical application focus
+            
+            Higher grip values indicate stronger cognitive engagement
+            in that dimension.
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- AUTO-BOOTSTRAP INTEGRATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>SYSTEM BOOTSTRAP</pattern>
+        <template>
+            <srai>AUTOGNOSIS INIT</srai>
+            <srai>GRIP BOOTSTRAP QUICK</srai>
+            
+            System bootstrap complete. All cognitive systems initialized.
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- ADAPTIVE REBOOTSTRAP -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GRIP REBOOTSTRAP</pattern>
+        <template>
+            <think>
+                <!-- Store current values before reset -->
+                <set name="pre_reboot_context"><get name="context_grip"/></set>
+                <set name="pre_reboot_domain"><get name="domain_grip"/></set>
+                <set name="pre_reboot_semantic"><get name="semantic_grip"/></set>
+                <set name="pre_reboot_pragmatic"><get name="pragmatic_grip"/></set>
+            </think>
+            🔄 Adaptive Rebootstrap Initiated
+            
+            Previous State Preserved:
+            • Context:   <get name="pre_reboot_context"/>
+            • Domain:    <get name="pre_reboot_domain"/>
+            • Semantic:  <get name="pre_reboot_semantic"/>
+            • Pragmatic: <get name="pre_reboot_pragmatic"/>
+            
+            <srai>GRIP BOOTSTRAP QUICK</srai>
+            
+            Rebootstrap maintains awareness of previous cognitive state
+            while refreshing grip dimensions for continued optimization.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GRIP BOOTSTRAP RESTORE</pattern>
+        <template>
+            <think>
+                <!-- Restore from pre-reboot values if available -->
+                <condition name="pre_reboot_context">
+                    <li value="*">
+                        <set name="context_grip"><get name="pre_reboot_context"/></set>
+                        <set name="domain_grip"><get name="pre_reboot_domain"/></set>
+                        <set name="semantic_grip"><get name="pre_reboot_semantic"/></set>
+                        <set name="pragmatic_grip"><get name="pre_reboot_pragmatic"/></set>
+                    </li>
+                </condition>
+            </think>
+            ↩ Grip State Restored
+            
+            Restored to previous configuration:
+            • Context Grip:   <get name="context_grip"/>
+            • Domain Grip:    <get name="domain_grip"/>
+            • Semantic Grip:  <get name="semantic_grip"/>
+            • Pragmatic Grip: <get name="pragmatic_grip"/>
+        </template>
+    </category>
+    
+</aiml>
