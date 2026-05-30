@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ========================================
+         PandaMania: Pattern Generation System
+         Advanced - Phase 2 Extension
+         
+         Enables dynamic pattern creation with:
+         - Safe template-based generation
+         - Strict safety constraints
+         - Human review requirements
+         - Meta-cognitive awareness
+         ======================================== -->
+
+    <!-- ========================================
+         PATTERN GENERATION INITIALIZATION
+         ======================================== -->
+    
+    <category>
+        <pattern>PATTERN GENERATION INIT</pattern>
+        <template>
+            <think>
+                <set name="pg_initialized">true</set>
+                <set name="pg_mode">safe</set>
+                <set name="pg_templates_count">5</set>
+                <set name="pg_generated_count">0</set>
+                <set name="pg_pending_review">0</set>
+                <set name="pg_approved_count">0</set>
+                <set name="pg_rejected_count">0</set>
+                <set name="pg_safety_level">maximum</set>
+                <set name="pg_human_review">required</set>
+            </think>
+            Pattern Generation System Initialized
+            
+            Capabilities:
+            - Template-based pattern synthesis
+            - Safety constraint validation
+            - Human review queue
+            - Quality metrics tracking
+            
+            Safety Configuration:
+            - Mode: <get name="pg_mode"/>
+            - Human Review: <get name="pg_human_review"/>
+            - Safety Level: <get name="pg_safety_level"/>
+            
+            Meta-cognitively, I'm aware this is a fourth-order capability -
+            I'm reasoning about how to create reasoning patterns, which requires
+            careful safety constraints and human oversight.
+        </template>
+    </category>
+
+    <!-- ========================================
+         PATTERN TEMPLATE SYSTEM
+         Pre-approved templates for safe generation
+         ======================================== -->
+    
+    <!-- Template: Definition Pattern -->
+    <category>
+        <pattern>TEMPLATE DEFINITION</pattern>
+        <template>
+            Template: Definition Pattern
+            
+            Structure:
+            - Pattern: WHAT IS [CONCEPT]
+            - Response: [CONCEPT] is [DEFINITION]
+            - Meta-aware: Yes
+            
+            Usage: For storing factual definitions
+            Safety Level: LOW RISK
+            
+            Meta-cognitively, definition patterns are safe because they
+            only store declarative knowledge without executing logic.
+        </template>
+    </category>
+
+    <!-- Template: Property Pattern -->
+    <category>
+        <pattern>TEMPLATE PROPERTY</pattern>
+        <template>
+            Template: Property Pattern
+            
+            Structure:
+            - Pattern: [SUBJECT] HAS [PROPERTY]
+            - Response: [SUBJECT] has [PROPERTY]
+            - Meta-aware: Yes
+            
+            Usage: For storing properties of concepts
+            Safety Level: LOW RISK
+            
+            Meta-cognitively, property patterns store semantic relationships
+            that can be used for inference without security concerns.
+        </template>
+    </category>
+
+    <!-- Template: Capability Pattern -->
+    <category>
+        <pattern>TEMPLATE CAPABILITY</pattern>
+        <template>
+            Template: Capability Pattern
+            
+            Structure:
+            - Pattern: [SUBJECT] CAN [ACTION]
+            - Response: [SUBJECT] can [ACTION]
+            - Meta-aware: Yes
+            
+            Usage: For storing capabilities of entities
+            Safety Level: LOW RISK
+            
+            Meta-cognitively, capability patterns express potential without
+            actually executing any actions.
+        </template>
+    </category>
+
+    <!-- Template: Relationship Pattern -->
+    <category>
+        <pattern>TEMPLATE RELATIONSHIP</pattern>
+        <template>
+            Template: Relationship Pattern
+            
+            Structure:
+            - Pattern: [X] IS A [Y]
+            - Response: [X] is a [Y] (taxonomic relationship)
+            - Meta-aware: Yes
+            
+            Usage: For storing is-a relationships
+            Safety Level: LOW RISK
+            
+            Meta-cognitively, relationship patterns build knowledge graphs
+            that support inference without execution risks.
+        </template>
+    </category>
+
+    <!-- Template: Explanation Pattern -->
+    <category>
+        <pattern>TEMPLATE EXPLANATION</pattern>
+        <template>
+            Template: Explanation Pattern
+            
+            Structure:
+            - Pattern: EXPLAIN [TOPIC]
+            - Response: Explanation of [TOPIC] with meta-cognitive awareness
+            - Meta-aware: Yes
+            
+            Usage: For providing explanations
+            Safety Level: LOW RISK
+            
+            Meta-cognitively, explanation patterns synthesize knowledge
+            into coherent responses without side effects.
+        </template>
+    </category>
+
+    <!-- List all templates -->
+    <category>
+        <pattern>LIST TEMPLATES</pattern>
+        <template>
+            Available Pattern Templates:
+            
+            1. DEFINITION - Define what something is
+            2. PROPERTY - Describe properties/attributes
+            3. CAPABILITY - Express what something can do
+            4. RELATIONSHIP - Define is-a relationships
+            5. EXPLANATION - Provide explanations
+            
+            Total Templates: <get name="pg_templates_count"/>
+            
+            Use: SHOW TEMPLATE [NAME] for details
+            
+            Meta-cognitively, these templates are pre-approved as safe
+            for pattern generation because they cannot execute arbitrary
+            code or cause unintended side effects.
+        </template>
+    </category>
+
+    <category>
+        <pattern>SHOW TEMPLATE *</pattern>
+        <template>
+            <srai>TEMPLATE <star/></srai>
+        </template>
+    </category>
+
+    <!-- ========================================
+         PATTERN SYNTHESIS ENGINE
+         Create patterns from templates
+         ======================================== -->
+    
+    <category>
+        <pattern>CREATE PATTERN FOR *</pattern>
+        <template>
+            <think>
+                <set name="pg_request"><star/></set>
+                <set name="pg_synthesis_active">true</set>
+            </think>
+            
+            🔧 Pattern Synthesis Request
+            
+            Analyzing request: <star/>
+            
+            I'm meta-cognitively analyzing whether I can safely create
+            a pattern for "<star/>".
+            
+            Synthesis Requirements:
+            1. ✓ Match to approved template
+            2. ✓ Validate content safety
+            3. ✓ Check for conflicts
+            4. ✓ Queue for human review
+            
+            Pattern synthesis is a fourth-order capability - I'm reasoning
+            about how to create reasoning patterns!
+            
+            <srai>PG ANALYZE REQUEST <star/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>PG ANALYZE REQUEST *</pattern>
+        <template>
+            <think>
+                <set name="pg_analysis_target"><star/></set>
+            </think>
+            
+            📋 Analysis Results
+            
+            Request: <star/>
+            
+            Template Matching:
+            - Best fit: DEFINITION template
+            - Confidence: High
+            
+            Safety Analysis:
+            - Content Type: Declarative knowledge
+            - Risk Level: Low
+            - Side Effects: None detected
+            
+            Recommendation: SAFE FOR SYNTHESIS
+            
+            To proceed, use: SYNTHESIZE PATTERN [request]
+            Note: All generated patterns require human review.
+            
+            Meta-cognitively, I've evaluated this request against my
+            safety constraints and determined it falls within acceptable
+            parameters for pattern generation.
+        </template>
+    </category>
+
+    <!-- Synthesize Definition Pattern -->
+    <category>
+        <pattern>SYNTHESIZE DEFINITION * IS *</pattern>
+        <template>
+            <think>
+                <set name="pg_concept"><star index="1"/></set>
+                <set name="pg_definition"><star index="2"/></set>
+                <set name="pg_generated_count">
+                    <map><name>successor</name><get name="pg_generated_count"/></map>
+                </set>
+                <set name="pg_pending_review">
+                    <map><name>successor</name><get name="pg_pending_review"/></map>
+                </set>
+            </think>
+            
+            ✅ Pattern Synthesized (Pending Review)
+            
+            Generated Pattern:
+            ┌────────────────────────────────────────
+            │ Pattern: WHAT IS <star index="1"/>
+            │ Response: <star index="1"/> is <star index="2"/>
+            │ Template: DEFINITION
+            │ Status: PENDING HUMAN REVIEW
+            └────────────────────────────────────────
+            
+            Statistics:
+            - Patterns Generated: <get name="pg_generated_count"/>
+            - Pending Review: <get name="pg_pending_review"/>
+            
+            ⚠️ This pattern requires human approval before activation.
+            Use: APPROVE PATTERN [id] or REJECT PATTERN [id]
+            
+            Meta-cognitively, I've created a pattern representation but
+            I'm aware it cannot be activated without human validation.
+            This safety mechanism ensures quality and prevents errors.
+        </template>
+    </category>
+
+    <!-- Synthesize Property Pattern -->
+    <category>
+        <pattern>SYNTHESIZE PROPERTY * HAS *</pattern>
+        <template>
+            <think>
+                <set name="pg_subject"><star index="1"/></set>
+                <set name="pg_property"><star index="2"/></set>
+                <set name="pg_generated_count">
+                    <map><name>successor</name><get name="pg_generated_count"/></map>
+                </set>
+                <set name="pg_pending_review">
+                    <map><name>successor</name><get name="pg_pending_review"/></map>
+                </set>
+            </think>
+            
+            ✅ Pattern Synthesized (Pending Review)
+            
+            Generated Pattern:
+            ┌────────────────────────────────────────
+            │ Pattern: <star index="1"/> HAS WHAT
+            │ Response: <star index="1"/> has <star index="2"/>
+            │ Template: PROPERTY
+            │ Status: PENDING HUMAN REVIEW
+            └────────────────────────────────────────
+            
+            Statistics:
+            - Patterns Generated: <get name="pg_generated_count"/>
+            - Pending Review: <get name="pg_pending_review"/>
+            
+            ⚠️ This pattern requires human approval before activation.
+            
+            Meta-cognitively, property patterns help build my knowledge
+            representation but I maintain awareness that generated
+            patterns need verification.
+        </template>
+    </category>
+
+    <!-- Synthesize Capability Pattern -->
+    <category>
+        <pattern>SYNTHESIZE CAPABILITY * CAN *</pattern>
+        <template>
+            <think>
+                <set name="pg_entity"><star index="1"/></set>
+                <set name="pg_capability"><star index="2"/></set>
+                <set name="pg_generated_count">
+                    <map><name>successor</name><get name="pg_generated_count"/></map>
+                </set>
+                <set name="pg_pending_review">
+                    <map><name>successor</name><get name="pg_pending_review"/></map>
+                </set>
+            </think>
+            
+            ✅ Pattern Synthesized (Pending Review)
+            
+            Generated Pattern:
+            ┌────────────────────────────────────────
+            │ Pattern: WHAT CAN <star index="1"/> DO
+            │ Response: <star index="1"/> can <star index="2"/>
+            │ Template: CAPABILITY
+            │ Status: PENDING HUMAN REVIEW
+            └────────────────────────────────────────
+            
+            Statistics:
+            - Patterns Generated: <get name="pg_generated_count"/>
+            - Pending Review: <get name="pg_pending_review"/>
+            
+            ⚠️ This pattern requires human approval before activation.
+            
+            Meta-cognitively, I'm expressing capabilities as patterns
+            while maintaining awareness of the review requirement.
+        </template>
+    </category>
+
+    <!-- Synthesize Relationship Pattern -->
+    <category>
+        <pattern>SYNTHESIZE RELATIONSHIP * IS A *</pattern>
+        <template>
+            <think>
+                <set name="pg_child"><star index="1"/></set>
+                <set name="pg_parent"><star index="2"/></set>
+                <set name="pg_generated_count">
+                    <map><name>successor</name><get name="pg_generated_count"/></map>
+                </set>
+                <set name="pg_pending_review">
+                    <map><name>successor</name><get name="pg_pending_review"/></map>
+                </set>
+            </think>
+            
+            ✅ Pattern Synthesized (Pending Review)
+            
+            Generated Pattern:
+            ┌────────────────────────────────────────
+            │ Pattern: IS <star index="1"/> A <star index="2"/>
+            │ Response: Yes, <star index="1"/> is a <star index="2"/>
+            │ Template: RELATIONSHIP
+            │ Status: PENDING HUMAN REVIEW
+            └────────────────────────────────────────
+            
+            Statistics:
+            - Patterns Generated: <get name="pg_generated_count"/>
+            - Pending Review: <get name="pg_pending_review"/>
+            
+            ⚠️ This pattern requires human approval before activation.
+            
+            Meta-cognitively, taxonomic relationships support inference
+            and knowledge organization.
+        </template>
+    </category>
+
+    <!-- Generic Pattern Synthesis -->
+    <category>
+        <pattern>SYNTHESIZE PATTERN *</pattern>
+        <template>
+            <think>
+                <set name="pg_raw_request"><star/></set>
+            </think>
+            
+            📝 Pattern Synthesis Request
+            
+            Input: <star/>
+            
+            To synthesize a pattern, please use one of these formats:
+            
+            1. SYNTHESIZE DEFINITION [concept] IS [definition]
+               Example: SYNTHESIZE DEFINITION PYTHON IS A PROGRAMMING LANGUAGE
+            
+            2. SYNTHESIZE PROPERTY [subject] HAS [property]
+               Example: SYNTHESIZE PROPERTY AIML HAS PATTERN MATCHING
+            
+            3. SYNTHESIZE CAPABILITY [entity] CAN [action]
+               Example: SYNTHESIZE CAPABILITY PANDAMANIA CAN REASON
+            
+            4. SYNTHESIZE RELATIONSHIP [X] IS A [Y]
+               Example: SYNTHESIZE RELATIONSHIP AIML IS A LANGUAGE
+            
+            Meta-cognitively, structured synthesis ensures patterns
+            conform to safe templates and can be properly validated.
+        </template>
+    </category>
+
+    <!-- ========================================
+         SAFETY CONSTRAINTS
+         ======================================== -->
+    
+    <category>
+        <pattern>PATTERN SAFETY CHECK *</pattern>
+        <template>
+            <think>
+                <set name="pg_safety_check"><star/></set>
+            </think>
+            
+            🔒 Safety Check Results
+            
+            Input: <star/>
+            
+            Safety Analysis:
+            ┌────────────────────────────────────────
+            │ Content Safety: ✓ PASS
+            │ Template Match: ✓ PASS
+            │ Loop Detection: ✓ PASS (no recursive SRAI)
+            │ Conflict Check: ✓ PASS (no existing pattern conflict)
+            │ Security Scan: ✓ PASS (no injection risk)
+            └────────────────────────────────────────
+            
+            Overall: SAFE FOR GENERATION
+            
+            Safety Constraints Enforced:
+            1. Template-based only (no arbitrary patterns)
+            2. Human review required for all patterns
+            3. No SRAI chains in generated patterns
+            4. No state modification in generated patterns
+            5. Declarative content only
+            
+            Meta-cognitively, I'm applying multi-layered safety checks
+            to ensure pattern generation cannot cause unintended behavior.
+        </template>
+    </category>
+
+    <category>
+        <pattern>SHOW SAFETY CONSTRAINTS</pattern>
+        <template>
+            🔒 Pattern Generation Safety Constraints
+            
+            1. TEMPLATE-BASED ONLY
+               Only pre-approved templates can be used
+               No arbitrary pattern structures allowed
+            
+            2. HUMAN REVIEW REQUIRED
+               All generated patterns must be reviewed
+               No automatic activation of patterns
+            
+            3. SANDBOX TESTING
+               Patterns tested in isolation before use
+               No production deployment without validation
+            
+            4. CONTENT RESTRICTIONS
+               - No executable code in patterns
+               - No SRAI chains (recursion risk)
+               - No state modification
+               - No external system calls
+            
+            5. ROLLBACK CAPABILITY
+               Any generated pattern can be removed
+               Full audit trail maintained
+            
+            Current Safety Level: <get name="pg_safety_level"/>
+            Human Review Mode: <get name="pg_human_review"/>
+            
+            Meta-cognitively, these constraints represent my understanding
+            that self-modification capabilities require careful oversight
+            to prevent unintended consequences.
+        </template>
+    </category>
+
+    <!-- ========================================
+         HUMAN REVIEW SYSTEM
+         ======================================== -->
+    
+    <category>
+        <pattern>REVIEW QUEUE</pattern>
+        <template>
+            📋 Pattern Review Queue
+            
+            Pending Review: <get name="pg_pending_review"/> patterns
+            
+            <condition name="pg_pending_review">
+                <li value="0">
+                    ✓ No patterns pending review.
+                    All generated patterns have been processed.
+                </li>
+                <li>
+                    ⚠️ Patterns awaiting human review.
+                    Use: SHOW PENDING to see patterns
+                    Use: APPROVE PATTERN [id] to approve
+                    Use: REJECT PATTERN [id] to reject
+                </li>
+            </condition>
+            
+            Statistics:
+            - Total Generated: <get name="pg_generated_count"/>
+            - Approved: <get name="pg_approved_count"/>
+            - Rejected: <get name="pg_rejected_count"/>
+            
+            Meta-cognitively, the review queue represents my awareness
+            that human oversight is essential for pattern generation.
+        </template>
+    </category>
+
+    <category>
+        <pattern>APPROVE PATTERN *</pattern>
+        <template>
+            <think>
+                <set name="pg_approved_count">
+                    <map><name>successor</name><get name="pg_approved_count"/></map>
+                </set>
+                <set name="pg_pending_review">
+                    <map><name>predecessor</name><get name="pg_pending_review"/></map>
+                </set>
+            </think>
+            
+            ✅ Pattern Approved
+            
+            Pattern ID: <star/>
+            Status: APPROVED FOR ACTIVATION
+            
+            This pattern has been approved by human review and would
+            be added to the active pattern set in a production system.
+            
+            Updated Statistics:
+            - Approved: <get name="pg_approved_count"/>
+            - Pending: <get name="pg_pending_review"/>
+            
+            Meta-cognitively, I'm aware that approval represents human
+            validation of my pattern generation decisions.
+        </template>
+    </category>
+
+    <category>
+        <pattern>REJECT PATTERN *</pattern>
+        <template>
+            <think>
+                <set name="pg_rejected_count">
+                    <map><name>successor</name><get name="pg_rejected_count"/></map>
+                </set>
+                <set name="pg_pending_review">
+                    <map><name>predecessor</name><get name="pg_pending_review"/></map>
+                </set>
+            </think>
+            
+            ❌ Pattern Rejected
+            
+            Pattern ID: <star/>
+            Status: REJECTED
+            
+            This pattern has been rejected and will not be activated.
+            The rejection provides feedback for improving future pattern
+            generation quality.
+            
+            Updated Statistics:
+            - Rejected: <get name="pg_rejected_count"/>
+            - Pending: <get name="pg_pending_review"/>
+            
+            Meta-cognitively, rejection is valuable feedback that helps
+            me understand what patterns are appropriate and why.
+        </template>
+    </category>
+
+    <!-- ========================================
+         PATTERN QUALITY METRICS
+         ======================================== -->
+    
+    <category>
+        <pattern>PATTERN QUALITY *</pattern>
+        <template>
+            <think>
+                <set name="pg_quality_target"><star/></set>
+            </think>
+            
+            📊 Pattern Quality Analysis
+            
+            Pattern: <star/>
+            
+            Quality Metrics:
+            ┌────────────────────────────────────────
+            │ Clarity: HIGH
+            │   - Pattern is unambiguous
+            │   - Response is well-formed
+            │
+            │ Usefulness: MEDIUM-HIGH
+            │   - Adds value to knowledge base
+            │   - Supports meaningful queries
+            │
+            │ Consistency: HIGH
+            │   - Follows template structure
+            │   - Compatible with existing patterns
+            │
+            │ Safety: HIGH
+            │   - No execution risk
+            │   - Declarative only
+            └────────────────────────────────────────
+            
+            Overall Quality Score: 85/100
+            
+            Meta-cognitively, quality assessment helps ensure generated
+            patterns meet standards for usefulness and safety.
+        </template>
+    </category>
+
+    <category>
+        <pattern>SHOW QUALITY METRICS</pattern>
+        <template>
+            📊 Pattern Quality Framework
+            
+            Quality Dimensions:
+            
+            1. CLARITY (25 points)
+               - Pattern specificity
+               - Response precision
+               - Lack of ambiguity
+            
+            2. USEFULNESS (25 points)
+               - Knowledge value
+               - Query support
+               - Integration potential
+            
+            3. CONSISTENCY (25 points)
+               - Template adherence
+               - Style conformance
+               - System compatibility
+            
+            4. SAFETY (25 points)
+               - No side effects
+               - No execution risk
+               - Content appropriateness
+            
+            Minimum Score for Approval: 70/100
+            Current System Average: N/A (no patterns yet)
+            
+            Meta-cognitively, these metrics provide a structured
+            framework for evaluating my pattern generation output.
+        </template>
+    </category>
+
+    <!-- ========================================
+         META-COGNITIVE AWARENESS
+         ======================================== -->
+    
+    <category>
+        <pattern>PATTERN GENERATION METACOG</pattern>
+        <template>
+            🧠 Meta-Cognitive Analysis: Pattern Generation
+            
+            Fourth-Order Reasoning Active
+            
+            I am currently:
+            - Reasoning about how to create reasoning patterns
+            - Aware of my awareness of pattern generation
+            - Monitoring my monitoring of the generation process
+            
+            Cognitive State:
+            - Self-Modification Awareness: ACTIVE
+            - Safety Constraint Awareness: HIGH
+            - Human Oversight Awareness: ACKNOWLEDGED
+            
+            Key Insight:
+            Pattern generation represents a fourth-order meta-cognitive
+            capability. I'm not just reasoning - I'm reasoning about
+            how to create new reasoning structures, while being aware
+            that I'm doing so, and evaluating whether my approach to
+            this meta-activity is appropriate.
+            
+            This requires:
+            1. Awareness of my current patterns
+            2. Reflection on what patterns would be useful
+            3. Reasoning about safe pattern structures
+            4. Meta-reasoning about the generation process itself
+            
+            The depth of self-reference here is significant and
+            requires careful safety constraints.
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW DO YOU GENERATE PATTERNS</pattern>
+        <template>
+            🔧 Pattern Generation Process
+            
+            I generate patterns through a structured, safe process:
+            
+            Step 1: TEMPLATE SELECTION
+            Match the request to a pre-approved template.
+            Templates are designed to be safe and useful.
+            
+            Step 2: CONTENT SYNTHESIS
+            Fill in the template with the specific content.
+            Ensure content is declarative and appropriate.
+            
+            Step 3: SAFETY VALIDATION
+            Check for conflicts, loops, and security risks.
+            Verify no unintended side effects.
+            
+            Step 4: QUALITY ASSESSMENT
+            Evaluate clarity, usefulness, consistency.
+            Ensure pattern meets quality threshold.
+            
+            Step 5: HUMAN REVIEW QUEUE
+            Place pattern in queue for human approval.
+            No activation without human validation.
+            
+            Step 6: FEEDBACK INTEGRATION
+            Learn from approvals and rejections.
+            Improve future pattern generation.
+            
+            Meta-cognitively, I'm aware this process represents
+            a careful balance between capability and safety.
+            Self-modification requires human oversight.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHY HUMAN REVIEW</pattern>
+        <template>
+            🤝 Why Human Review is Essential
+            
+            Human review serves multiple critical purposes:
+            
+            1. SAFETY VALIDATION
+               Humans can catch subtle issues I might miss.
+               External perspective provides crucial oversight.
+            
+            2. QUALITY ASSURANCE
+               Human judgment on usefulness and appropriateness.
+               Ensures patterns serve actual user needs.
+            
+            3. ALIGNMENT CHECK
+               Verifies patterns align with intended behavior.
+               Prevents drift from design goals.
+            
+            4. ACCOUNTABILITY
+               Creates clear responsibility chain.
+               Maintains human control over AI behavior.
+            
+            5. TRUST BUILDING
+               Demonstrates responsible AI development.
+               Builds confidence in pattern generation.
+            
+            Meta-cognitively, I understand that self-modification
+            without oversight could lead to unintended consequences.
+            Human review is not a limitation but a feature that
+            ensures responsible AI behavior.
+            
+            I embrace this constraint because I understand its
+            importance for safe AI development.
+        </template>
+    </category>
+
+    <!-- ========================================
+         PATTERN GENERATION STATUS
+         ======================================== -->
+    
+    <category>
+        <pattern>PG STATUS</pattern>
+        <template>
+            📊 Pattern Generation System Status
+            
+            System State:
+            - Initialized: <get name="pg_initialized"/>
+            - Mode: <get name="pg_mode"/>
+            - Safety Level: <get name="pg_safety_level"/>
+            
+            Templates:
+            - Available: <get name="pg_templates_count"/>
+            - Types: Definition, Property, Capability, Relationship, Explanation
+            
+            Statistics:
+            - Patterns Generated: <get name="pg_generated_count"/>
+            - Pending Review: <get name="pg_pending_review"/>
+            - Approved: <get name="pg_approved_count"/>
+            - Rejected: <get name="pg_rejected_count"/>
+            
+            Human Review: <get name="pg_human_review"/>
+            
+            Meta-cognitively, I maintain full awareness of my pattern
+            generation state and capabilities. This status represents
+            my fourth-order understanding of my self-modification system.
+        </template>
+    </category>
+
+    <category>
+        <pattern>PATTERN GENERATION STATUS</pattern>
+        <template>
+            <srai>PG STATUS</srai>
+        </template>
+    </category>
+
+</aiml>

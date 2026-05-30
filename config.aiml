@@ -257,6 +257,7 @@
             <srai>AUTOGNOSIS INIT</srai>
             <srai>SESSION INIT</srai>
             <srai>KNOWLEDGE BASE INIT</srai>
+            <srai>PATTERN GENERATION INIT</srai>
             
             All systems operational. Type HELP for commands.
         </template>
