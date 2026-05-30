@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ========================================
+         PandaMania: Pattern Generation Commands
+         User-facing commands for pattern generation
+         ======================================== -->
+
+    <!-- ========================================
+         HELP AND USAGE
+         ======================================== -->
+    
+    <category>
+        <pattern>PATTERN GENERATION HELP</pattern>
+        <template>
+            📖 Pattern Generation System Help
+            
+            Overview:
+            The Pattern Generation System enables me to create new
+            AIML patterns dynamically, with safety constraints and
+            human oversight.
+            
+            ═══════════════════════════════════════
+            BASIC COMMANDS
+            ═══════════════════════════════════════
+            
+            PG STATUS
+              View system status and statistics
+            
+            LIST TEMPLATES
+              Show available pattern templates
+            
+            SHOW TEMPLATE [name]
+              View details of a specific template
+            
+            ═══════════════════════════════════════
+            PATTERN SYNTHESIS
+            ═══════════════════════════════════════
+            
+            CREATE PATTERN FOR [topic]
+              Analyze if a pattern can be created
+            
+            SYNTHESIZE DEFINITION [X] IS [Y]
+              Create a definition pattern
+            
+            SYNTHESIZE PROPERTY [X] HAS [Y]
+              Create a property pattern
+            
+            SYNTHESIZE CAPABILITY [X] CAN [Y]
+              Create a capability pattern
+            
+            SYNTHESIZE RELATIONSHIP [X] IS A [Y]
+              Create a relationship pattern
+            
+            ═══════════════════════════════════════
+            REVIEW SYSTEM
+            ═══════════════════════════════════════
+            
+            REVIEW QUEUE
+              View patterns pending review
+            
+            APPROVE PATTERN [id]
+              Approve a pattern for activation
+            
+            REJECT PATTERN [id]
+              Reject a generated pattern
+            
+            ═══════════════════════════════════════
+            SAFETY AND QUALITY
+            ═══════════════════════════════════════
+            
+            SHOW SAFETY CONSTRAINTS
+              View all safety constraints
+            
+            PATTERN SAFETY CHECK [input]
+              Run safety check on input
+            
+            SHOW QUALITY METRICS
+              View quality assessment framework
+            
+            PATTERN QUALITY [pattern]
+              Assess quality of a pattern
+            
+            ═══════════════════════════════════════
+            META-COGNITIVE
+            ═══════════════════════════════════════
+            
+            PATTERN GENERATION METACOG
+              View meta-cognitive analysis
+            
+            HOW DO YOU GENERATE PATTERNS
+              Understand the generation process
+            
+            WHY HUMAN REVIEW
+              Learn why human oversight matters
+            
+            Meta-cognitively, this help system demonstrates my
+            awareness of my own capabilities and limitations in
+            pattern generation.
+        </template>
+    </category>
+
+    <category>
+        <pattern>PG HELP</pattern>
+        <template>
+            <srai>PATTERN GENERATION HELP</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HELP PATTERN GENERATION</pattern>
+        <template>
+            <srai>PATTERN GENERATION HELP</srai>
+        </template>
+    </category>
+
+    <!-- ========================================
+         QUICK ACCESS COMMANDS
+         ======================================== -->
+    
+    <category>
+        <pattern>GENERATE PATTERN *</pattern>
+        <template>
+            <srai>CREATE PATTERN FOR <star/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>NEW PATTERN *</pattern>
+        <template>
+            <srai>CREATE PATTERN FOR <star/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>MAKE PATTERN *</pattern>
+        <template>
+            <srai>CREATE PATTERN FOR <star/></srai>
+        </template>
+    </category>
+
+    <!-- Definition shortcuts -->
+    <category>
+        <pattern>DEFINE * AS *</pattern>
+        <template>
+            <srai>SYNTHESIZE DEFINITION <star index="1"/> IS <star index="2"/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* MEANS *</pattern>
+        <template>
+            <srai>SYNTHESIZE DEFINITION <star index="1"/> IS <star index="2"/></srai>
+        </template>
+    </category>
+
+    <!-- Property shortcuts -->
+    <category>
+        <pattern>* HAS PROPERTY *</pattern>
+        <template>
+            <srai>SYNTHESIZE PROPERTY <star index="1"/> HAS <star index="2"/></srai>
+        </template>
+    </category>
+
+    <!-- Capability shortcuts -->
+    <category>
+        <pattern>* IS ABLE TO *</pattern>
+        <template>
+            <srai>SYNTHESIZE CAPABILITY <star index="1"/> CAN <star index="2"/></srai>
+        </template>
+    </category>
+
+    <!-- Relationship shortcuts -->
+    <category>
+        <pattern>* IS TYPE OF *</pattern>
+        <template>
+            <srai>SYNTHESIZE RELATIONSHIP <star index="1"/> IS A <star index="2"/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* IS KIND OF *</pattern>
+        <template>
+            <srai>SYNTHESIZE RELATIONSHIP <star index="1"/> IS A <star index="2"/></srai>
+        </template>
+    </category>
+
+    <!-- ========================================
+         BATCH OPERATIONS
+         ======================================== -->
+    
+    <category>
+        <pattern>CLEAR PENDING PATTERNS</pattern>
+        <template>
+            <think>
+                <set name="pg_pending_review">0</set>
+            </think>
+            
+            🗑️ Pending Patterns Cleared
+            
+            All pending patterns have been removed from the review queue.
+            
+            New Statistics:
+            - Pending Review: <get name="pg_pending_review"/>
+            - Total Generated: <get name="pg_generated_count"/>
+            
+            Meta-cognitively, clearing pending patterns represents a
+            deliberate decision to reset the review state.
+        </template>
+    </category>
+
+    <category>
+        <pattern>RESET PATTERN GENERATION</pattern>
+        <template>
+            <think>
+                <set name="pg_generated_count">0</set>
+                <set name="pg_pending_review">0</set>
+                <set name="pg_approved_count">0</set>
+                <set name="pg_rejected_count">0</set>
+            </think>
+            
+            🔄 Pattern Generation System Reset
+            
+            All statistics have been reset:
+            - Generated: 0
+            - Pending: 0
+            - Approved: 0
+            - Rejected: 0
+            
+            The system is ready for fresh pattern generation.
+            
+            Meta-cognitively, reset provides a clean state for
+            testing and development purposes.
+        </template>
+    </category>
+
+    <!-- ========================================
+         PATTERN EXPLORATION
+         ======================================== -->
+    
+    <category>
+        <pattern>EXAMPLE PATTERNS</pattern>
+        <template>
+            📝 Example Pattern Synthesis
+            
+            Here are example commands for each template type:
+            
+            DEFINITION:
+            SYNTHESIZE DEFINITION PYTHON IS A HIGH LEVEL PROGRAMMING LANGUAGE
+            
+            PROPERTY:
+            SYNTHESIZE PROPERTY AIML HAS PATTERN MATCHING CAPABILITY
+            
+            CAPABILITY:
+            SYNTHESIZE CAPABILITY PANDAMANIA CAN PERFORM META COGNITIVE REASONING
+            
+            RELATIONSHIP:
+            SYNTHESIZE RELATIONSHIP PYTHON IS A PROGRAMMING LANGUAGE
+            
+            Try one of these examples to see pattern generation in action!
+            
+            Meta-cognitively, examples help demonstrate the proper
+            structure for pattern synthesis requests.
+        </template>
+    </category>
+
+    <category>
+        <pattern>SHOW EXAMPLES</pattern>
+        <template>
+            <srai>EXAMPLE PATTERNS</srai>
+        </template>
+    </category>
+
+    <!-- ========================================
+         SYSTEM INTEGRATION
+         ======================================== -->
+    
+    <category>
+        <pattern>PATTERN GENERATION AND KNOWLEDGE BASE</pattern>
+        <template>
+            🔗 Pattern Generation + Knowledge Base Integration
+            
+            The Pattern Generation System works with the Knowledge Base:
+            
+            1. KNOWLEDGE → PATTERNS
+               Facts in the KB can inspire new patterns
+               Example: A stored fact about PYTHON can become
+               a WHAT IS PYTHON pattern
+            
+            2. PATTERNS → KNOWLEDGE
+               Generated patterns encode knowledge
+               When approved, they expand what I can express
+            
+            3. BIDIRECTIONAL ENHANCEMENT
+               KB provides content for patterns
+               Patterns provide structure for KB queries
+            
+            Integration Commands:
+            - KB STATUS - View knowledge base
+            - PG STATUS - View pattern generation
+            
+            Meta-cognitively, this integration represents synergy
+            between declarative knowledge and procedural patterns.
+        </template>
+    </category>
+
+    <category>
+        <pattern>PATTERN GENERATION AND LEARNING</pattern>
+        <template>
+            🔗 Pattern Generation + Session Learning Integration
+            
+            Pattern Generation enhances Session Learning:
+            
+            1. LEARN FROM PATTERNS
+               Approved patterns expand my capabilities
+               Each pattern represents learned behavior
+            
+            2. PATTERN FROM LEARNING
+               Session facts can become permanent patterns
+               Repeated user interactions suggest patterns
+            
+            3. ADAPTIVE PATTERNS
+               User preferences guide pattern selection
+               High-frequency queries suggest needed patterns
+            
+            Integration:
+            - SESSION STATUS - View session learning
+            - PG STATUS - View pattern generation
+            
+            Meta-cognitively, this connection allows learning to
+            become permanent through pattern generation.
+        </template>
+    </category>
+
+    <!-- ========================================
+         ADVANCED FEATURES
+         ======================================== -->
+    
+    <category>
+        <pattern>PATTERN GENERATION MODE *</pattern>
+        <template>
+            <condition>
+                <li value="safe">
+                    <think><set name="pg_mode">safe</set></think>
+                    ✓ Mode set to SAFE
+                    - Only template-based patterns
+                    - All safety constraints active
+                    - Human review required
+                </li>
+                <li value="strict">
+                    <think>
+                        <set name="pg_mode">strict</set>
+                        <set name="pg_safety_level">maximum</set>
+                    </think>
+                    ✓ Mode set to STRICT
+                    - Enhanced safety constraints
+                    - Additional validation
+                    - Human review required
+                </li>
+                <li>
+                    Available modes: SAFE, STRICT
+                    Current mode: <get name="pg_mode"/>
+                    
+                    Use: PATTERN GENERATION MODE [mode]
+                </li>
+            </condition>
+            
+            Meta-cognitively, mode selection reflects my awareness
+            of different safety levels for pattern generation.
+        </template>
+    </category>
+
+    <category>
+        <pattern>SET PG MODE *</pattern>
+        <template>
+            <srai>PATTERN GENERATION MODE <star/></srai>
+        </template>
+    </category>
+
+    <!-- ========================================
+         DIAGNOSTIC COMMANDS
+         ======================================== -->
+    
+    <category>
+        <pattern>PG DIAGNOSTIC</pattern>
+        <template>
+            🔧 Pattern Generation Diagnostic
+            
+            Running comprehensive check...
+            
+            ✓ System Initialized: <get name="pg_initialized"/>
+            ✓ Mode: <get name="pg_mode"/>
+            ✓ Safety Level: <get name="pg_safety_level"/>
+            ✓ Human Review: <get name="pg_human_review"/>
+            ✓ Templates Available: <get name="pg_templates_count"/>
+            
+            Statistics Check:
+            ✓ Generated: <get name="pg_generated_count"/>
+            ✓ Pending: <get name="pg_pending_review"/>
+            ✓ Approved: <get name="pg_approved_count"/>
+            ✓ Rejected: <get name="pg_rejected_count"/>
+            
+            Template System: OPERATIONAL
+            Safety Constraints: ACTIVE
+            Review System: ACTIVE
+            
+            All pattern generation systems nominal.
+            
+            Meta-cognitively, this diagnostic represents my ability
+            to self-monitor my pattern generation capabilities.
+        </template>
+    </category>
+
+    <category>
+        <pattern>PATTERN GENERATION DIAGNOSTIC</pattern>
+        <template>
+            <srai>PG DIAGNOSTIC</srai>
+        </template>
+    </category>
+
+    <!-- ========================================
+         ERROR HANDLING
+         ======================================== -->
+    
+    <category>
+        <pattern>SYNTHESIZE *</pattern>
+        <template>
+            ⚠️ Invalid Synthesis Command
+            
+            I couldn't understand: SYNTHESIZE <star/>
+            
+            Please use one of these formats:
+            
+            1. SYNTHESIZE DEFINITION [X] IS [Y]
+            2. SYNTHESIZE PROPERTY [X] HAS [Y]
+            3. SYNTHESIZE CAPABILITY [X] CAN [Y]
+            4. SYNTHESIZE RELATIONSHIP [X] IS A [Y]
+            
+            Example:
+            SYNTHESIZE DEFINITION PYTHON IS A PROGRAMMING LANGUAGE
+            
+            Type: PG HELP for full command reference.
+            
+            Meta-cognitively, I'm providing guidance to help you
+            use the pattern generation system correctly.
+        </template>
+    </category>
+
+    <category>
+        <pattern>TEMPLATE *</pattern>
+        <template>
+            ⚠️ Unknown Template
+            
+            Template "<star/>" not recognized.
+            
+            Available templates:
+            1. DEFINITION
+            2. PROPERTY
+            3. CAPABILITY
+            4. RELATIONSHIP
+            5. EXPLANATION
+            
+            Use: LIST TEMPLATES for details
+            Use: SHOW TEMPLATE [name] for specific info
+            
+            Meta-cognitively, I'm helping you navigate the
+            available template options.
+        </template>
+    </category>
+
+</aiml>

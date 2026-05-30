@@ -35,7 +35,9 @@ def test_xml_validity():
         "holistic_commands.aiml",
         "session_learning.aiml",
         "knowledge_base.aiml",
-        "grip_bootstrap.aiml"
+        "grip_bootstrap.aiml",
+        "pattern_generation.aiml",
+        "pattern_generation_commands.aiml"
     ]
     
     passed = 0
@@ -111,6 +113,10 @@ def count_total_patterns():
         ],
         "Cognitive Grip Bootstrap (Phase 2)": [
             "grip_bootstrap.aiml"
+        ],
+        "Pattern Generation (Phase 2)": [
+            "pattern_generation.aiml",
+            "pattern_generation_commands.aiml"
         ]
     }
     
@@ -190,7 +196,9 @@ def test_phase2_foundation():
         "Organizational Dynamics": "organizational_dynamics.aiml",
         "Holistic Commands": "holistic_commands.aiml",
         "Session Learning": "session_learning.aiml",
-        "Knowledge Base": "knowledge_base.aiml"
+        "Knowledge Base": "knowledge_base.aiml",
+        "Pattern Generation": "pattern_generation.aiml",
+        "Pattern Gen Commands": "pattern_generation_commands.aiml"
     }
     
     all_present = True

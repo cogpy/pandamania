@@ -69,10 +69,10 @@ The system operates on **five** nested cognitive layers (Phase 1 enhanced):
 
 ## AIML Files
 
-The system consists of twenty AIML files organized by function and domain:
+The system consists of twenty-two AIML files organized by function and domain:
 
 ### Core Meta-Cognitive Architecture
-- **bot.aiml**: Core interaction patterns and basic meta-cognitive categories (37 patterns)
+- **bot.aiml**: Core interaction patterns and basic meta-cognitive categories (43 patterns)
 - **advanced_metacog.aiml**: Advanced reasoning patterns and epistemic capabilities (36 patterns)
 - **layer4_metacog.aiml**: Fourth-order meta-cognition and architectural self-evaluation (24 patterns)
 - **topics.aiml**: Topic-based context management with meta-awareness (28 patterns)
@@ -91,23 +91,27 @@ The system consists of twenty AIML files organized by function and domain:
 ### Emotional Intelligence (Phase 2 Foundation) ✨
 - **emotional_intelligence.aiml**: Sentiment detection, emotional state tracking, empathetic responses, and emotion-aware meta-cognition (27 patterns)
 
-### Autognosis System (Phase 2 - NEW) 🧠
-- **autognosis.aiml**: Hierarchical self-image building system with self-monitoring, self-modeling, meta-cognitive insights, and self-optimization (18 patterns)
-- **autognosis_commands.aiml**: User-facing commands for interacting with the autognosis system (24 patterns)
+### Autognosis System (Phase 2) 🧠
+- **autognosis.aiml**: Hierarchical self-image building system with self-monitoring, self-modeling, meta-cognitive insights, and self-optimization (31 patterns)
+- **autognosis_commands.aiml**: User-facing commands for interacting with the autognosis system (28 patterns)
 
-### Holistic Metamodel (Phase 2 - NEW) 🌟
+### Holistic Metamodel (Phase 2) 🌟
 - **holistic_metamodel.aiml**: Eric Schwarz's organizational systems theory with all 7 hierarchical levels (1,2,3,4,7,9,11) (17 patterns)
 - **organizational_dynamics.aiml**: Three organizational dynamic streams with autognosis integration and autogenesis capability (12 patterns)
 - **holistic_commands.aiml**: User-facing commands for the holistic metamodel and organizational dynamics (61 patterns)
 
-### Learning & Adaptation (Phase 2 - NEW) 📚
+### Learning & Adaptation (Phase 2) 📚
 - **session_learning.aiml**: Session-based learning system with fact extraction, preference tracking, and personalized responses (32 patterns)
 - **knowledge_base.aiml**: Knowledge base integration with semantic triples, inference engine, and meta-knowledge capabilities (34 patterns)
 
-### Cognitive Grip Bootstrap (Phase 2 - NEW) 🚀
+### Cognitive Grip Bootstrap (Phase 2) 🚀
 - **grip_bootstrap.aiml**: Optimal cognitive grip bootstrapping system with multi-phase initialization, calibration sequences, context-sensitive profiles, and adaptive rebootstrap capabilities (26 patterns)
 
-**Total Patterns: 655** across all files
+### Pattern Generation System (Phase 2 - NEW) 🔧
+- **pattern_generation.aiml**: Dynamic pattern synthesis system with template-based generation, safety constraints, human review requirements, and quality metrics (27 patterns)
+- **pattern_generation_commands.aiml**: User-facing commands for pattern generation with shortcuts, batch operations, and diagnostics (24 patterns)
+
+**Total Patterns: 706** across all files
 
 ## Configuration
 
@@ -116,12 +120,17 @@ Bot properties are defined in `bot.properties`, including:
 - Performance tuning parameters
 - Topic management settings
 - System behavior configuration
-- **Autognosis system configuration** (NEW)
+- **Autognosis system configuration**
   - Hierarchical self-image levels
   - Dynamic variable tracking
   - Grip optimization parameters
   - Self-awareness scoring
   - Self-optimization settings
+- **Pattern Generation configuration** (NEW)
+  - Template-based synthesis
+  - Safety constraints
+  - Human review requirements
+  - Quality metrics
 
 ## Usage Examples
 
@@ -375,6 +384,27 @@ Bot: 🔍 Grip Bootstrap Status
 - `PRELOAD KB` - Load default knowledge
 - `EXPORT KB` - Export knowledge summary
 - `KB HELP` - Show all knowledge base commands
+
+### Pattern Generation Commands (NEW) 🔧
+- `PG STATUS` - View pattern generation system status
+- `LIST TEMPLATES` - Show available pattern templates
+- `SHOW TEMPLATE [name]` - View details of a specific template
+- `CREATE PATTERN FOR [topic]` - Analyze if a pattern can be created
+- `SYNTHESIZE DEFINITION [X] IS [Y]` - Create a definition pattern
+- `SYNTHESIZE PROPERTY [X] HAS [Y]` - Create a property pattern
+- `SYNTHESIZE CAPABILITY [X] CAN [Y]` - Create a capability pattern
+- `SYNTHESIZE RELATIONSHIP [X] IS A [Y]` - Create a relationship pattern
+- `REVIEW QUEUE` - View patterns pending human review
+- `APPROVE PATTERN [id]` - Approve a pattern for activation
+- `REJECT PATTERN [id]` - Reject a generated pattern
+- `SHOW SAFETY CONSTRAINTS` - View all safety constraints
+- `PATTERN SAFETY CHECK [input]` - Run safety check on input
+- `SHOW QUALITY METRICS` - View quality assessment framework
+- `PATTERN QUALITY [pattern]` - Assess quality of a pattern
+- `PATTERN GENERATION METACOG` - View meta-cognitive analysis
+- `HOW DO YOU GENERATE PATTERNS` - Understand the generation process
+- `WHY HUMAN REVIEW` - Learn why human oversight matters
+- `PG HELP` - Show all pattern generation commands
 
 ### Cognitive Grip Bootstrap Commands (NEW) 🚀
 - `GRIP BOOTSTRAP` - Run full bootstrap sequence with all phases
