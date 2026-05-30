@@ -34,7 +34,8 @@ def test_xml_validity():
         "organizational_dynamics.aiml",
         "holistic_commands.aiml",
         "session_learning.aiml",
-        "knowledge_base.aiml"
+        "knowledge_base.aiml",
+        "grip_bootstrap.aiml"
     ]
     
     passed = 0
@@ -107,6 +108,9 @@ def count_total_patterns():
         "Learning & Adaptation (Phase 2)": [
             "session_learning.aiml",
             "knowledge_base.aiml"
+        ],
+        "Cognitive Grip Bootstrap (Phase 2)": [
+            "grip_bootstrap.aiml"
         ]
     }
     
