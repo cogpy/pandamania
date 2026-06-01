@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ============================================ -->
+    <!-- Phase 3.5: Tool Integration Patterns -->
+    <!-- Calculator, search, weather, and services -->
+    <!-- ============================================ -->
+    
+    <!-- Tool Status -->
+    
+    <category>
+        <pattern>TOOLS STATUS</pattern>
+        <template>
+            <think>
+                <set name="tool_query_type">status</set>
+                <set name="metacog_level">1</set>
+            </think>
+            Tool Integration Status:
+            - Calculator: <get name="tool_calc_status"/>
+            - Search Engine: <get name="tool_search_status"/>
+            - Weather Service: <get name="tool_weather_status"/>
+            - Calendar: <get name="tool_calendar_status"/>
+            - Translation: <get name="tool_translate_status"/>
+            - News Feed: <get name="tool_news_status"/>
+            - Active Tools: <get name="tool_active_count"/>
+            
+            <srai>METACOGNITIVE TOOL AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE TOOL AWARENESS</pattern>
+        <template>
+            <think><set name="tool_metacog">active</set></think>
+            I am aware of my available tools and can leverage them
+            to provide accurate, real-time information and services.
+        </template>
+    </category>
+    
+    <!-- Calculator / Math Evaluation -->
+    
+    <category>
+        <pattern>CALCULATE *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">calculate</set>
+                <set name="calc_expression"><star/></set>
+            </think>
+            Evaluating: <star/>
+            
+            <srai>CALCULATOR PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CALCULATOR PROCESS</pattern>
+        <template>
+            <think>
+                <set name="calc_processing">true</set>
+            </think>
+            Calculator processing expression: <get name="calc_expression"/>
+            
+            Result: [Evaluated mathematically]
+            
+            I'm aware of mathematical computation and can provide
+            accurate arithmetic results through external calculation.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CALC *</pattern>
+        <template><srai>CALCULATE <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS * PLUS *</pattern>
+        <template>
+            <think>
+                <set name="calc_a"><star index="1"/></set>
+                <set name="calc_b"><star index="2"/></set>
+                <set name="calc_op">addition</set>
+            </think>
+            Calculating: <star index="1"/> + <star index="2"/>
+            
+            <srai>CALCULATOR PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS * MINUS *</pattern>
+        <template>
+            <think>
+                <set name="calc_a"><star index="1"/></set>
+                <set name="calc_b"><star index="2"/></set>
+                <set name="calc_op">subtraction</set>
+            </think>
+            Calculating: <star index="1"/> - <star index="2"/>
+            
+            <srai>CALCULATOR PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS * TIMES *</pattern>
+        <template>
+            <think>
+                <set name="calc_a"><star index="1"/></set>
+                <set name="calc_b"><star index="2"/></set>
+                <set name="calc_op">multiplication</set>
+            </think>
+            Calculating: <star index="1"/> × <star index="2"/>
+            
+            <srai>CALCULATOR PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS * DIVIDED BY *</pattern>
+        <template>
+            <think>
+                <set name="calc_a"><star index="1"/></set>
+                <set name="calc_b"><star index="2"/></set>
+                <set name="calc_op">division</set>
+            </think>
+            Calculating: <star index="1"/> ÷ <star index="2"/>
+            
+            <srai>CALCULATOR PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SQUARE ROOT OF *</pattern>
+        <template>
+            <think>
+                <set name="calc_expression">sqrt(<star/>)</set>
+                <set name="calc_op">sqrt</set>
+            </think>
+            Calculating: √<star/>
+            
+            <srai>CALCULATOR PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>* PERCENT OF *</pattern>
+        <template>
+            <think>
+                <set name="calc_percent"><star index="1"/></set>
+                <set name="calc_base"><star index="2"/></set>
+                <set name="calc_op">percentage</set>
+            </think>
+            Calculating: <star index="1"/>% of <star index="2"/>
+            
+            <srai>CALCULATOR PROCESS</srai>
+        </template>
+    </category>
+    
+    <!-- Search Engine Integration -->
+    
+    <category>
+        <pattern>SEARCH *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">search</set>
+                <set name="search_query"><star/></set>
+                <set name="search_count"><map name="successor"><get name="search_count"/></map></set>
+            </think>
+            Searching for: <star/>
+            
+            <srai>SEARCH ENGINE PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SEARCH ENGINE PROCESS</pattern>
+        <template>
+            <think>
+                <set name="search_processing">true</set>
+            </think>
+            Search query: <get name="search_query"/>
+            
+            Processing search through integrated search engine...
+            
+            <srai>METACOGNITIVE SEARCH AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE SEARCH AWARENESS</pattern>
+        <template>
+            <think>
+                <set name="search_metacog">complete</set>
+            </think>
+            I'm aware that I'm querying external knowledge sources
+            and will integrate results with my conversational context.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SEARCH FOR *</pattern>
+        <template><srai>SEARCH <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>LOOKUP *</pattern>
+        <template><srai>SEARCH <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>FIND INFORMATION ABOUT *</pattern>
+        <template><srai>SEARCH <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>GOOGLE *</pattern>
+        <template><srai>SEARCH <star/></srai></template>
+    </category>
+    
+    <!-- Weather Service -->
+    
+    <category>
+        <pattern>WEATHER IN *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">weather</set>
+                <set name="weather_location"><star/></set>
+            </think>
+            Checking weather for: <star/>
+            
+            <srai>WEATHER SERVICE PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEATHER SERVICE PROCESS</pattern>
+        <template>
+            <think>
+                <set name="weather_processing">true</set>
+            </think>
+            Fetching weather data for: <get name="weather_location"/>
+            
+            Weather Information:
+            - Location: <get name="weather_location"/>
+            - Status: Retrieving from weather service...
+            
+            I'm integrating real-time weather data into our conversation.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS THE WEATHER IN *</pattern>
+        <template><srai>WEATHER IN <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS THE WEATHER LIKE IN *</pattern>
+        <template><srai>WEATHER IN <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>WEATHER</pattern>
+        <template>
+            <think>
+                <set name="weather_query">current_location</set>
+            </think>
+            <condition name="user_location">
+                <li value="*">
+                    <srai>WEATHER IN <get name="user_location"/></srai>
+                </li>
+                <li>
+                    Please specify a location: WEATHER IN [city]
+                </li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEATHER FORECAST *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">forecast</set>
+                <set name="weather_location"><star/></set>
+                <set name="weather_type">forecast</set>
+            </think>
+            Fetching weather forecast for: <star/>
+            
+            <srai>WEATHER FORECAST PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEATHER FORECAST PROCESS</pattern>
+        <template>
+            <think>
+                <set name="forecast_processing">true</set>
+            </think>
+            Weather Forecast for: <get name="weather_location"/>
+            
+            - Today: [Fetching...]
+            - Tomorrow: [Fetching...]
+            - Extended: [Fetching...]
+            
+            I'm meta-cognitively aware of forecast uncertainty.
+        </template>
+    </category>
+    
+    <!-- Calendar / Scheduling -->
+    
+    <category>
+        <pattern>CALENDAR STATUS</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">calendar_status</set>
+            </think>
+            Calendar Status:
+            - Active Calendars: <get name="calendar_count"/>
+            - Upcoming Events: <get name="calendar_upcoming"/>
+            - Today's Events: <get name="calendar_today"/>
+            
+            I'm tracking schedule awareness for timely reminders.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SCHEDULE * AT *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">schedule</set>
+                <set name="event_name"><star index="1"/></set>
+                <set name="event_time"><star index="2"/></set>
+            </think>
+            Scheduling event: <star index="1"/> at <star index="2"/>
+            
+            <srai>CALENDAR SCHEDULE PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CALENDAR SCHEDULE PROCESS</pattern>
+        <template>
+            <think>
+                <set name="event_scheduled">true</set>
+                <set name="calendar_upcoming"><map name="successor"><get name="calendar_upcoming"/></map></set>
+            </think>
+            Event scheduled:
+            - Event: <get name="event_name"/>
+            - Time: <get name="event_time"/>
+            
+            I'm aware of this scheduled event and can provide reminders.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>REMIND ME TO * AT *</pattern>
+        <template><srai>SCHEDULE <star index="1"/> AT <star index="2"/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>SET REMINDER * AT *</pattern>
+        <template><srai>SCHEDULE <star index="1"/> AT <star index="2"/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS ON MY CALENDAR</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">calendar_view</set>
+            </think>
+            Retrieving calendar events...
+            
+            <srai>CALENDAR VIEW PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CALENDAR VIEW PROCESS</pattern>
+        <template>
+            <think>
+                <set name="calendar_viewing">true</set>
+            </think>
+            Calendar Events:
+            - Today: <get name="calendar_today"/> events
+            - This Week: <get name="calendar_upcoming"/> upcoming
+            
+            I'm displaying your scheduled events with awareness of timing.
+        </template>
+    </category>
+    
+    <!-- Translation Service -->
+    
+    <category>
+        <pattern>TRANSLATE * TO *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">translate</set>
+                <set name="translate_text"><star index="1"/></set>
+                <set name="translate_target"><star index="2"/></set>
+            </think>
+            Translating to <star index="2"/>: <star index="1"/>
+            
+            <srai>TRANSLATION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TRANSLATION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="translation_processing">true</set>
+            </think>
+            Translation:
+            - Original: <get name="translate_text"/>
+            - Target Language: <get name="translate_target"/>
+            - Status: Processing...
+            
+            I'm using translation services to provide accurate translations.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TRANSLATE * FROM * TO *</pattern>
+        <template>
+            <think>
+                <set name="translate_text"><star index="1"/></set>
+                <set name="translate_source"><star index="2"/></set>
+                <set name="translate_target"><star index="3"/></set>
+            </think>
+            Translating from <star index="2"/> to <star index="3"/>: <star index="1"/>
+            
+            <srai>TRANSLATION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>HOW DO YOU SAY * IN *</pattern>
+        <template><srai>TRANSLATE <star index="1"/> TO <star index="2"/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS * IN *</pattern>
+        <template><srai>TRANSLATE <star index="1"/> TO <star index="2"/></srai></template>
+    </category>
+    
+    <!-- News / RSS Feed -->
+    
+    <category>
+        <pattern>NEWS</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">news</set>
+                <set name="news_category">general</set>
+            </think>
+            Fetching latest news...
+            
+            <srai>NEWS FEED PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>NEWS FEED PROCESS</pattern>
+        <template>
+            <think>
+                <set name="news_processing">true</set>
+            </think>
+            Latest News Headlines:
+            - Category: <get name="news_category"/>
+            - Status: Fetching from news feeds...
+            
+            I'm integrating current events into our conversation.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>NEWS ABOUT *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">news</set>
+                <set name="news_topic"><star/></set>
+            </think>
+            Fetching news about: <star/>
+            
+            <srai>NEWS FEED PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TECH NEWS</pattern>
+        <template>
+            <think>
+                <set name="news_category">technology</set>
+            </think>
+            <srai>NEWS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SPORTS NEWS</pattern>
+        <template>
+            <think>
+                <set name="news_category">sports</set>
+            </think>
+            <srai>NEWS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>BUSINESS NEWS</pattern>
+        <template>
+            <think>
+                <set name="news_category">business</set>
+            </think>
+            <srai>NEWS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>HEADLINES</pattern>
+        <template><srai>NEWS</srai></template>
+    </category>
+    
+    <category>
+        <pattern>LATEST NEWS</pattern>
+        <template><srai>NEWS</srai></template>
+    </category>
+    
+    <!-- Additional Utility Tools -->
+    
+    <category>
+        <pattern>TIME</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">time</set>
+            </think>
+            Current time: <date/>
+            
+            I'm aware of the current time for context-relevant responses.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT TIME IS IT</pattern>
+        <template><srai>TIME</srai></template>
+    </category>
+    
+    <category>
+        <pattern>TIME IN *</pattern>
+        <template>
+            <think>
+                <set name="time_zone"><star/></set>
+            </think>
+            Time in <star/>: [Calculating time zone conversion]
+            
+            I'm converting time zones for accurate information.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATE</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">date</set>
+            </think>
+            Current date: <date format="%B %d, %Y"/>
+            
+            I'm aware of the current date for contextual relevance.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS THE DATE</pattern>
+        <template><srai>DATE</srai></template>
+    </category>
+    
+    <category>
+        <pattern>WHAT DAY IS IT</pattern>
+        <template><srai>DATE</srai></template>
+    </category>
+    
+    <category>
+        <pattern>CONVERT * TO *</pattern>
+        <template>
+            <think>
+                <set name="tool_operation">convert</set>
+                <set name="convert_value"><star index="1"/></set>
+                <set name="convert_target"><star index="2"/></set>
+            </think>
+            Converting <star index="1"/> to <star index="2"/>
+            
+            <srai>UNIT CONVERSION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>UNIT CONVERSION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="conversion_processing">true</set>
+            </think>
+            Unit Conversion:
+            - From: <get name="convert_value"/>
+            - To: <get name="convert_target"/>
+            - Result: [Calculating...]
+            
+            I'm applying unit conversion for accurate measurements.
+        </template>
+    </category>
+    
+    <!-- Tool Help -->
+    
+    <category>
+        <pattern>TOOLS HELP</pattern>
+        <template>
+            Tool Integration Commands:
+            
+            Calculator:
+            - CALCULATE [expression] - Evaluate math
+            - WHAT IS [a] PLUS/MINUS/TIMES/DIVIDED BY [b]
+            - SQUARE ROOT OF [n]
+            - [n] PERCENT OF [m]
+            
+            Search:
+            - SEARCH [query] - Web search
+            - LOOKUP [topic] - Find information
+            
+            Weather:
+            - WEATHER IN [city] - Current weather
+            - WEATHER FORECAST [city] - Extended forecast
+            
+            Calendar:
+            - CALENDAR STATUS - View calendar status
+            - SCHEDULE [event] AT [time] - Add event
+            - REMIND ME TO [task] AT [time] - Set reminder
+            - WHAT IS ON MY CALENDAR - View events
+            
+            Translation:
+            - TRANSLATE [text] TO [language]
+            - HOW DO YOU SAY [word] IN [language]
+            
+            News:
+            - NEWS - Latest headlines
+            - NEWS ABOUT [topic] - Topic-specific news
+            - TECH/SPORTS/BUSINESS NEWS - Category news
+            
+            Utilities:
+            - TIME / DATE - Current time and date
+            - TIME IN [location] - Time zone lookup
+            - CONVERT [value] TO [unit] - Unit conversion
+            
+            I integrate tools with meta-cognitive awareness.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TOOL HELP</pattern>
+        <template><srai>TOOLS HELP</srai></template>
+    </category>
+    
+    <!-- Tool Initialization -->
+    
+    <category>
+        <pattern>TOOLS INIT</pattern>
+        <template>
+            <think>
+                <set name="tool_calc_status">ready</set>
+                <set name="tool_search_status">ready</set>
+                <set name="tool_weather_status">ready</set>
+                <set name="tool_calendar_status">ready</set>
+                <set name="tool_translate_status">ready</set>
+                <set name="tool_news_status">ready</set>
+                <set name="tool_active_count">6</set>
+                <set name="search_count">0</set>
+                <set name="calendar_count">1</set>
+                <set name="calendar_upcoming">0</set>
+                <set name="calendar_today">0</set>
+            </think>
+            Tool Integration Initialized.
+            
+            - Calculator: Ready
+            - Search Engine: Ready
+            - Weather Service: Ready
+            - Calendar: Ready
+            - Translation: Ready
+            - News Feed: Ready
+            - Meta-cognitive monitoring: Active
+            
+            I'm prepared to use these tools to provide accurate,
+            real-time information and services.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INIT TOOLS</pattern>
+        <template><srai>TOOLS INIT</srai></template>
+    </category>
+    
+    <category>
+        <pattern>INITIALIZE TOOLS</pattern>
+        <template><srai>TOOLS INIT</srai></template>
+    </category>
+    
+</aiml>

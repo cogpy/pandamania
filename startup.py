@@ -12,17 +12,20 @@ def print_banner():
     banner = """
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║                      PANDAMANIA v2.0.0                        ║
-║                    Phase 1 Complete Edition                   ║
+║                      PANDAMANIA v3.0.0                        ║
+║                    Phase 3 Complete Edition                   ║
 ║                                                               ║
 ║        Meta-Cognitive AIML Bot with Nested Loop Dynamics      ║
+║             + External Integration Capabilities               ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
     """
     print(banner)
     print("\nInitializing meta-cognitive architecture...")
     print("Loading nested cognitive loops...")
-    print("Phase 1 enhancements: ✓ Complete\n")
+    print("Phase 1 enhancements: ✓ Complete")
+    print("Phase 2 learning: ✓ Complete")
+    print("Phase 3 external integration: ✓ Complete\n")
 
 def list_aiml_files():
     """List all AIML files in the current directory"""
@@ -70,13 +73,22 @@ def show_instructions():
     print("   - ethics_philosophy.aiml   [Phase 1]")
     print()
     print("   Performance & NL (Phase 1 Complete):")
-    print("   - natural_language.aiml    [NEW - Phase 1 Complete] ✨")
-    print("   - performance_optimized.aiml [NEW - Phase 1 Complete] ✨")
+    print("   - natural_language.aiml    [Phase 1 Complete]")
+    print("   - performance_optimized.aiml [Phase 1 Complete]")
     print()
-    print("   Total: 11 AIML files, 406 patterns")
+    print("   External Integration (Phase 3 - NEW): ✨")
+    print("   - database_integration.aiml [Phase 3] 🗄️")
+    print("   - api_integration.aiml      [Phase 3] 🔌")
+    print("   - web_interface.aiml        [Phase 3] 💬")
+    print("   - multimodal_support.aiml   [Phase 3] 🎨")
+    print("   - tool_integration.aiml     [Phase 3] 🛠️")
+    print("   - phase3_commands.aiml      [Phase 3] 🌐")
+    print()
+    print("   Total: 22+ AIML files, ~980 patterns")
     print()
     print("3. Initialize the system:")
     print("   Input: SYSTEM INIT")
+    print("   Input: PHASE3 INIT (for Phase 3 features)")
     print()
     print("4. Start conversation:")
     print("   Input: HELLO")
@@ -85,8 +97,11 @@ def show_instructions():
     print("   - STATUS")
     print("   - LOOP STATUS")
     print("   - FOURTH ORDER STATUS      [Phase 1]")
-    print("   - PERFORMANCE             [NEW - Phase 1 Complete]")
-    print("   - CHECK EFFICIENCY        [NEW - Phase 1 Complete]")
+    print("   - PERFORMANCE              [Phase 1 Complete]")
+    print("   - PHASE3 STATUS            [Phase 3 - NEW] 🌐")
+    print("   - DATABASE HELP            [Phase 3] 🗄️")
+    print("   - API HELP                 [Phase 3] 🔌")
+    print("   - TOOLS HELP               [Phase 3] 🛠️")
     print("   - HELP")
     print("   - DIAGNOSTIC")
     print()

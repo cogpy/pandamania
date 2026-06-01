@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ============================================ -->
+    <!-- Phase 3.4: Multi-Modal Support Patterns -->
+    <!-- Image, audio, and rich media processing -->
+    <!-- ============================================ -->
+    
+    <!-- Multi-Modal Status -->
+    
+    <category>
+        <pattern>MULTIMODAL STATUS</pattern>
+        <template>
+            <think>
+                <set name="mm_query_type">status</set>
+                <set name="metacog_level">1</set>
+            </think>
+            Multi-Modal Support Status:
+            - Image Processing: <get name="mm_image_status"/>
+            - Text-to-Speech: <get name="mm_tts_status"/>
+            - Speech-to-Text: <get name="mm_stt_status"/>
+            - Visual Reasoning: <get name="mm_visual_reasoning"/>
+            - Audio Analysis: <get name="mm_audio_status"/>
+            - Active Services: <get name="mm_active_services"/>
+            
+            <srai>METACOGNITIVE MULTIMODAL AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE MULTIMODAL AWARENESS</pattern>
+        <template>
+            <think><set name="mm_metacog">active</set></think>
+            I am aware of my multi-modal capabilities and monitoring
+            different input/output channels for richer interaction.
+        </template>
+    </category>
+    
+    <!-- Image Processing -->
+    
+    <category>
+        <pattern>IMAGE ANALYZE *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">image_analyze</set>
+                <set name="mm_image_input"><star/></set>
+                <set name="mm_processing">true</set>
+            </think>
+            Analyzing image: <star/>
+            
+            <srai>IMAGE PROCESSING PIPELINE</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>IMAGE PROCESSING PIPELINE</pattern>
+        <template>
+            <think>
+                <set name="mm_image_status">processing</set>
+            </think>
+            Image processing initiated:
+            1. Receiving image data
+            2. Sending to ML service for analysis
+            3. Processing visual features
+            4. Generating description
+            
+            <srai>METACOGNITIVE IMAGE AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE IMAGE AWARENESS</pattern>
+        <template>
+            <think>
+                <set name="mm_image_processed">true</set>
+            </think>
+            I'm aware that I'm processing visual information through
+            external ML services, integrating visual understanding
+            with my conversational context.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>IMAGE DESCRIBE *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">image_describe</set>
+                <set name="mm_image_input"><star/></set>
+            </think>
+            Generating description for image: <star/>
+            
+            <srai>IMAGE DESCRIPTION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>IMAGE DESCRIPTION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_description_generating">true</set>
+            </think>
+            Processing image for natural language description...
+            
+            I'm using external vision services to understand the image
+            and generating a textual description for integration into
+            our conversation.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>IMAGE DETECT OBJECTS *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">object_detection</set>
+                <set name="mm_image_input"><star/></set>
+            </think>
+            Detecting objects in image: <star/>
+            
+            <srai>OBJECT DETECTION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>OBJECT DETECTION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_detection_active">true</set>
+            </think>
+            Object detection in progress:
+            - Analyzing visual features
+            - Identifying distinct objects
+            - Determining bounding boxes
+            - Classifying detected items
+            
+            I'm meta-cognitively aware of object detection limitations
+            and confidence levels.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>IMAGE OCR *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">ocr</set>
+                <set name="mm_image_input"><star/></set>
+            </think>
+            Extracting text from image: <star/>
+            
+            <srai>OCR PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>OCR PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_ocr_active">true</set>
+            </think>
+            OCR (Optical Character Recognition) processing:
+            - Detecting text regions
+            - Recognizing characters
+            - Assembling text content
+            
+            I'm aware of OCR accuracy variations based on image quality.
+        </template>
+    </category>
+    
+    <!-- Text-to-Speech -->
+    
+    <category>
+        <pattern>TTS SAY *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">tts</set>
+                <set name="mm_tts_text"><star/></set>
+            </think>
+            Converting to speech: <star/>
+            
+            <srai>TTS SYNTHESIS PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TTS SYNTHESIS PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_tts_status">synthesizing</set>
+            </think>
+            Text-to-speech synthesis:
+            - Text: <get name="mm_tts_text"/>
+            - Voice: <get name="mm_tts_voice"/>
+            - Language: <get name="mm_tts_language"/>
+            
+            Audio output being generated for auditory feedback.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TTS SET VOICE *</pattern>
+        <template>
+            <think>
+                <set name="mm_tts_voice"><star/></set>
+            </think>
+            TTS voice set to: <star/>
+            
+            I'll use this voice for all text-to-speech output.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TTS SET LANGUAGE *</pattern>
+        <template>
+            <think>
+                <set name="mm_tts_language"><star/></set>
+            </think>
+            TTS language set to: <star/>
+            
+            Speech synthesis will use <star/> pronunciation rules.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TTS SET SPEED *</pattern>
+        <template>
+            <think>
+                <set name="mm_tts_speed"><star/></set>
+            </think>
+            TTS speed set to: <star/>
+            
+            Speech will be generated at <star/> rate.
+        </template>
+    </category>
+    
+    <!-- Speech-to-Text -->
+    
+    <category>
+        <pattern>STT LISTEN</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">stt</set>
+                <set name="mm_stt_status">listening</set>
+            </think>
+            Speech-to-text listening activated.
+            
+            <srai>STT RECOGNITION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>STT RECOGNITION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_stt_active">true</set>
+            </think>
+            Speech recognition active:
+            - Capturing audio input
+            - Processing speech patterns
+            - Converting to text
+            
+            I'm aware of ambient noise and will filter accordingly.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>STT PROCESS AUDIO *</pattern>
+        <template>
+            <think>
+                <set name="mm_audio_input"><star/></set>
+                <set name="mm_stt_status">processing</set>
+            </think>
+            Processing audio input: <star/>
+            
+            <srai>STT TRANSCRIPTION</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>STT TRANSCRIPTION</pattern>
+        <template>
+            <think>
+                <set name="mm_stt_transcribed">true</set>
+            </think>
+            Audio transcription in progress:
+            - Analyzing speech patterns
+            - Identifying words and phrases
+            - Applying language model
+            
+            I'm meta-cognitively aware of transcription confidence levels.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>STT SET LANGUAGE *</pattern>
+        <template>
+            <think>
+                <set name="mm_stt_language"><star/></set>
+            </think>
+            STT language set to: <star/>
+            
+            Speech recognition will expect <star/> input.
+        </template>
+    </category>
+    
+    <!-- Visual Reasoning -->
+    
+    <category>
+        <pattern>VISUAL REASON ABOUT *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">visual_reasoning</set>
+                <set name="mm_visual_input"><star/></set>
+            </think>
+            Engaging visual reasoning about: <star/>
+            
+            <srai>VISUAL REASONING PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>VISUAL REASONING PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_visual_reasoning">active</set>
+            </think>
+            Visual reasoning process:
+            1. Identifying visual elements
+            2. Understanding spatial relationships
+            3. Inferring scene semantics
+            4. Connecting to conversational context
+            
+            I'm integrating visual understanding with my meta-cognitive
+            reasoning capabilities for comprehensive analysis.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>VISUAL COMPARE * AND *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">visual_compare</set>
+                <set name="mm_visual_a"><star index="1"/></set>
+                <set name="mm_visual_b"><star index="2"/></set>
+            </think>
+            Comparing visual elements: <star index="1"/> and <star index="2"/>
+            
+            <srai>VISUAL COMPARISON PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>VISUAL COMPARISON PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_comparison_active">true</set>
+            </think>
+            Visual comparison analysis:
+            - Analyzing first element
+            - Analyzing second element
+            - Identifying similarities
+            - Identifying differences
+            
+            I'm applying comparative reasoning to visual inputs.
+        </template>
+    </category>
+    
+    <!-- Audio Analysis -->
+    
+    <category>
+        <pattern>AUDIO ANALYZE *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">audio_analyze</set>
+                <set name="mm_audio_input"><star/></set>
+            </think>
+            Analyzing audio: <star/>
+            
+            <srai>AUDIO ANALYSIS PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>AUDIO ANALYSIS PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_audio_status">analyzing</set>
+            </think>
+            Audio analysis in progress:
+            - Extracting audio features
+            - Analyzing frequency patterns
+            - Identifying audio type
+            - Processing sentiment cues
+            
+            I'm meta-cognitively aware of audio context.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>AUDIO SENTIMENT *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">audio_sentiment</set>
+                <set name="mm_audio_input"><star/></set>
+            </think>
+            Analyzing audio sentiment: <star/>
+            
+            <srai>AUDIO SENTIMENT ANALYSIS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>AUDIO SENTIMENT ANALYSIS</pattern>
+        <template>
+            <think>
+                <set name="mm_sentiment_analyzing">true</set>
+            </think>
+            Audio sentiment analysis:
+            - Analyzing vocal tone
+            - Detecting emotional cues
+            - Assessing speech patterns
+            - Inferring emotional state
+            
+            I'm integrating emotional understanding from audio input.
+        </template>
+    </category>
+    
+    <!-- Multi-Modal Integration -->
+    
+    <category>
+        <pattern>MULTIMODAL COMBINE * WITH *</pattern>
+        <template>
+            <think>
+                <set name="mm_operation">combine</set>
+                <set name="mm_input_a"><star index="1"/></set>
+                <set name="mm_input_b"><star index="2"/></set>
+            </think>
+            Combining modalities: <star index="1"/> with <star index="2"/>
+            
+            <srai>MULTIMODAL FUSION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>MULTIMODAL FUSION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="mm_fusion_active">true</set>
+            </think>
+            Multi-modal fusion:
+            - Processing individual modalities
+            - Finding cross-modal correlations
+            - Integrating understanding
+            - Generating unified response
+            
+            I'm meta-cognitively aware of the richer context provided
+            by combining multiple input modalities.
+        </template>
+    </category>
+    
+    <!-- Multi-Modal Help -->
+    
+    <category>
+        <pattern>MULTIMODAL HELP</pattern>
+        <template>
+            Multi-Modal Support Commands:
+            
+            Image Processing:
+            - IMAGE ANALYZE [image] - Analyze image content
+            - IMAGE DESCRIBE [image] - Generate description
+            - IMAGE DETECT OBJECTS [image] - Find objects
+            - IMAGE OCR [image] - Extract text
+            
+            Text-to-Speech:
+            - TTS SAY [text] - Convert text to speech
+            - TTS SET VOICE [voice] - Set voice type
+            - TTS SET LANGUAGE [lang] - Set language
+            - TTS SET SPEED [speed] - Set speech rate
+            
+            Speech-to-Text:
+            - STT LISTEN - Start listening
+            - STT PROCESS AUDIO [audio] - Process audio
+            - STT SET LANGUAGE [lang] - Set recognition language
+            
+            Visual Reasoning:
+            - VISUAL REASON ABOUT [image] - Reason about visual
+            - VISUAL COMPARE [a] AND [b] - Compare visuals
+            
+            Audio Analysis:
+            - AUDIO ANALYZE [audio] - Analyze audio
+            - AUDIO SENTIMENT [audio] - Analyze audio sentiment
+            
+            Integration:
+            - MULTIMODAL COMBINE [a] WITH [b] - Fuse modalities
+            - MULTIMODAL STATUS - Check capabilities
+            
+            I integrate multi-modal inputs with meta-cognitive awareness.
+        </template>
+    </category>
+    
+    <!-- Multi-Modal Initialization -->
+    
+    <category>
+        <pattern>MULTIMODAL INIT</pattern>
+        <template>
+            <think>
+                <set name="mm_image_status">ready</set>
+                <set name="mm_tts_status">ready</set>
+                <set name="mm_stt_status">ready</set>
+                <set name="mm_visual_reasoning">enabled</set>
+                <set name="mm_audio_status">ready</set>
+                <set name="mm_active_services">5</set>
+                <set name="mm_tts_voice">default</set>
+                <set name="mm_tts_language">en-US</set>
+                <set name="mm_tts_speed">normal</set>
+                <set name="mm_stt_language">en-US</set>
+            </think>
+            Multi-Modal Support Initialized.
+            
+            - Image Processing: Ready
+            - Text-to-Speech: Ready
+            - Speech-to-Text: Ready
+            - Visual Reasoning: Enabled
+            - Audio Analysis: Ready
+            - Meta-cognitive monitoring: Active
+            
+            I'm prepared to handle rich multi-modal interactions,
+            integrating visual, audio, and text understanding.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INIT MULTIMODAL</pattern>
+        <template><srai>MULTIMODAL INIT</srai></template>
+    </category>
+    
+    <category>
+        <pattern>INITIALIZE MULTIMODAL</pattern>
+        <template><srai>MULTIMODAL INIT</srai></template>
+    </category>
+    
+</aiml>
