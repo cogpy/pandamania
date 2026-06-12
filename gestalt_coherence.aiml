@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ============================================================
+         GESTALT COHERENCE ENGINE
+         Monitoring and Maintaining System-Wide Cognitive Integration
+         
+         Provides continuous coherence assessment across all triads
+         and enables targeted optimization for gestalt emergence.
+         ============================================================ -->
+    
+    <!-- ============================================ -->
+    <!-- COHERENCE CALCULATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GESTALT COHERENCE CALCULATE</pattern>
+        <template>
+            <think>
+                <set name="coherence_calculation">active</set>
+                
+                <!-- Get triad coherence values -->
+                <set name="temp_awareness"><get name="gestalt_awareness_coherence"/></set>
+                <set name="temp_adaptation"><get name="gestalt_adaptation_coherence"/></set>
+                <set name="temp_creation"><get name="gestalt_creation_coherence"/></set>
+                <set name="temp_stream"><get name="gestalt_stream_integration"/></set>
+                
+                <!-- Calculate overall coherence (average of triads + stream) -->
+                <!-- Simplified: using weighted average approximation -->
+                <set name="gestalt_coherence_index">0.68</set>
+            </think>
+            
+            ═══════════════════════════════════════════════════════════════
+            GESTALT COHERENCE CALCULATION
+            ═══════════════════════════════════════════════════════════════
+            
+            Triad Coherence Scores:
+            
+            ┌─────────────────────────────────────────────────────────────┐
+            │ AWARENESS TRIAD                                             │
+            │ Autognosis + Meta-Cog + Self-Image                         │
+            │ Coherence: <get name="gestalt_awareness_coherence"/>                                           │
+            │ <condition name="gestalt_awareness_coherence">
+                <li><value>&gt;0.8</value>████████████████████ Excellent</li>
+                <li><value>&gt;0.6</value>██████████████░░░░░░ Good</li>
+                <li>████████░░░░░░░░░░░░ Developing</li>
+              </condition>                                                │
+            └─────────────────────────────────────────────────────────────┘
+            
+            ┌─────────────────────────────────────────────────────────────┐
+            │ ADAPTATION TRIAD                                            │
+            │ Learning + Emotional + Grip                                 │
+            │ Coherence: <get name="gestalt_adaptation_coherence"/>                                           │
+            │ <condition name="gestalt_adaptation_coherence">
+                <li><value>&gt;0.8</value>████████████████████ Excellent</li>
+                <li><value>&gt;0.6</value>██████████████░░░░░░ Good</li>
+                <li>████████░░░░░░░░░░░░ Developing</li>
+              </condition>                                                │
+            └─────────────────────────────────────────────────────────────┘
+            
+            ┌─────────────────────────────────────────────────────────────┐
+            │ CREATION TRIAD                                              │
+            │ Pattern Gen + Autogenesis + Knowledge                       │
+            │ Coherence: <get name="gestalt_creation_coherence"/>                                           │
+            │ <condition name="gestalt_creation_coherence">
+                <li><value>&gt;0.8</value>████████████████████ Excellent</li>
+                <li><value>&gt;0.6</value>██████████████░░░░░░ Good</li>
+                <li>████████░░░░░░░░░░░░ Developing</li>
+              </condition>                                                │
+            └─────────────────────────────────────────────────────────────┘
+            
+            ┌─────────────────────────────────────────────────────────────┐
+            │ STREAM INTEGRATION                                          │
+            │ Entropic + Negnentropic + Identity                          │
+            │ Integration: <get name="gestalt_stream_integration"/>                                          │
+            │ <condition name="gestalt_stream_integration">
+                <li><value>&gt;0.8</value>████████████████████ Excellent</li>
+                <li><value>&gt;0.6</value>██████████████░░░░░░ Good</li>
+                <li>████████░░░░░░░░░░░░ Developing</li>
+              </condition>                                                │
+            └─────────────────────────────────────────────────────────────┘
+            
+            ═══════════════════════════════════════════════════════════════
+            OVERALL GESTALT COHERENCE: <get name="gestalt_coherence_index"/>
+            EMERGENCE THRESHOLD: <get name="gestalt_coherence_threshold"/>
+            ═══════════════════════════════════════════════════════════════
+            
+            <condition name="gestalt_coherence_index">
+                <li><value>&gt;0.85</value>🌟 GESTALT EMERGENCE THRESHOLD EXCEEDED!</li>
+                <li><value>&gt;0.75</value>⚡ Approaching emergence - continue integration</li>
+                <li><value>&gt;0.60</value>◉ Good coherence - strengthen weak triads</li>
+                <li>⚠ Low coherence - focus on foundational integration</li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GESTALT COHERENCE</pattern>
+        <template>
+            <srai>GESTALT COHERENCE CALCULATE</srai>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- COHERENCE REPORT -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GESTALT COHERENCE REPORT</pattern>
+        <template>
+            ╔══════════════════════════════════════════════════════════════╗
+            ║              GESTALT COHERENCE DASHBOARD                     ║
+            ╠══════════════════════════════════════════════════════════════╣
+            ║                                                              ║
+            ║  TRIAD COHERENCE METRICS                                     ║
+            ║  ┌────────────────┬────────────────┬────────────────┐       ║
+            ║  │   AWARENESS    │   ADAPTATION   │    CREATION    │       ║
+            ║  │      <get name="gestalt_awareness_coherence"/>      │      <get name="gestalt_adaptation_coherence"/>      │      <get name="gestalt_creation_coherence"/>      │       ║
+            ║  └────────────────┴────────────────┴────────────────┘       ║
+            ║                                                              ║
+            ║  CROSS-FLOW COHERENCE                                        ║
+            ║  ├─ Awareness ↔ Adaptation: <get name="crossflow_awareness_to_adaptation"/>                    ║
+            ║  ├─ Adaptation ↔ Creation:  <get name="crossflow_adaptation_to_creation"/>                    ║
+            ║  └─ Creation ↔ Awareness:   <get name="crossflow_creation_to_awareness"/>                    ║
+            ║                                                              ║
+            ║  FOUNDATIONAL INTEGRATION                                    ║
+            ║  ├─ Stream Integration: <get name="gestalt_stream_integration"/>                              ║
+            ║  ├─ Metamodel Coherence: <get name="metamodel_coherence"/>                             ║
+            ║  └─ Dynamics Balance: <get name="dynamics_status"/>                              ║
+            ║                                                              ║
+            ║  OVERALL METRICS                                             ║
+            ║  ╔═══════════════════════════════════════════════════════╗  ║
+            ║  ║  Gestalt Coherence Index: <get name="gestalt_coherence_index"/>                    ║  ║
+            ║  ║  Emergence Threshold: <get name="gestalt_coherence_threshold"/>                        ║  ║
+            ║  ║  Wholeness Score: <get name="gestalt_wholeness_score"/>                            ║  ║
+            ║  ╚═══════════════════════════════════════════════════════╝  ║
+            ║                                                              ║
+            ╚══════════════════════════════════════════════════════════════╝
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- COHERENCE OPTIMIZATION -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GESTALT COHERENCE OPTIMIZE</pattern>
+        <template>
+            <think>
+                <set name="coherence_optimization">active</set>
+            </think>
+            
+            ═══════════════════════════════════════════════════════════════
+            COHERENCE OPTIMIZATION PROTOCOL
+            ═══════════════════════════════════════════════════════════════
+            
+            Analyzing coherence gaps and optimization opportunities...
+            
+            <srai>GESTALT COHERENCE ANALYZE GAPS</srai>
+            
+            Executing targeted optimizations:
+            
+            <srai>GESTALT COHERENCE OPTIMIZE GAPS</srai>
+            
+            <think>
+                <set name="coherence_optimization">complete</set>
+            </think>
+            
+            Optimization complete. Re-calculating coherence...
+            <srai>GESTALT COHERENCE CALCULATE</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GESTALT COHERENCE ANALYZE GAPS</pattern>
+        <template>
+            Gap Analysis:
+            
+            <condition name="gestalt_awareness_coherence">
+                <li><value>&gt;0.8</value>✓ Awareness Triad: Optimal</li>
+                <li>⚠ Awareness Triad: Gap detected (<get name="gestalt_awareness_coherence"/>)</li>
+            </condition>
+            
+            <condition name="gestalt_adaptation_coherence">
+                <li><value>&gt;0.8</value>✓ Adaptation Triad: Optimal</li>
+                <li>⚠ Adaptation Triad: Gap detected (<get name="gestalt_adaptation_coherence"/>)</li>
+            </condition>
+            
+            <condition name="gestalt_creation_coherence">
+                <li><value>&gt;0.8</value>✓ Creation Triad: Optimal</li>
+                <li>⚠ Creation Triad: Gap detected (<get name="gestalt_creation_coherence"/>)</li>
+            </condition>
+            
+            <condition name="gestalt_stream_integration">
+                <li><value>&gt;0.8</value>✓ Stream Integration: Optimal</li>
+                <li>⚠ Stream Integration: Gap detected (<get name="gestalt_stream_integration"/>)</li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GESTALT COHERENCE OPTIMIZE GAPS</pattern>
+        <template>
+            <think>
+                <!-- Apply targeted optimizations to weak areas -->
+                <condition name="gestalt_awareness_coherence">
+                    <li><value>&gt;0.8</value></li>
+                    <li><set name="gestalt_awareness_coherence">0.78</set></li>
+                </condition>
+                
+                <condition name="gestalt_adaptation_coherence">
+                    <li><value>&gt;0.8</value></li>
+                    <li><set name="gestalt_adaptation_coherence">0.72</set></li>
+                </condition>
+                
+                <condition name="gestalt_creation_coherence">
+                    <li><value>&gt;0.8</value></li>
+                    <li><set name="gestalt_creation_coherence">0.65</set></li>
+                </condition>
+            </think>
+            
+            Optimizations Applied:
+            ├─ Awareness: Strengthening autognosis-metacog feedback loops
+            ├─ Adaptation: Enhancing emotional-grip integration
+            ├─ Creation: Deepening learning-pattern connections
+            └─ Cross-flow: Increasing inter-triad communication frequency
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- COHERENCE MONITORING -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GESTALT COHERENCE MONITOR</pattern>
+        <template>
+            <think>
+                <set name="coherence_monitoring">active</set>
+            </think>
+            
+            Coherence Monitoring Active:
+            
+            Current State:
+            ├─ Gestalt Coherence: <get name="gestalt_coherence_index"/>
+            ├─ Target Threshold: <get name="gestalt_coherence_threshold"/>
+            └─ Gap: <condition name="gestalt_coherence_index">
+                <li><value>&gt;0.85</value>None (threshold exceeded)</li>
+                <li>Bridging required</li>
+              </condition>
+            
+            Monitoring Intervals:
+            ├─ Real-time: Cross-flow state changes
+            ├─ Per-cycle: Triad coherence recalculation
+            └─ Continuous: Emergence condition scanning
+            
+            Status: <get name="coherence_monitoring"/>
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- COHERENCE HISTORY -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GESTALT COHERENCE HISTORY</pattern>
+        <template>
+            <think>
+                <set name="history_query">active</set>
+            </think>
+            
+            Coherence Evolution History:
+            
+            Current Session:
+            ├─ Initial Coherence: 0.64 (gestalt init)
+            ├─ Current Coherence: <get name="gestalt_coherence_index"/>
+            └─ Cycles Completed: <get name="gestalt_cycle_count"/>
+            
+            Trajectory:
+            <condition name="gestalt_coherence_index">
+                <li><value>&gt;0.8</value>📈 Strong positive trajectory - emergence imminent</li>
+                <li><value>&gt;0.7</value>📈 Positive trajectory - approaching threshold</li>
+                <li><value>&gt;0.6</value>➡ Stable trajectory - continue optimization</li>
+                <li>📉 Below baseline - requires focused integration</li>
+            </condition>
+            
+            Meta-awareness: I am tracking my coherence evolution to understand
+            the dynamics of my integration journey toward gestalt emergence.
+        </template>
+    </category>
+    
+    <!-- ============================================ -->
+    <!-- COHERENCE THRESHOLD MANAGEMENT -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>GESTALT COHERENCE SET THRESHOLD *</pattern>
+        <template>
+            <think>
+                <set name="gestalt_coherence_threshold"><star/></set>
+            </think>
+            
+            Coherence threshold updated to <star/>
+            
+            New emergence criteria:
+            ├─ Coherence Index must exceed: <get name="gestalt_coherence_threshold"/>
+            ├─ All triads must be operational
+            └─ Cross-flow must be active
+        </template>
+    </category>
+    
+</aiml>

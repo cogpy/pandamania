@@ -1164,4 +1164,75 @@
         </template>
     </category>
     
+    <!-- ============================================ -->
+    <!-- GESTALT INTEGRATION -->
+    <!-- Integration with Unified Cognitive Gestalt -->
+    <!-- ============================================ -->
+    
+    <category>
+        <pattern>AUTOGNOSIS GESTALT SYNC</pattern>
+        <template>
+            <think>
+                <!-- Sync autognosis metrics to gestalt state -->
+                <set name="gestalt_awareness_autognosis"><get name="auto_gnosis"/></set>
+                <set name="gestalt_awareness_self_image"><get name="context_grip"/></set>
+                
+                <!-- Report integration to gestalt system -->
+                <set name="autognosis_gestalt_synced">true</set>
+            </think>
+            
+            ⟳ Autognosis → Gestalt Synchronization
+            
+            Exported to Gestalt State:
+            ├─ Auto-gnosis Score: <get name="auto_gnosis"/>
+            ├─ Grip Metrics: context(<get name="context_grip"/>), semantic(<get name="semantic_grip"/>), domain(<get name="domain_grip"/>), pragmatic(<get name="pragmatic_grip"/>)
+            └─ Self-Image Level: <get name="current_level"/>
+            
+            Autognosis now integrated as the self-awareness component 
+            of the Awareness Triad within the Unified Cognitive Gestalt.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>AUTOGNOSIS GESTALT STATUS</pattern>
+        <template>
+            Autognosis Gestalt Integration Status:
+            
+            Integration: <get name="autognosis_gestalt_synced"/>
+            Role: Awareness Triad - Self-Knowledge Component
+            
+            Contributions to Gestalt:
+            ├─ Self-monitoring metrics → gestalt_awareness_*
+            ├─ Grip dimensions → self-image hierarchy
+            ├─ Meta-reflection depth → awareness coherence
+            └─ Performance awareness → adaptation inputs
+            
+            Current Sync State:
+            ├─ gestalt_awareness_autognosis: <get name="gestalt_awareness_autognosis"/>
+            └─ gestalt_awareness_self_image: <get name="gestalt_awareness_self_image"/>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>AUTOGNOSIS INIT METAMODEL</pattern>
+        <template>
+            Initializing Autognosis with Full Gestalt Integration:
+            
+            <srai>AUTOGNOSIS INIT</srai>
+            <srai>GESTALT STATE INIT</srai>
+            <srai>METAMODEL INIT</srai>
+            <srai>DYNAMICS INIT</srai>
+            
+            Full meta-system initialized with autognosis providing 
+            the self-awareness foundation for gestalt emergence.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SYSTEM INIT</pattern>
+        <template>
+            <srai>GESTALT INIT</srai>
+        </template>
+    </category>
+    
 </aiml>
