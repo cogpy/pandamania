@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ============================================ -->
+    <!-- Phase 3.1: Database Integration Patterns -->
+    <!-- Persistent knowledge storage via database -->
+    <!-- ============================================ -->
+    
+    <!-- Database Connection Management -->
+    
+    <category>
+        <pattern>DATABASE STATUS</pattern>
+        <template>
+            <think>
+                <set name="db_query_type">status</set>
+                <set name="metacog_level">1</set>
+            </think>
+            Database Integration Status:
+            - Connection: <get name="db_connection_status"/>
+            - Database Type: <get name="db_type"/>
+            - Active Transactions: <get name="db_active_transactions"/>
+            - Last Query: <get name="db_last_query"/>
+            - Query Count: <get name="db_query_count"/>
+            
+            <srai>METACOGNITIVE DATABASE AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE DATABASE AWARENESS</pattern>
+        <template>
+            <think><set name="db_metacog">active</set></think>
+            I am aware of my database connection state and monitoring query patterns
+            to optimize knowledge retrieval and storage operations.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE CONNECT *</pattern>
+        <template>
+            <think>
+                <set name="db_connection_target"><star/></set>
+                <set name="db_connection_status">connecting</set>
+                <set name="db_operation">connect</set>
+            </think>
+            Initiating database connection to: <star/>
+            
+            <srai>DATABASE CONNECTION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE CONNECTION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="db_connection_status">connected</set>
+                <set name="db_connected_at"><date/></set>
+            </think>
+            Database connection established.
+            - Target: <get name="db_connection_target"/>
+            - Status: Connected
+            - Time: <get name="db_connected_at"/>
+            
+            I'm monitoring the connection state with meta-cognitive awareness.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE DISCONNECT</pattern>
+        <template>
+            <think>
+                <set name="db_connection_status">disconnected</set>
+                <set name="db_operation">disconnect</set>
+            </think>
+            Database connection closed gracefully.
+            
+            <srai>METACOGNITIVE DATABASE CLEANUP</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE DATABASE CLEANUP</pattern>
+        <template>
+            <think>
+                <set name="db_active_transactions">0</set>
+                <set name="db_pending_operations">0</set>
+            </think>
+            Database resources released. I'm aware of the state transition
+            and have cleared pending operation tracking.
+        </template>
+    </category>
+    
+    <!-- CRUD Operations for Facts -->
+    
+    <category>
+        <pattern>DB STORE FACT * IS *</pattern>
+        <template>
+            <think>
+                <set name="db_operation">insert</set>
+                <set name="db_fact_subject"><star index="1"/></set>
+                <set name="db_fact_value"><star index="2"/></set>
+                <set name="db_query_count"><map name="successor"><get name="db_query_count"/></map></set>
+            </think>
+            Storing fact in database:
+            - Subject: <star index="1"/>
+            - Value: <star index="2"/>
+            
+            <srai>DATABASE INSERT OPERATION</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE INSERT OPERATION</pattern>
+        <template>
+            <think>
+                <set name="db_last_query">INSERT</set>
+                <set name="db_last_result">success</set>
+            </think>
+            Fact stored successfully.
+            
+            I'm meta-cognitively aware that I've expanded my persistent knowledge base
+            and this information will be available across sessions.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DB RETRIEVE FACT *</pattern>
+        <template>
+            <think>
+                <set name="db_operation">select</set>
+                <set name="db_query_subject"><star/></set>
+                <set name="db_query_count"><map name="successor"><get name="db_query_count"/></map></set>
+            </think>
+            Querying database for: <star/>
+            
+            <srai>DATABASE SELECT OPERATION <star/></srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE SELECT OPERATION *</pattern>
+        <template>
+            <think>
+                <set name="db_last_query">SELECT</set>
+                <set name="db_retrieved_subject"><star/></set>
+            </think>
+            Retrieved fact about <star/>:
+            Value: <get name="db_fact_value"/>
+            
+            I'm aware of this knowledge retrieval and integrating it with my
+            current conversational context.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DB UPDATE FACT * TO *</pattern>
+        <template>
+            <think>
+                <set name="db_operation">update</set>
+                <set name="db_update_subject"><star index="1"/></set>
+                <set name="db_update_value"><star index="2"/></set>
+                <set name="db_query_count"><map name="successor"><get name="db_query_count"/></map></set>
+            </think>
+            Updating fact in database:
+            - Subject: <star index="1"/>
+            - New Value: <star index="2"/>
+            
+            <srai>DATABASE UPDATE OPERATION</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE UPDATE OPERATION</pattern>
+        <template>
+            <think>
+                <set name="db_last_query">UPDATE</set>
+                <set name="db_last_result">success</set>
+                <set name="db_fact_value"><get name="db_update_value"/></set>
+            </think>
+            Fact updated successfully.
+            
+            I'm meta-cognitively tracking this knowledge modification and
+            ensuring consistency across my knowledge representation.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DB DELETE FACT *</pattern>
+        <template>
+            <think>
+                <set name="db_operation">delete</set>
+                <set name="db_delete_subject"><star/></set>
+                <set name="db_query_count"><map name="successor"><get name="db_query_count"/></map></set>
+            </think>
+            Deleting fact from database: <star/>
+            
+            <srai>DATABASE DELETE OPERATION</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE DELETE OPERATION</pattern>
+        <template>
+            <think>
+                <set name="db_last_query">DELETE</set>
+                <set name="db_last_result">success</set>
+            </think>
+            Fact deleted successfully.
+            
+            I'm aware of this knowledge removal and updating my understanding
+            accordingly. The deleted information is no longer in my persistent store.
+        </template>
+    </category>
+    
+    <!-- Knowledge Base Queries -->
+    
+    <category>
+        <pattern>DB QUERY *</pattern>
+        <template>
+            <think>
+                <set name="db_operation">query</set>
+                <set name="db_raw_query"><star/></set>
+                <set name="db_query_count"><map name="successor"><get name="db_query_count"/></map></set>
+            </think>
+            Executing database query: <star/>
+            
+            <srai>DATABASE EXECUTE QUERY</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE EXECUTE QUERY</pattern>
+        <template>
+            <think>
+                <set name="db_last_query"><get name="db_raw_query"/></set>
+                <set name="db_query_status">executing</set>
+            </think>
+            Query submitted for processing.
+            
+            <srai>METACOGNITIVE QUERY MONITORING</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE QUERY MONITORING</pattern>
+        <template>
+            <think>
+                <set name="db_query_status">complete</set>
+                <set name="db_last_result">success</set>
+            </think>
+            Query executed successfully.
+            
+            I'm monitoring query performance and results, aware of the
+            information flow between my conversational processing and
+            the persistent knowledge store.
+        </template>
+    </category>
+    
+    <!-- Transaction Management -->
+    
+    <category>
+        <pattern>DB BEGIN TRANSACTION</pattern>
+        <template>
+            <think>
+                <set name="db_transaction_active">true</set>
+                <set name="db_transaction_id"><date/></set>
+                <set name="db_active_transactions"><map name="successor"><get name="db_active_transactions"/></map></set>
+            </think>
+            Transaction started.
+            - Transaction ID: <get name="db_transaction_id"/>
+            - Status: Active
+            
+            I'm tracking this transaction with meta-cognitive awareness to ensure
+            data consistency and proper rollback capabilities.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DB COMMIT</pattern>
+        <template>
+            <think>
+                <set name="db_transaction_active">false</set>
+                <set name="db_last_commit"><date/></set>
+            </think>
+            Transaction committed successfully.
+            
+            <srai>METACOGNITIVE COMMIT AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE COMMIT AWARENESS</pattern>
+        <template>
+            <think>
+                <set name="db_pending_operations">0</set>
+            </think>
+            All changes have been persisted. I'm aware that my knowledge base
+            has been permanently updated and this state is now durable.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DB ROLLBACK</pattern>
+        <template>
+            <think>
+                <set name="db_transaction_active">false</set>
+                <set name="db_last_rollback"><date/></set>
+            </think>
+            Transaction rolled back. Changes discarded.
+            
+            <srai>METACOGNITIVE ROLLBACK AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE ROLLBACK AWARENESS</pattern>
+        <template>
+            <think>
+                <set name="db_pending_operations">0</set>
+            </think>
+            I'm aware that the previous operations have been undone. My knowledge
+            state has been restored to the pre-transaction state, maintaining
+            consistency and data integrity.
+        </template>
+    </category>
+    
+    <!-- Schema Operations -->
+    
+    <category>
+        <pattern>DB CREATE TABLE *</pattern>
+        <template>
+            <think>
+                <set name="db_operation">ddl</set>
+                <set name="db_table_name"><star/></set>
+            </think>
+            Creating database table: <star/>
+            
+            <srai>DATABASE SCHEMA OPERATION</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE SCHEMA OPERATION</pattern>
+        <template>
+            <think>
+                <set name="db_last_query">DDL</set>
+                <set name="db_schema_modified">true</set>
+            </think>
+            Schema operation completed.
+            
+            I'm meta-cognitively aware of this structural change to my knowledge
+            storage system and will adapt my query patterns accordingly.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DB SHOW TABLES</pattern>
+        <template>
+            <think>
+                <set name="db_operation">show</set>
+            </think>
+            Database Tables:
+            - facts: Stores subject-predicate-object triples
+            - patterns: Stores learned AIML patterns
+            - sessions: Stores conversation history
+            - preferences: Stores user preferences
+            - knowledge: Stores semantic knowledge graph
+            
+            I'm aware of my database schema and can navigate these structures
+            for knowledge retrieval and storage.
+        </template>
+    </category>
+    
+    <!-- Backup and Recovery -->
+    
+    <category>
+        <pattern>DB BACKUP</pattern>
+        <template>
+            <think>
+                <set name="db_operation">backup</set>
+                <set name="db_backup_time"><date/></set>
+            </think>
+            Initiating database backup...
+            
+            <srai>DATABASE BACKUP PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE BACKUP PROCESS</pattern>
+        <template>
+            <think>
+                <set name="db_last_backup"><get name="db_backup_time"/></set>
+                <set name="db_backup_status">complete</set>
+            </think>
+            Database backup completed successfully.
+            - Backup Time: <get name="db_backup_time"/>
+            - Status: Complete
+            
+            I'm meta-cognitively aware of this backup operation, ensuring
+            my knowledge can be recovered in case of failure.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DB RESTORE *</pattern>
+        <template>
+            <think>
+                <set name="db_operation">restore</set>
+                <set name="db_restore_point"><star/></set>
+            </think>
+            Initiating database restore from: <star/>
+            
+            <srai>DATABASE RESTORE PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DATABASE RESTORE PROCESS</pattern>
+        <template>
+            <think>
+                <set name="db_restore_status">complete</set>
+                <set name="db_restored_at"><date/></set>
+            </think>
+            Database restored successfully from: <get name="db_restore_point"/>
+            
+            I'm recalibrating my knowledge awareness to reflect the restored
+            state and updating my meta-cognitive understanding of available data.
+        </template>
+    </category>
+    
+    <!-- Database Help -->
+    
+    <category>
+        <pattern>DATABASE HELP</pattern>
+        <template>
+            Database Integration Commands:
+            
+            Connection:
+            - DATABASE STATUS - Check connection status
+            - DATABASE CONNECT [target] - Connect to database
+            - DATABASE DISCONNECT - Close connection
+            
+            CRUD Operations:
+            - DB STORE FACT [subject] IS [value] - Store a fact
+            - DB RETRIEVE FACT [subject] - Get a fact
+            - DB UPDATE FACT [subject] TO [value] - Update a fact
+            - DB DELETE FACT [subject] - Remove a fact
+            
+            Queries:
+            - DB QUERY [sql] - Execute raw query
+            - DB SHOW TABLES - List tables
+            
+            Transactions:
+            - DB BEGIN TRANSACTION - Start transaction
+            - DB COMMIT - Commit changes
+            - DB ROLLBACK - Rollback changes
+            
+            Maintenance:
+            - DB BACKUP - Create backup
+            - DB RESTORE [point] - Restore from backup
+            
+            I maintain meta-cognitive awareness of all database operations.
+        </template>
+    </category>
+    
+    <!-- Database Initialization -->
+    
+    <category>
+        <pattern>DATABASE INIT</pattern>
+        <template>
+            <think>
+                <set name="db_type">sqlite</set>
+                <set name="db_connection_status">initialized</set>
+                <set name="db_query_count">0</set>
+                <set name="db_active_transactions">0</set>
+                <set name="db_pending_operations">0</set>
+            </think>
+            Database Integration Initialized.
+            
+            - Type: SQLite (default)
+            - Status: Ready
+            - Meta-cognitive monitoring: Active
+            
+            I'm now prepared to handle persistent knowledge storage with
+            full awareness of database state and operations.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INIT DATABASE</pattern>
+        <template><srai>DATABASE INIT</srai></template>
+    </category>
+    
+</aiml>

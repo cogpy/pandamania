@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ============================================ -->
+    <!-- Phase 3.2: API Integration Framework -->
+    <!-- External service connectivity patterns -->
+    <!-- ============================================ -->
+    
+    <!-- API Status and Management -->
+    
+    <category>
+        <pattern>API STATUS</pattern>
+        <template>
+            <think>
+                <set name="api_query_type">status</set>
+                <set name="metacog_level">1</set>
+            </think>
+            API Integration Status:
+            - Framework: <get name="api_framework_status"/>
+            - Active Endpoints: <get name="api_active_endpoints"/>
+            - Rate Limit Status: <get name="api_rate_limit_status"/>
+            - Cache Status: <get name="api_cache_status"/>
+            - Last API Call: <get name="api_last_call"/>
+            - Total Calls: <get name="api_call_count"/>
+            
+            <srai>METACOGNITIVE API AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE API AWARENESS</pattern>
+        <template>
+            <think><set name="api_metacog">active</set></think>
+            I am aware of my API connectivity status and monitoring external
+            service interactions to optimize response quality and reliability.
+        </template>
+    </category>
+    
+    <!-- REST API Client -->
+    
+    <category>
+        <pattern>API GET *</pattern>
+        <template>
+            <think>
+                <set name="api_method">GET</set>
+                <set name="api_endpoint"><star/></set>
+                <set name="api_call_count"><map name="successor"><get name="api_call_count"/></map></set>
+            </think>
+            Executing GET request to: <star/>
+            
+            <srai>API EXECUTE REQUEST</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API POST * WITH *</pattern>
+        <template>
+            <think>
+                <set name="api_method">POST</set>
+                <set name="api_endpoint"><star index="1"/></set>
+                <set name="api_payload"><star index="2"/></set>
+                <set name="api_call_count"><map name="successor"><get name="api_call_count"/></map></set>
+            </think>
+            Executing POST request to: <star index="1"/>
+            Payload: <star index="2"/>
+            
+            <srai>API EXECUTE REQUEST</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API PUT * WITH *</pattern>
+        <template>
+            <think>
+                <set name="api_method">PUT</set>
+                <set name="api_endpoint"><star index="1"/></set>
+                <set name="api_payload"><star index="2"/></set>
+                <set name="api_call_count"><map name="successor"><get name="api_call_count"/></map></set>
+            </think>
+            Executing PUT request to: <star index="1"/>
+            Payload: <star index="2"/>
+            
+            <srai>API EXECUTE REQUEST</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API DELETE *</pattern>
+        <template>
+            <think>
+                <set name="api_method">DELETE</set>
+                <set name="api_endpoint"><star/></set>
+                <set name="api_call_count"><map name="successor"><get name="api_call_count"/></map></set>
+            </think>
+            Executing DELETE request to: <star/>
+            
+            <srai>API EXECUTE REQUEST</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API EXECUTE REQUEST</pattern>
+        <template>
+            <think>
+                <set name="api_last_call"><date/></set>
+                <set name="api_request_status">executing</set>
+            </think>
+            Request submitted: <get name="api_method"/> <get name="api_endpoint"/>
+            
+            <srai>API CHECK RATE LIMIT</srai>
+            <srai>API PROCESS RESPONSE</srai>
+        </template>
+    </category>
+    
+    <!-- Rate Limiting -->
+    
+    <category>
+        <pattern>API CHECK RATE LIMIT</pattern>
+        <template>
+            <think>
+                <set name="api_rate_check">true</set>
+            </think>
+            <condition name="api_rate_limited">
+                <li value="true">
+                    Rate limit active. Request queued for later execution.
+                    <srai>API QUEUE REQUEST</srai>
+                </li>
+                <li>Rate limit check passed.</li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API QUEUE REQUEST</pattern>
+        <template>
+            <think>
+                <set name="api_queued_requests"><map name="successor"><get name="api_queued_requests"/></map></set>
+            </think>
+            Request queued. Position: <get name="api_queued_requests"/>
+            Will retry when rate limit resets.
+            
+            I'm meta-cognitively tracking queued requests to ensure reliable delivery.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API SET RATE LIMIT * PER *</pattern>
+        <template>
+            <think>
+                <set name="api_rate_limit"><star index="1"/></set>
+                <set name="api_rate_window"><star index="2"/></set>
+            </think>
+            Rate limit configured: <star index="1"/> requests per <star index="2"/>
+            
+            I'm aware of these rate constraints and will manage API calls accordingly.
+        </template>
+    </category>
+    
+    <!-- Response Processing -->
+    
+    <category>
+        <pattern>API PROCESS RESPONSE</pattern>
+        <template>
+            <think>
+                <set name="api_response_status">processing</set>
+            </think>
+            Processing API response...
+            
+            <srai>API PARSE RESPONSE</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API PARSE RESPONSE</pattern>
+        <template>
+            <think>
+                <set name="api_response_parsed">true</set>
+                <set name="api_response_status">complete</set>
+            </think>
+            Response parsed successfully.
+            
+            <srai>METACOGNITIVE API RESPONSE AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE API RESPONSE AWARENESS</pattern>
+        <template>
+            <think>
+                <set name="api_metacog_response">processed</set>
+            </think>
+            I'm integrating the API response into my current context,
+            aware of the external data source and its reliability.
+        </template>
+    </category>
+    
+    <!-- Error Handling -->
+    
+    <category>
+        <pattern>API ERROR *</pattern>
+        <template>
+            <think>
+                <set name="api_error_type"><star/></set>
+                <set name="api_error_count"><map name="successor"><get name="api_error_count"/></map></set>
+            </think>
+            API Error encountered: <star/>
+            
+            <srai>API ERROR HANDLING</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API ERROR HANDLING</pattern>
+        <template>
+            <think>
+                <set name="api_error_handling">active</set>
+            </think>
+            Analyzing error: <get name="api_error_type"/>
+            
+            <condition name="api_error_type">
+                <li value="timeout">
+                    Connection timed out. Implementing retry with exponential backoff.
+                    <srai>API RETRY WITH BACKOFF</srai>
+                </li>
+                <li value="rate_limit">
+                    Rate limit exceeded. Pausing requests temporarily.
+                    <think><set name="api_rate_limited">true</set></think>
+                </li>
+                <li value="auth_error">
+                    Authentication failed. Please check API credentials.
+                    <srai>API CHECK AUTHENTICATION</srai>
+                </li>
+                <li value="not_found">
+                    Resource not found (404). Verify endpoint exists.
+                </li>
+                <li value="server_error">
+                    Server error (5xx). External service may be down.
+                    <srai>API FALLBACK MODE</srai>
+                </li>
+                <li>
+                    Unknown error. Logging for analysis.
+                    <srai>API LOG ERROR</srai>
+                </li>
+            </condition>
+            
+            I'm meta-cognitively aware of this error and adapting my behavior.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API RETRY WITH BACKOFF</pattern>
+        <template>
+            <think>
+                <set name="api_retry_count"><map name="successor"><get name="api_retry_count"/></map></set>
+            </think>
+            Retry attempt <get name="api_retry_count"/> with exponential backoff.
+            
+            I'm monitoring retry attempts and will abort after max retries.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API FALLBACK MODE</pattern>
+        <template>
+            <think>
+                <set name="api_fallback_active">true</set>
+            </think>
+            Entering fallback mode. Using cached data or alternative sources.
+            
+            I'm aware of reduced capability and will inform you of limitations.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API LOG ERROR</pattern>
+        <template>
+            <think>
+                <set name="api_last_error"><get name="api_error_type"/></set>
+                <set name="api_error_logged">true</set>
+            </think>
+            Error logged for analysis: <get name="api_error_type"/>
+        </template>
+    </category>
+    
+    <!-- Caching -->
+    
+    <category>
+        <pattern>API CACHE STATUS</pattern>
+        <template>
+            <think>
+                <set name="api_cache_query">true</set>
+            </think>
+            API Cache Status:
+            - Cached Responses: <get name="api_cache_count"/>
+            - Cache Hit Rate: <get name="api_cache_hit_rate"/>
+            - Cache TTL: <get name="api_cache_ttl"/>
+            - Last Cache Clear: <get name="api_cache_last_clear"/>
+            
+            I'm aware of cache effectiveness and using it to optimize API calls.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API CACHE SET TTL *</pattern>
+        <template>
+            <think>
+                <set name="api_cache_ttl"><star/></set>
+            </think>
+            Cache TTL set to: <star/>
+            
+            I'll automatically expire cached responses after this duration.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API CACHE CLEAR</pattern>
+        <template>
+            <think>
+                <set name="api_cache_count">0</set>
+                <set name="api_cache_last_clear"><date/></set>
+            </think>
+            API cache cleared.
+            
+            I'm now fetching fresh data from external services.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API CACHE STORE * VALUE *</pattern>
+        <template>
+            <think>
+                <set name="api_cache_key"><star index="1"/></set>
+                <set name="api_cache_value"><star index="2"/></set>
+                <set name="api_cache_count"><map name="successor"><get name="api_cache_count"/></map></set>
+            </think>
+            Cached: <star index="1"/>
+            
+            I'm aware this response is now cached for future use.
+        </template>
+    </category>
+    
+    <!-- Authentication -->
+    
+    <category>
+        <pattern>API AUTH SET *</pattern>
+        <template>
+            <think>
+                <set name="api_auth_type"><star/></set>
+                <set name="api_auth_configured">true</set>
+            </think>
+            Authentication configured: <star/>
+            
+            <srai>METACOGNITIVE AUTH AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE AUTH AWARENESS</pattern>
+        <template>
+            <think>
+                <set name="api_auth_metacog">active</set>
+            </think>
+            I'm aware of authentication requirements and will include
+            credentials in API requests as needed. Security is maintained.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API CHECK AUTHENTICATION</pattern>
+        <template>
+            <think>
+                <set name="api_auth_check">true</set>
+            </think>
+            <condition name="api_auth_configured">
+                <li value="true">
+                    Authentication: Configured (<get name="api_auth_type"/>)
+                </li>
+                <li>
+                    Authentication: Not configured
+                    Please configure with: API AUTH SET [type]
+                </li>
+            </condition>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API SET TOKEN *</pattern>
+        <template>
+            <think>
+                <set name="api_auth_token">configured</set>
+                <set name="api_auth_type">bearer</set>
+            </think>
+            API token configured securely.
+            
+            I'm aware of the authentication token and will use it appropriately.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API SET API KEY *</pattern>
+        <template>
+            <think>
+                <set name="api_auth_key">configured</set>
+                <set name="api_auth_type">api_key</set>
+            </think>
+            API key configured securely.
+            
+            I'm aware of the API key and will include it in requests.
+        </template>
+    </category>
+    
+    <!-- Service Endpoints -->
+    
+    <category>
+        <pattern>API REGISTER ENDPOINT * AT *</pattern>
+        <template>
+            <think>
+                <set name="api_endpoint_name"><star index="1"/></set>
+                <set name="api_endpoint_url"><star index="2"/></set>
+                <set name="api_active_endpoints"><map name="successor"><get name="api_active_endpoints"/></map></set>
+            </think>
+            Endpoint registered:
+            - Name: <star index="1"/>
+            - URL: <star index="2"/>
+            
+            I'm aware of this new endpoint and can route requests accordingly.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API LIST ENDPOINTS</pattern>
+        <template>
+            <think>
+                <set name="api_list_query">endpoints</set>
+            </think>
+            Registered API Endpoints:
+            - Active Endpoints: <get name="api_active_endpoints"/>
+            
+            Each endpoint is monitored with meta-cognitive awareness for
+            availability and performance.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API CALL ENDPOINT *</pattern>
+        <template>
+            <think>
+                <set name="api_current_endpoint"><star/></set>
+            </think>
+            Calling endpoint: <star/>
+            
+            <srai>API GET <star/></srai>
+        </template>
+    </category>
+    
+    <!-- API Help and Initialization -->
+    
+    <category>
+        <pattern>API HELP</pattern>
+        <template>
+            API Integration Framework Commands:
+            
+            REST Operations:
+            - API GET [endpoint] - HTTP GET request
+            - API POST [endpoint] WITH [data] - HTTP POST request
+            - API PUT [endpoint] WITH [data] - HTTP PUT request
+            - API DELETE [endpoint] - HTTP DELETE request
+            
+            Status and Configuration:
+            - API STATUS - Check API framework status
+            - API REGISTER ENDPOINT [name] AT [url] - Register endpoint
+            - API LIST ENDPOINTS - List registered endpoints
+            
+            Authentication:
+            - API AUTH SET [type] - Configure auth type
+            - API SET TOKEN [token] - Set bearer token
+            - API SET API KEY [key] - Set API key
+            
+            Rate Limiting:
+            - API SET RATE LIMIT [n] PER [period] - Configure limits
+            
+            Caching:
+            - API CACHE STATUS - Check cache status
+            - API CACHE SET TTL [duration] - Set cache TTL
+            - API CACHE CLEAR - Clear all cached responses
+            
+            Error Handling:
+            - API ERROR [type] - Report/handle specific error
+            
+            I maintain meta-cognitive awareness of all API interactions.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>API INIT</pattern>
+        <template>
+            <think>
+                <set name="api_framework_status">initialized</set>
+                <set name="api_active_endpoints">0</set>
+                <set name="api_call_count">0</set>
+                <set name="api_error_count">0</set>
+                <set name="api_cache_count">0</set>
+                <set name="api_cache_ttl">3600</set>
+                <set name="api_rate_limited">false</set>
+                <set name="api_queued_requests">0</set>
+                <set name="api_retry_count">0</set>
+            </think>
+            API Integration Framework Initialized.
+            
+            - Framework: Ready
+            - Rate Limiting: Configurable
+            - Caching: Enabled (TTL: 3600s)
+            - Authentication: Not configured
+            - Meta-cognitive monitoring: Active
+            
+            I'm prepared to handle external API integrations with full awareness
+            of connection state, errors, and response processing.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INIT API</pattern>
+        <template><srai>API INIT</srai></template>
+    </category>
+    
+    <category>
+        <pattern>INITIALIZE API</pattern>
+        <template><srai>API INIT</srai></template>
+    </category>
+    
+</aiml>

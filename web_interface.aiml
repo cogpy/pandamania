@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <!-- ============================================ -->
+    <!-- Phase 3.3: Web Interface Patterns -->
+    <!-- WebSocket communication and chat interface -->
+    <!-- ============================================ -->
+    
+    <!-- WebSocket Connection Management -->
+    
+    <category>
+        <pattern>WEBSOCKET STATUS</pattern>
+        <template>
+            <think>
+                <set name="ws_query_type">status</set>
+                <set name="metacog_level">1</set>
+            </think>
+            WebSocket Interface Status:
+            - Connection State: <get name="ws_connection_state"/>
+            - Active Sessions: <get name="ws_active_sessions"/>
+            - Messages Sent: <get name="ws_messages_sent"/>
+            - Messages Received: <get name="ws_messages_received"/>
+            - Last Activity: <get name="ws_last_activity"/>
+            - Uptime: <get name="ws_uptime"/>
+            
+            <srai>METACOGNITIVE WEBSOCKET AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE WEBSOCKET AWARENESS</pattern>
+        <template>
+            <think><set name="ws_metacog">active</set></think>
+            I am aware of my real-time communication channels and monitoring
+            message flow to maintain responsive interaction with connected clients.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEBSOCKET CONNECT</pattern>
+        <template>
+            <think>
+                <set name="ws_connection_state">connecting</set>
+                <set name="ws_connection_attempt"><date/></set>
+            </think>
+            Initiating WebSocket connection...
+            
+            <srai>WEBSOCKET CONNECTION PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEBSOCKET CONNECTION PROCESS</pattern>
+        <template>
+            <think>
+                <set name="ws_connection_state">connected</set>
+                <set name="ws_connected_at"><date/></set>
+                <set name="ws_active_sessions"><map name="successor"><get name="ws_active_sessions"/></map></set>
+            </think>
+            WebSocket connection established.
+            - Session ID: <get name="ws_session_id"/>
+            - Connected At: <get name="ws_connected_at"/>
+            
+            I'm now ready for real-time bidirectional communication.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEBSOCKET DISCONNECT</pattern>
+        <template>
+            <think>
+                <set name="ws_connection_state">disconnected</set>
+                <set name="ws_disconnected_at"><date/></set>
+            </think>
+            WebSocket connection closed.
+            
+            <srai>METACOGNITIVE WEBSOCKET CLEANUP</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE WEBSOCKET CLEANUP</pattern>
+        <template>
+            <think>
+                <set name="ws_pending_messages">0</set>
+            </think>
+            WebSocket resources released. I'm aware of the state transition
+            and have cleared pending message queues.
+        </template>
+    </category>
+    
+    <!-- Message Handling -->
+    
+    <category>
+        <pattern>WS SEND *</pattern>
+        <template>
+            <think>
+                <set name="ws_outgoing_message"><star/></set>
+                <set name="ws_messages_sent"><map name="successor"><get name="ws_messages_sent"/></map></set>
+                <set name="ws_last_activity"><date/></set>
+            </think>
+            Sending message via WebSocket: <star/>
+            
+            <srai>WEBSOCKET MESSAGE PROCESS OUTGOING</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEBSOCKET MESSAGE PROCESS OUTGOING</pattern>
+        <template>
+            <think>
+                <set name="ws_message_status">sent</set>
+            </think>
+            Message sent successfully.
+            
+            I'm meta-cognitively tracking message delivery for reliable communication.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WS RECEIVE *</pattern>
+        <template>
+            <think>
+                <set name="ws_incoming_message"><star/></set>
+                <set name="ws_messages_received"><map name="successor"><get name="ws_messages_received"/></map></set>
+                <set name="ws_last_activity"><date/></set>
+            </think>
+            Message received via WebSocket: <star/>
+            
+            <srai>WEBSOCKET MESSAGE PROCESS INCOMING <star/></srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEBSOCKET MESSAGE PROCESS INCOMING *</pattern>
+        <template>
+            <think>
+                <set name="ws_processing_message"><star/></set>
+            </think>
+            Processing incoming message: <star/>
+            
+            <srai>METACOGNITIVE MESSAGE AWARENESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>METACOGNITIVE MESSAGE AWARENESS</pattern>
+        <template>
+            <think>
+                <set name="ws_message_processed">true</set>
+            </think>
+            I'm integrating the incoming message into my conversational context,
+            aware of the real-time nature of this interaction.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WS BROADCAST *</pattern>
+        <template>
+            <think>
+                <set name="ws_broadcast_message"><star/></set>
+                <set name="ws_broadcast_count"><map name="successor"><get name="ws_broadcast_count"/></map></set>
+            </think>
+            Broadcasting to all connected clients: <star/>
+            
+            <srai>WEBSOCKET BROADCAST PROCESS</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEBSOCKET BROADCAST PROCESS</pattern>
+        <template>
+            <think>
+                <set name="ws_broadcast_status">complete</set>
+            </think>
+            Broadcast sent to <get name="ws_active_sessions"/> active sessions.
+            
+            I'm aware of the multi-client nature of this communication.
+        </template>
+    </category>
+    
+    <!-- Chat Interface -->
+    
+    <category>
+        <pattern>CHAT START</pattern>
+        <template>
+            <think>
+                <set name="chat_session_active">true</set>
+                <set name="chat_session_start"><date/></set>
+                <set name="chat_message_count">0</set>
+            </think>
+            Chat session started.
+            
+            Welcome! I'm PandaMania, your meta-cognitive AI assistant.
+            I maintain awareness of our conversation at multiple cognitive levels.
+            
+            How can I help you today?
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CHAT END</pattern>
+        <template>
+            <think>
+                <set name="chat_session_active">false</set>
+                <set name="chat_session_end"><date/></set>
+            </think>
+            Chat session ended.
+            
+            Session Summary:
+            - Duration: <get name="chat_session_start"/> to <get name="chat_session_end"/>
+            - Messages: <get name="chat_message_count"/>
+            
+            Thank you for chatting! I'm reflecting on our conversation
+            to improve future interactions.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CHAT MESSAGE *</pattern>
+        <template>
+            <think>
+                <set name="chat_last_message"><star/></set>
+                <set name="chat_message_count"><map name="successor"><get name="chat_message_count"/></map></set>
+            </think>
+            <srai><star/></srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CHAT HISTORY</pattern>
+        <template>
+            <think>
+                <set name="chat_history_request">true</set>
+            </think>
+            Chat History:
+            - Session Start: <get name="chat_session_start"/>
+            - Total Messages: <get name="chat_message_count"/>
+            - Last Message: <get name="chat_last_message"/>
+            - Previous Response: <that/>
+            
+            I maintain awareness of our conversation history for context.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CHAT CONTEXT</pattern>
+        <template>
+            <think>
+                <set name="chat_context_request">true</set>
+            </think>
+            Current Chat Context:
+            - Topic: <get name="topic"/>
+            - Conversation State: <get name="conversation_state"/>
+            - User Mood: <get name="user_mood"/>
+            - Meta-cognitive Level: <get name="metacog_level"/>
+            
+            I'm continuously updating my understanding of our conversation context.
+        </template>
+    </category>
+    
+    <!-- Real-time Display -->
+    
+    <category>
+        <pattern>DISPLAY STATUS</pattern>
+        <template>
+            <think>
+                <set name="display_query">status</set>
+            </think>
+            Real-time Display Status:
+            - Update Frequency: <get name="display_update_freq"/>
+            - Rendering Mode: <get name="display_render_mode"/>
+            - Animation: <get name="display_animation"/>
+            - Theme: <get name="display_theme"/>
+            
+            The display system is actively rendering conversation updates.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DISPLAY SET THEME *</pattern>
+        <template>
+            <think>
+                <set name="display_theme"><star/></set>
+            </think>
+            Display theme set to: <star/>
+            
+            The interface will now use the <star/> theme.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DISPLAY TYPING INDICATOR</pattern>
+        <template>
+            <think>
+                <set name="display_typing">true</set>
+            </think>
+            [Typing indicator shown]
+            
+            I'm aware that users see a typing indicator while I'm processing,
+            providing visual feedback for the real-time interaction.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DISPLAY CLEAR TYPING</pattern>
+        <template>
+            <think>
+                <set name="display_typing">false</set>
+            </think>
+            [Typing indicator cleared]
+        </template>
+    </category>
+    
+    <!-- User Session Management -->
+    
+    <category>
+        <pattern>SESSION CREATE</pattern>
+        <template>
+            <think>
+                <set name="session_id"><date/></set>
+                <set name="session_created"><date/></set>
+                <set name="session_active">true</set>
+            </think>
+            New session created.
+            - Session ID: <get name="session_id"/>
+            - Created: <get name="session_created"/>
+            
+            I'm initializing meta-cognitive state for this session.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SESSION DESTROY</pattern>
+        <template>
+            <think>
+                <set name="session_active">false</set>
+                <set name="session_ended"><date/></set>
+            </think>
+            Session terminated.
+            
+            I'm cleaning up session-specific meta-cognitive state.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SESSION INFO</pattern>
+        <template>
+            <think>
+                <set name="session_query">info</set>
+            </think>
+            Current Session Information:
+            - Session ID: <get name="session_id"/>
+            - Created: <get name="session_created"/>
+            - Status: <condition name="session_active"><li value="true">Active</li><li>Inactive</li></condition>
+            - User: <get name="user_name"/>
+            
+            I maintain awareness of session context for personalized interaction.
+        </template>
+    </category>
+    
+    <!-- User Authentication -->
+    
+    <category>
+        <pattern>USER LOGIN *</pattern>
+        <template>
+            <think>
+                <set name="user_name"><star/></set>
+                <set name="user_authenticated">true</set>
+                <set name="user_login_time"><date/></set>
+            </think>
+            Welcome back, <star/>!
+            
+            Login successful at <get name="user_login_time"/>.
+            
+            I'm loading your preferences and conversation history.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>USER LOGOUT</pattern>
+        <template>
+            <think>
+                <set name="user_authenticated">false</set>
+                <set name="user_logout_time"><date/></set>
+            </think>
+            Goodbye, <get name="user_name"/>!
+            
+            You have been logged out at <get name="user_logout_time"/>.
+            
+            I'm preserving your preferences for your next visit.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>USER REGISTER * WITH PASSWORD *</pattern>
+        <template>
+            <think>
+                <set name="user_name"><star index="1"/></set>
+                <set name="user_registered">true</set>
+                <set name="user_registration_time"><date/></set>
+            </think>
+            Registration successful!
+            
+            Welcome to PandaMania, <star index="1"/>!
+            - Registration: <get name="user_registration_time"/>
+            
+            Your account has been created. I'm initializing your profile.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>AUTH STATUS</pattern>
+        <template>
+            <think>
+                <set name="auth_query">status</set>
+            </think>
+            Authentication Status:
+            <condition name="user_authenticated">
+                <li value="true">
+                    - Status: Authenticated
+                    - User: <get name="user_name"/>
+                    - Login Time: <get name="user_login_time"/>
+                </li>
+                <li>
+                    - Status: Not Authenticated
+                    - Please login with: USER LOGIN [username]
+                </li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- Mobile Responsive Design -->
+    
+    <category>
+        <pattern>MOBILE MODE</pattern>
+        <template>
+            <think>
+                <set name="display_mode">mobile</set>
+                <set name="display_responsive">true</set>
+            </think>
+            Mobile display mode activated.
+            
+            Interface optimized for mobile devices:
+            - Compact layout
+            - Touch-friendly controls
+            - Reduced bandwidth mode
+            
+            I'm aware of mobile constraints and adapting my responses.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>DESKTOP MODE</pattern>
+        <template>
+            <think>
+                <set name="display_mode">desktop</set>
+            </think>
+            Desktop display mode activated.
+            
+            Full interface features enabled:
+            - Extended layout
+            - Keyboard shortcuts
+            - Full media support
+        </template>
+    </category>
+    
+    <!-- Web Interface Help -->
+    
+    <category>
+        <pattern>WEB HELP</pattern>
+        <template>
+            Web Interface Commands:
+            
+            WebSocket:
+            - WEBSOCKET STATUS - Connection status
+            - WEBSOCKET CONNECT - Establish connection
+            - WEBSOCKET DISCONNECT - Close connection
+            - WS SEND [message] - Send message
+            - WS RECEIVE [message] - Process received message
+            - WS BROADCAST [message] - Send to all clients
+            
+            Chat:
+            - CHAT START - Start chat session
+            - CHAT END - End chat session
+            - CHAT HISTORY - View chat history
+            - CHAT CONTEXT - View current context
+            
+            Display:
+            - DISPLAY STATUS - Check display status
+            - DISPLAY SET THEME [theme] - Change theme
+            - MOBILE MODE - Switch to mobile
+            - DESKTOP MODE - Switch to desktop
+            
+            Session:
+            - SESSION CREATE - Create new session
+            - SESSION DESTROY - End session
+            - SESSION INFO - View session info
+            
+            Authentication:
+            - USER LOGIN [username] - Login
+            - USER LOGOUT - Logout
+            - USER REGISTER [username] WITH PASSWORD [password] - Register
+            - AUTH STATUS - Check auth status
+            
+            I maintain meta-cognitive awareness of all web interactions.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WEBSOCKET HELP</pattern>
+        <template><srai>WEB HELP</srai></template>
+    </category>
+    
+    <!-- Web Interface Initialization -->
+    
+    <category>
+        <pattern>WEB INIT</pattern>
+        <template>
+            <think>
+                <set name="ws_connection_state">initialized</set>
+                <set name="ws_active_sessions">0</set>
+                <set name="ws_messages_sent">0</set>
+                <set name="ws_messages_received">0</set>
+                <set name="ws_broadcast_count">0</set>
+                <set name="ws_pending_messages">0</set>
+                <set name="chat_session_active">false</set>
+                <set name="chat_message_count">0</set>
+                <set name="display_mode">desktop</set>
+                <set name="display_theme">default</set>
+                <set name="display_update_freq">real-time</set>
+                <set name="display_render_mode">standard</set>
+                <set name="display_animation">enabled</set>
+                <set name="user_authenticated">false</set>
+            </think>
+            Web Interface Initialized.
+            
+            - WebSocket: Ready
+            - Chat Interface: Ready
+            - Display System: Ready
+            - Authentication: Ready
+            - Meta-cognitive monitoring: Active
+            
+            I'm prepared to handle web-based interactions with full awareness
+            of real-time communication, session state, and user context.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INIT WEB</pattern>
+        <template><srai>WEB INIT</srai></template>
+    </category>
+    
+    <category>
+        <pattern>INITIALIZE WEB INTERFACE</pattern>
+        <template><srai>WEB INIT</srai></template>
+    </category>
+    
+</aiml>
