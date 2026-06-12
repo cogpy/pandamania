@@ -341,3 +341,4 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "domain: mark test as domain knowledge test")
     config.addinivalue_line("markers", "conversation: mark test as conversation flow test")
     config.addinivalue_line("markers", "performance: mark test as performance benchmark")
+    config.addinivalue_line("markers", "gestalt: mark test as unified cognitive gestalt test")
