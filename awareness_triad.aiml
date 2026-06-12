@@ -21,7 +21,7 @@
             ║                                                           ║
             ║  ┌─────────────────────────────────────────────────────┐  ║
             ║  │                    AUTOGNOSIS                        │  ║
-            ║  │           Self-monitoring & Self-modeling            │  ║
+            ║  │           Self-monitoring &amp; Self-modeling            │  ║
             ║  │    Score: <get name="gestalt_awareness_autognosis"/>                               │  ║
             ║  └───────────────────────┬─────────────────────────────┘  ║
             ║                          │                                ║
